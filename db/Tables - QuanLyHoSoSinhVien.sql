@@ -1,73 +1,63 @@
 ﻿create database Quan_Ly_Ho_So_Sinh_Vien;
-GO
+go
 
 use Quan_Ly_Ho_So_Sinh_Vien;
+go
 
 create table DanToc
 (
-	MaDanToc char (5) primary key,
+	MaDanToc varchar (5) primary key,
 	TenDanToc nvarchar (30) not null,
 );
+go
 
 create table TonGiao
 ( 
-	MaTonGiao char (5) primary key,
+	MaTonGiao varchar (5) primary key,
 	TenTonGiao nvarchar (30) not null,
 );
+go
 
 create table TinhThanh
 (
-	MaTinhThanh char (5) primary key,
+	MaTinhThanh varchar (5) primary key,
 	TenTinhThanh nvarchar (30) not null,
 );
+go
 
 create table XaPhuong
 (
-	MaXaPhuong char (5) primary key,
+	MaXaPhuong varchar (5) primary key,
 	TenXaPhuong nvarchar (30) not null,
 	MaTinhThanh char (5) not null,
-	constraint fk_MaTinh1 foreign key (MaTinhThanh) references TinhThanh(MaTinhThanh)
+	constraint fk_TrucThuoc_TinhThanh foreign key (MaTinhThanh) references TinhThanh(MaTinhThanh)
 );
+go
 
 create table Khoa_Truong
 (
-	MaKhoa_Truong char (5) primary key,
+	MaKhoa_Truong varchar (5) primary key,
 	TenKhoa_Truong nvarchar (30) not null,
 );
+go
 
 create table Nganh
 (
-	MaNganh char (5) primary key,
+	MaNganh varchar (5) primary key,
 	TenNganh nvarchar (30) not null,
 	MaKhoa_Truong char (5) not null,
-	constraint fk_MaKhoa_Truong1 foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
+	constraint fk_QuanLy_Nganh foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
 );
+go
 
 create table Lop
 (
-	MaLop char (5) primary key,
+	MaLop varchar (5) primary key,
 	TenLop nvarchar(30) not null,
 	MaKhoa_Truong char (5) not null,
-	constraint fk_MaKhoa_Truong2 foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
+	constraint fk_QuanLy_Lop foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
 );
-
-create table MonHoc
-(
-	MaMonHoc char (5) primary key,
-	TenMonHoc char (5) not null,
-	TienQuyet smallint,
-);
-
-create table KetQuaHocTap
-(
-	MaKQ char (5) primary key,
-	KhoaHoc date not null,
-	MaMonHoc char (5) not null,
-	DiemQT decimal (4,2),
-	DiemKT decimal (4,2),
-	Dau_Rot bit -- Kiểu boolean trả về True/False
-	constraint fk_MaMonHoc1 foreign key (MaMonHoc) references MonHoc(MaMonHoc)
-);
+go
 
 create table SinhVien
 (
@@ -82,26 +72,23 @@ create table SinhVien
 	GioiTinh nvarchar (3) not null,
 	NgaySinh date not null,
 	SoCCCD char (12) not null,
-	DanToc char (5) not null,
-	TonGiao char (5) not null,
+	DanToc char (5) not null, -- fk
+	TonGiao char (5) not null, -- fk
 	DiaChiThuongTru text,
-	NoiSinh char (5) not null,
-	QueQuan_TinhThanh char (5) not null,
-	QueQuan_XaPhuong char (5) not null,
-	Khoa int,
-	Khoa_Truong char (5) not null,
-	Nganh char (5) not null,
-	Lop char (5) not null,
+	NoiSinh_TinhThanh char (5) not null, -- fk
+	QueQuan_TinhThanh char (5) not null, -- fk
+	QueQuan_XaPhuong char (5) not null, -- fk
+	Khoa_Truong char (5) not null, -- fk
+	Nganh char (5) not null, -- fk
+	Lop char (5) not null, -- fk
 	NienKhoa char (10) not null,
 	TrangThai nvarchar(20) not null,
-	KetQuaHocTap char (5) not null,
-	constraint fk_SV_DanToc foreign key (DanToc) references DanToc(MaDanToc),
-	constraint fk_SV_TonGiao foreign key (TonGiao) references TonGiao(MaTonGiao),
-	constraint fk_SV_NoiSinh foreign key (NoiSinh) references TinhThanh(MaTinhThanh),
+	constraint fk_SV_La_DanToc foreign key (DanToc) references DanToc(MaDanToc),
+	constraint fk_SV_Theo_TonGiao foreign key (TonGiao) references TonGiao(MaTonGiao),
+	constraint fk_SV_NoiSinhTinhThanh foreign key (NoiSinh_TinhThanh) references TinhThanh(MaTinhThanh),
 	constraint fk_SV_QueQuanTinhThanh foreign key (QueQuan_TinhThanh) references TinhThanh(MaTinhThanh),
 	constraint fk_SV_QueQuanXaPhuong foreign key (QueQuan_XaPhuong) references XaPhuong(MaXaPhuong),
-	constraint fk_SV_KhoaTruong foreign key (Khoa_Truong) references Khoa_Truong(MaKhoa_Truong),
-	constraint fk_SV_Nganh foreign key (Nganh) references Nganh(MaNganh),
+	constraint fk_SV_Thuoc_KhoaTruong foreign key (Khoa_Truong) references Khoa_Truong(MaKhoa_Truong),
+	constraint fk_SV_TheoHoc_Nganh foreign key (Nganh) references Nganh(MaNganh),
 	constraint fk_SV_Lop foreign key (Lop) references Lop(MaLop),
-	constraint fk_SV_KetQuaHocTap foreign key (KetQuaHocTap) references KetQuaHocTap(MaKQ)
 );
