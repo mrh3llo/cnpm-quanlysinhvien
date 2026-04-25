@@ -1906,7 +1906,7 @@ SOURCE 0 Arial,8,N</a:FontList>
 <a:CreationDate>1776673543</a:CreationDate>
 <a:ModificationDate>1776955618</a:ModificationDate>
 <a:SourceTextOffset>(-119, 648)</a:SourceTextOffset>
-<a:Rect>((-27759,12401), (-20605,13831))</a:Rect>
+<a:Rect>((-27759,12401), (-20605,13822))</a:Rect>
 <a:ListOfPoints>((-27359,12801),(-21005,12801))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1928,7 +1928,7 @@ SOURCE 0 Arial,8,N</a:FontList>
 <a:CreationDate>1776673543</a:CreationDate>
 <a:ModificationDate>1777117685</a:ModificationDate>
 <a:SourceTextOffset>(75, -617)</a:SourceTextOffset>
-<a:Rect>((-16712,11485), (-4843,13122))</a:Rect>
+<a:Rect>((-16712,11476), (-4843,13122))</a:Rect>
 <a:ListOfPoints>((-5243,12722),(-16312,12722))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -2195,7 +2195,7 @@ SOURCE 0 Arial,8,N</a:FontList>
 <a:CreationDate>1776955236</a:CreationDate>
 <a:ModificationDate>1777117685</a:ModificationDate>
 <a:SourceTextOffset>(154, -675)</a:SourceTextOffset>
-<a:Rect>((-16090,6399), (8651,8054))</a:Rect>
+<a:Rect>((-16090,6390), (8651,8054))</a:Rect>
 <a:ListOfPoints>((8251,7654),(-15690,7654))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -2240,7 +2240,7 @@ SOURCE 0 Arial,8,N</a:FontList>
 <a:CreationDate>1777117427</a:CreationDate>
 <a:ModificationDate>1777117723</a:ModificationDate>
 <a:SourceTextOffset>(103, -685)</a:SourceTextOffset>
-<a:Rect>((30656,24039), (46125,25721))</a:Rect>
+<a:Rect>((30656,24030), (46125,25721))</a:Rect>
 <a:ListOfPoints>((45725,25321),(31056,25321))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -2649,9 +2649,9 @@ EntityPrimaryAttribute 0 Arial,8,U</a:FontList>
 </o:AssociationSymbol>
 <o:EntitySymbol Id="o89">
 <a:CreationDate>1777117763</a:CreationDate>
-<a:ModificationDate>1777117891</a:ModificationDate>
+<a:ModificationDate>1777118276</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-41766,28511), (-26092,34209))</a:Rect>
+<a:Rect>((-32851,22759), (-17177,28457))</a:Rect>
 <a:LineColor>4227200</a:LineColor>
 <a:FillColor>8637161</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -4283,13 +4283,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>PDM_QUANLYHOSOSINHVIEN</a:Code>
 <a:CreationDate>1776961683</a:CreationDate>
 <a:Creator>_koocs</a:Creator>
-<a:ModificationDate>1777118135</a:ModificationDate>
+<a:ModificationDate>1777118209</a:ModificationDate>
 <a:Modifier>_koocs</a:Modifier>
 <a:GlobalObjectID/>
 <a:TargetModelURL>file:///D|/.SYSTEM/Documents/School/Công nghệ phần mềm/Báo cáo môn học/Code/dgr/PDM_QuanLyHoSoSinhVien.pdm</a:TargetModelURL>
 <a:TargetModelID>6BE12021-20EA-486A-AF6D-7DFFC5640823</a:TargetModelID>
 <a:TargetModelClassID>CDE44E21-9669-11D1-9914-006097355D9B</a:TargetModelClassID>
-<a:TargetModelLastModificationDate>1777118136</a:TargetModelLastModificationDate>
+<a:TargetModelLastModificationDate>1777118209</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o7"/>
 </c:SessionShortcuts>

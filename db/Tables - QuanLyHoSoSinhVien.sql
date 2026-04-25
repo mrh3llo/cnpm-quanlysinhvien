@@ -59,6 +59,36 @@ create table Lop
 );
 go
 
+create table TaiKhoanNguoiDung
+(
+	TenTaiKhoan varchar(20) primary key not null,
+	MatKhau text not null,
+	VaiTro tinyint not null,
+	-- Có 4 vai trò:
+	-- 1: Admin
+	-- 2: Cán bộ phòng CTSV
+	-- 3: Giảng viên
+	-- 4: Sinh viên
+);
+go
+
+create table YeuCauCapNhat
+(
+	MaYeuCau char(5) primary key not null,
+	MaSV char(10),
+	Email_Moi text,
+	SDT_Moi char(10),
+	DiaChiThuongTru_Moi text,
+	ThoiGianYeuCau datetime not null,
+	LyDoCapNhat text not null,
+	TrangThai tinyint not null,
+	-- 0: Không đồng ý,
+	-- 1: Đồng ý,
+	-- 2: Bị hủy yêu cầu cập nhật
+	constraint fk_GuiYeuCau foreign key (MaSV) references SinhVien(MaSV),
+);
+go
+
 create table SinhVien
 (
 	-- Tên tài khoản sinh viên là MSSV, mật khẩu mặc định là số điện thoại
@@ -66,7 +96,6 @@ create table SinhVien
 	Ho nvarchar (20) not null,
 	TenLot nvarchar (40) ,
 	Ten nvarchar (20) not null,
-	MatKhauTK text not null,
 	Email text not null,
 	SDT char (10) not null,
 	GioiTinh nvarchar (3) not null,
