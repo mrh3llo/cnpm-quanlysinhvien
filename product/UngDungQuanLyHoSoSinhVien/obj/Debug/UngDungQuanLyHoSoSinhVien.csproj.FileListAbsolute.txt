@@ -1,0 +1,10 @@
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\UngDungQuanLyHoSoSinhVien.exe.config
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\UngDungQuanLyHoSoSinhVien.exe
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\UngDungQuanLyHoSoSinhVien.pdb
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.csproj.AssemblyReference.cache
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.frm_DangNhap.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.Properties.Resources.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.csproj.GenerateResource.cache
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.csproj.CoreCompileInputs.cache
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.exe
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\UngDungQuanLyHoSoSinhVien.pdb
