@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace UngDungQuanLyHoSoSinhVien.admin
+namespace UngDungQuanLyHoSoSinhVien.GiangVien
 {
-    public partial class frm_admin_CapNhatTaiKhoan : Form
+    public partial class frm_GiangVien_DS_SinhVien : Form
     {
-        public frm_admin_CapNhatTaiKhoan()
+        public frm_GiangVien_DS_SinhVien()
         {
             InitializeComponent();
         }

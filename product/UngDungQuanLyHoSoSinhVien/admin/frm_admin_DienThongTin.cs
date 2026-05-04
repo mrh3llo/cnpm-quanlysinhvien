@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace UngDungQuanLyHoSoSinhVien.admin
 {
-    public partial class frm_admin_TaoTaiKhoan : Form
+    public partial class frm_admin_DienThongTin : Form
     {
-        public frm_admin_TaoTaiKhoan()
+        public frm_admin_DienThongTin()
         {
             InitializeComponent();
         }

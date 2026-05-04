@@ -14,5 +14,29 @@ namespace UngDungQuanLyHoSoSinhVien.admin
         {
             InitializeComponent();
         }
+
+        private void btn_DSTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan();
+            frm_DSTK.ShowDialog();
+        }
+
+        private void btn_XoaTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan();
+            frm_DSTK.ShowDialog();
+        }
+
+        private void btn_TaoTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
+            frm_DienTT.ShowDialog();
+        }
+
+        private void btn_SuaTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
+            frm_DienTT.ShowDialog();
+        }
     }
 }

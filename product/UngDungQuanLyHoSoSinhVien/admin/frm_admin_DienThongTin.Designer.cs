@@ -1,6 +1,6 @@
 ﻿namespace UngDungQuanLyHoSoSinhVien.admin
 {
-    partial class frm_admin_CapNhatTaiKhoan
+    partial class frm_admin_DienThongTin
     {
         /// <summary>
         /// Required designer variable.
@@ -75,11 +75,11 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(107, 9);
+            lb_TieuDe.Location = new Point(138, 9);
             lb_TieuDe.Name = "lb_TieuDe";
-            lb_TieuDe.Size = new Size(565, 54);
+            lb_TieuDe.Size = new Size(483, 54);
             lb_TieuDe.TabIndex = 1;
-            lb_TieuDe.Text = "Cập nhật thông tin tài khoản";
+            lb_TieuDe.Text = "Điền thông tin tài khoản";
             // 
             // lb_Nganh
             // 
@@ -433,7 +433,7 @@
             btn_XacNhan.Text = "Xác nhận";
             btn_XacNhan.UseVisualStyleBackColor = true;
             // 
-            // frm_admin_CapNhatTaiKhoan
+            // frm_admin_DienThongTin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -473,8 +473,8 @@
             Controls.Add(lb_DanToc);
             Controls.Add(lb_Email);
             Controls.Add(lb_TieuDe);
-            Name = "frm_admin_CapNhatTaiKhoan";
-            Text = "Cập nhật thông tin tài khoản";
+            Name = "frm_admin_DienThongTin";
+            Text = "Điền thông tin tài khoản";
             grb_QueQuan.ResumeLayout(false);
             grb_QueQuan.PerformLayout();
             ResumeLayout(false);

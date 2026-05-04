@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lb_TieuDe = new Label();
             grb_QuanLy = new GroupBox();
             btn_XoaTaiKhoan = new Button();
             btn_SuaTaiKhoan = new Button();
             btn_TaoTaiKhoan = new Button();
             dgv_DSSinhVien = new DataGridView();
+            KetNoiBindingSource = new BindingSource(components);
             grb_DSSinhVien = new GroupBox();
+            btn_DSTaiKhoan = new Button();
             btn_DangXuat = new Button();
             grb_TimKiem = new GroupBox();
             btn_TimKiemNangCao = new Button();
             tb_TimMSSV = new TextBox();
             btn_TimMSSV = new Button();
             lb_TimMSSV = new Label();
-            btn_DSTaiKhoan = new Button();
             grb_QuanLy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)KetNoiBindingSource).BeginInit();
             grb_DSSinhVien.SuspendLayout();
             grb_TimKiem.SuspendLayout();
             SuspendLayout();
@@ -79,6 +82,7 @@
             btn_XoaTaiKhoan.TabIndex = 5;
             btn_XoaTaiKhoan.Text = "Xóa tài khoản";
             btn_XoaTaiKhoan.UseVisualStyleBackColor = true;
+            btn_XoaTaiKhoan.Click += btn_XoaTaiKhoan_Click;
             // 
             // btn_SuaTaiKhoan
             // 
@@ -89,6 +93,7 @@
             btn_SuaTaiKhoan.TabIndex = 4;
             btn_SuaTaiKhoan.Text = "Cập nhật tài khoản";
             btn_SuaTaiKhoan.UseVisualStyleBackColor = true;
+            btn_SuaTaiKhoan.Click += btn_SuaTaiKhoan_Click;
             // 
             // btn_TaoTaiKhoan
             // 
@@ -99,15 +104,22 @@
             btn_TaoTaiKhoan.TabIndex = 0;
             btn_TaoTaiKhoan.Text = "Thêm tài khoản";
             btn_TaoTaiKhoan.UseVisualStyleBackColor = true;
+            btn_TaoTaiKhoan.Click += btn_TaoTaiKhoan_Click;
             // 
             // dgv_DSSinhVien
             // 
+            dgv_DSSinhVien.AutoGenerateColumns = false;
             dgv_DSSinhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_DSSinhVien.DataSource = KetNoiBindingSource;
             dgv_DSSinhVien.Location = new Point(6, 26);
             dgv_DSSinhVien.Name = "dgv_DSSinhVien";
             dgv_DSSinhVien.RowHeadersWidth = 51;
             dgv_DSSinhVien.Size = new Size(535, 212);
             dgv_DSSinhVien.TabIndex = 2;
+            // 
+            // KetNoiBindingSource
+            // 
+            KetNoiBindingSource.DataSource = typeof(KetNoi);
             // 
             // grb_DSSinhVien
             // 
@@ -119,6 +131,17 @@
             grb_DSSinhVien.TabIndex = 2;
             grb_DSSinhVien.TabStop = false;
             grb_DSSinhVien.Text = "Danh sách sinh viên";
+            // 
+            // btn_DSTaiKhoan
+            // 
+            btn_DSTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_DSTaiKhoan.Location = new Point(331, 244);
+            btn_DSTaiKhoan.Name = "btn_DSTaiKhoan";
+            btn_DSTaiKhoan.Size = new Size(210, 42);
+            btn_DSTaiKhoan.TabIndex = 6;
+            btn_DSTaiKhoan.Text = "Danh sách tài khoản";
+            btn_DSTaiKhoan.UseVisualStyleBackColor = true;
+            btn_DSTaiKhoan.Click += btn_DSTaiKhoan_Click;
             // 
             // btn_DangXuat
             // 
@@ -182,16 +205,6 @@
             lb_TimMSSV.TabIndex = 0;
             lb_TimMSSV.Text = "Tìm MSSV:";
             // 
-            // btn_DSTaiKhoan
-            // 
-            btn_DSTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_DSTaiKhoan.Location = new Point(331, 244);
-            btn_DSTaiKhoan.Name = "btn_DSTaiKhoan";
-            btn_DSTaiKhoan.Size = new Size(210, 42);
-            btn_DSTaiKhoan.TabIndex = 6;
-            btn_DSTaiKhoan.Text = "Danh sách tài khoản";
-            btn_DSTaiKhoan.UseVisualStyleBackColor = true;
-            // 
             // frm_admin_QuanLy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -206,6 +219,7 @@
             Text = "Quản lý tài khoản";
             grb_QuanLy.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)KetNoiBindingSource).EndInit();
             grb_DSSinhVien.ResumeLayout(false);
             grb_TimKiem.ResumeLayout(false);
             grb_TimKiem.PerformLayout();
@@ -229,5 +243,6 @@
         private Button btn_TimMSSV;
         private Button btn_TimKiemNangCao;
         private Button btn_DSTaiKhoan;
+        private BindingSource KetNoiBindingSource;
     }
 }
