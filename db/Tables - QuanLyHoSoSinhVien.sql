@@ -29,7 +29,7 @@ create table XaPhuong
 (
 	MaXaPhuong varchar (5) primary key,
 	TenXaPhuong nvarchar (30) not null,
-	MaTinhThanh char (5) not null,
+	MaTinhThanh varchar (5) not null,
 	constraint fk_TrucThuoc_TinhThanh foreign key (MaTinhThanh) references TinhThanh(MaTinhThanh)
 );
 go
@@ -45,7 +45,7 @@ create table Nganh
 (
 	MaNganh varchar (5) primary key,
 	TenNganh nvarchar (30) not null,
-	MaKhoa_Truong char (5) not null,
+	MaKhoa_Truong varchar (5) not null,
 	constraint fk_QuanLy_Nganh foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
 );
 go
@@ -54,7 +54,7 @@ create table Lop
 (
 	MaLop varchar (5) primary key,
 	TenLop nvarchar(30) not null,
-	MaKhoa_Truong char (5) not null,
+	MaKhoa_Truong varchar (5) not null,
 	constraint fk_QuanLy_Lop foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
 );
 go
@@ -72,27 +72,10 @@ create table TaiKhoanNguoiDung
 );
 go
 
-create table YeuCauCapNhat
-(
-	MaYeuCau char(5) primary key not null,
-	MaSV char(10),
-	Email_Moi text,
-	SDT_Moi char(10),
-	DiaChiThuongTru_Moi text,
-	ThoiGianYeuCau datetime not null,
-	LyDoCapNhat text not null,
-	TrangThai tinyint not null,
-	-- 0: Không đồng ý,
-	-- 1: Đồng ý,
-	-- 2: Bị hủy yêu cầu cập nhật
-	constraint fk_GuiYeuCau foreign key (MaSV) references SinhVien(MaSV),
-);
-go
-
 create table SinhVien
 (
 	-- Tên tài khoản sinh viên là MSSV, mật khẩu mặc định là số điện thoại
-	MaSV char (10) primary key,
+	MaSV varchar (10) primary key,
 	
 	-- VS viết thuật toán xử lý họ tên với, chữ cuối trong họ tên là tên của người dùng (sinh viên)
 	Ho nvarchar (50) not null,
@@ -102,15 +85,15 @@ create table SinhVien
 	GioiTinh nvarchar (3) not null,
 	NgaySinh date not null,
 	SoCCCD char (12) not null,
-	DanToc char (5) not null, -- fk
-	TonGiao char (5) not null, -- fk
+	DanToc varchar (5) not null, -- fk
+	TonGiao varchar (5) not null, -- fk
 	DiaChiThuongTru text,
-	NoiSinh_TinhThanh char (5) not null, -- fk
-	QueQuan_TinhThanh char (5) not null, -- fk
-	QueQuan_XaPhuong char (5) not null, -- fk
-	Khoa_Truong char (5) not null, -- fk
-	Nganh char (5) not null, -- fk
-	Lop char (5) not null, -- fk
+	NoiSinh_TinhThanh varchar (5) not null, -- fk
+	QueQuan_TinhThanh varchar (5) not null, -- fk
+	QueQuan_XaPhuong varchar (5) not null, -- fk
+	Khoa_Truong varchar (5) not null, -- fk
+	Nganh varchar (5) not null, -- fk
+	Lop varchar (5) not null, -- fk
 	NienKhoa char (10) not null,
 	TrangThai nvarchar(20) not null,
 	AnhDaiDien text,
@@ -123,3 +106,21 @@ create table SinhVien
 	constraint fk_SV_TheoHoc_Nganh foreign key (Nganh) references Nganh(MaNganh),
 	constraint fk_SV_Lop foreign key (Lop) references Lop(MaLop),
 );
+go
+
+create table YeuCauCapNhat
+(
+	MaYeuCau varchar(5) primary key not null,
+	MaSV varchar(10),
+	Email_Moi text,
+	SDT_Moi char(10),
+	DiaChiThuongTru_Moi text,
+	ThoiGianYeuCau datetime not null,
+	LyDoCapNhat text not null,
+	TrangThai tinyint not null,
+	-- 0: Không đồng ý,
+	-- 1: Đồng ý,
+	-- 2: Bị hủy yêu cầu cập nhật
+	constraint fk_GuiYeuCau foreign key (MaSV) references SinhVien(MaSV),
+);
+go
