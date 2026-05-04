@@ -93,8 +93,9 @@ create table SinhVien
 (
 	-- Tên tài khoản sinh viên là MSSV, mật khẩu mặc định là số điện thoại
 	MaSV char (10) primary key,
-	Ho nvarchar (20) not null,
-	TenLot nvarchar (40) ,
+	
+	-- VS viết thuật toán xử lý họ tên với, chữ cuối trong họ tên là tên của người dùng (sinh viên)
+	Ho nvarchar (50) not null,
 	Ten nvarchar (20) not null,
 	Email text not null,
 	SDT char (10) not null,
@@ -112,6 +113,7 @@ create table SinhVien
 	Lop char (5) not null, -- fk
 	NienKhoa char (10) not null,
 	TrangThai nvarchar(20) not null,
+	AnhDaiDien text,
 	constraint fk_SV_La_DanToc foreign key (DanToc) references DanToc(MaDanToc),
 	constraint fk_SV_Theo_TonGiao foreign key (TonGiao) references TonGiao(MaTonGiao),
 	constraint fk_SV_NoiSinhTinhThanh foreign key (NoiSinh_TinhThanh) references TinhThanh(MaTinhThanh),

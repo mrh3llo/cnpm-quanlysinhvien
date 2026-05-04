@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2017                    */
-/* Created on:     23/04/2026 23:47:47                          */
+/* Created on:     29/04/2026 23:53:11                          */
 /*==============================================================*/
 
 
@@ -23,6 +23,13 @@ if exists (select 1
    where r.fkeyid = object_id('NGANH') and o.name = 'FK_NGANH_THUOCKHOA_KHOA_TRU')
 alter table NGANH
    drop constraint FK_NGANH_THUOCKHOA_KHOA_TRU
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SINHVIEN') and o.name = 'FK_SINHVIEN_GUIYEUCAU_YEUCAUCA')
+alter table SINHVIEN
+   drop constraint FK_SINHVIEN_GUIYEUCAU_YEUCAUCA
 go
 
 if exists (select 1
@@ -123,6 +130,15 @@ go
 if exists (select 1
             from  sysindexes
            where  id    = object_id('SINHVIEN')
+            and   name  = 'GUIYEUCAU_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index SINHVIEN.GUIYEUCAU_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('SINHVIEN')
             and   name  = 'QUEQUAN_TAI_TT_FK'
             and   indid > 0
             and   indid < 255)
@@ -183,6 +199,13 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('TAIKHOANNGUOIDUNG')
+            and   type = 'U')
+   drop table TAIKHOANNGUOIDUNG
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('TINHTHANH')
             and   type = 'U')
    drop table TINHTHANH
@@ -209,6 +232,13 @@ if exists (select 1
            where  id = object_id('XAPHUONG')
             and   type = 'U')
    drop table XAPHUONG
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('YEUCAUCAPNHAT')
+            and   type = 'U')
+   drop table YEUCAUCAPNHAT
 go
 
 /*==============================================================*/
@@ -280,22 +310,20 @@ create table SINHVIEN (
    MASV                 char(10)             not null,
    MATINHTHANH          char(5)              not null,
    MAXAPHUONG           char(5)              not null,
+   MAYEUCAU             char(5)              not null,
    MATONGIAO            char(5)              null,
    MAKHOATRUONG         char(5)              not null,
    MADANTOC             char(5)              not null,
    TIN_MATINHTHANH      char(5)              not null,
-   HO                   varchar(20)          null,
-   TENLOT               varchar(40)          null,
+   HO                   varchar(50)          null,
    TEN                  varchar(20)          null,
-   MATKHAUTK            text                 null,
    EMAIL                text                 null,
    SDT                  char(10)             null,
    GIOITINH             bit                  null,
    NGAYSINH             datetime             null,
    SOCCCD               char(12)             null,
-   DIACHITHUONGTRU      varchar(100)         null,
+   DIACHITHUONGTRU      text                 null,
    NIENKHOA             char(10)             null,
-   TRANGTHAI            int                  null,
    constraint PK_SINHVIEN primary key (MASV)
 )
 go
@@ -361,6 +389,27 @@ create nonclustered index QUEQUAN_TAI_TT_FK on SINHVIEN (MATINHTHANH ASC)
 go
 
 /*==============================================================*/
+/* Index: GUIYEUCAU_FK                                          */
+/*==============================================================*/
+
+
+
+
+create nonclustered index GUIYEUCAU_FK on SINHVIEN (MAYEUCAU ASC)
+go
+
+/*==============================================================*/
+/* Table: TAIKHOANNGUOIDUNG                                     */
+/*==============================================================*/
+create table TAIKHOANNGUOIDUNG (
+   TENTAIKHOAN          char(20)             not null,
+   MATKHAU              text                 null,
+   VAITRO               tinyint              null,
+   constraint PK_TAIKHOANNGUOIDUNG primary key (TENTAIKHOAN)
+)
+go
+
+/*==============================================================*/
 /* Table: TINHTHANH                                             */
 /*==============================================================*/
 create table TINHTHANH (
@@ -401,6 +450,21 @@ go
 create nonclustered index TRUCTHUOC_FK on XAPHUONG (MATINHTHANH ASC)
 go
 
+/*==============================================================*/
+/* Table: YEUCAUCAPNHAT                                         */
+/*==============================================================*/
+create table YEUCAUCAPNHAT (
+   MAYEUCAU             char(5)              not null,
+   EMAIL_MOI            text                 null,
+   SDT_MOI              char(10)             null,
+   DIACHITHUONGTRU_MOI  text                 null,
+   THOIGIANGUIYEUCAU    datetime             null,
+   LYDOCAPNHAT          text                 null,
+   TRANGTHAI            tinyint              null,
+   constraint PK_YEUCAUCAPNHAT primary key (MAYEUCAU)
+)
+go
+
 alter table LOP
    add constraint FK_LOP_QUANLY_LO_KHOA_TRU foreign key (MAKHOATRUONG)
       references KHOA_TRUONG (MAKHOATRUONG)
@@ -414,6 +478,11 @@ go
 alter table NGANH
    add constraint FK_NGANH_THUOCKHOA_KHOA_TRU foreign key (MAKHOATRUONG)
       references KHOA_TRUONG (MAKHOATRUONG)
+go
+
+alter table SINHVIEN
+   add constraint FK_SINHVIEN_GUIYEUCAU_YEUCAUCA foreign key (MAYEUCAU)
+      references YEUCAUCAPNHAT (MAYEUCAU)
 go
 
 alter table SINHVIEN
