@@ -1,4 +1,4 @@
-USE Quan_Ly_Ho_So_Sinh_Vien;
+use QuanLyHoSoSinhVien;
 GO
 
 -- Sao lưu CSDL

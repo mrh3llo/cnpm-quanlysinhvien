@@ -1,126 +1,126 @@
-﻿create database Quan_Ly_Ho_So_Sinh_Vien;
-go
+﻿CREATE DATABASE QuanLyHoSoSinhVien;
+GO
 
-use Quan_Ly_Ho_So_Sinh_Vien;
-go
+USE QuanLyHoSoSinhVien;
+GO
 
-create table DanToc
+CREATE TABLE DanToc
 (
-	MaDanToc varchar (5) primary key,
-	TenDanToc nvarchar (30) not null,
+	MaDanToc VARCHAR (5) PRIMARY KEY,
+	TenDanToc NVARCHAR (30) NOT NULL,
 );
-go
+GO
 
-create table TonGiao
+CREATE TABLE TonGiao
 ( 
-	MaTonGiao varchar (5) primary key,
-	TenTonGiao nvarchar (30) not null,
+	MaTonGiao VARCHAR (5) PRIMARY KEY,
+	TenTonGiao NVARCHAR (30) NOT NULL,
 );
-go
+GO
 
-create table TinhThanh
+CREATE TABLE TinhThanh
 (
-	MaTinhThanh varchar (5) primary key,
-	TenTinhThanh nvarchar (30) not null,
+	MaTinhThanh VARCHAR (5) PRIMARY KEY,
+	TenTinhThanh NVARCHAR (30) NOT NULL,
 );
-go
+GO
 
-create table XaPhuong
+CREATE TABLE XaPhuong
 (
-	MaXaPhuong varchar (5) primary key,
-	TenXaPhuong nvarchar (30) not null,
-	MaTinhThanh varchar (5) not null,
-	constraint fk_TrucThuoc_TinhThanh foreign key (MaTinhThanh) references TinhThanh(MaTinhThanh)
+	MaXaPhuong VARCHAR (5) PRIMARY KEY,
+	TenXaPhuong NVARCHAR (30) NOT NULL,
+	MaTinhThanh VARCHAR (5) NOT NULL,
+	CONSTRAINT fk_TrucThuoc_TinhThanh FOREIGN KEY (MaTinhThanh) REFERENCES TinhThanh(MaTinhThanh)
 );
-go
+GO
 
-create table Khoa_Truong
+CREATE TABLE Khoa_Truong
 (
-	MaKhoa_Truong varchar (5) primary key,
-	TenKhoa_Truong nvarchar (30) not null,
+	MaKhoa_Truong VARCHAR (5) PRIMARY KEY,
+	TenKhoa_Truong NVARCHAR (30) NOT NULL,
 );
-go
+GO
 
-create table Nganh
+CREATE TABLE Nganh
 (
-	MaNganh varchar (5) primary key,
-	TenNganh nvarchar (30) not null,
-	MaKhoa_Truong varchar (5) not null,
-	constraint fk_QuanLy_Nganh foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
+	MaNganh VARCHAR (5) PRIMARY KEY,
+	TenNganh NVARCHAR (30) NOT NULL,
+	MaKhoa_Truong VARCHAR (5) NOT NULL,
+	CONSTRAINT fk_QuanLy_Nganh FOREIGN KEY (MaKhoa_Truong) REFERENCES Khoa_Truong(MaKhoa_Truong)
 );
-go
+GO
 
-create table Lop
+CREATE TABLE Lop
 (
-	MaLop varchar (5) primary key,
-	TenLop nvarchar(30) not null,
-	MaKhoa_Truong varchar (5) not null,
-	constraint fk_QuanLy_Lop foreign key (MaKhoa_Truong) references Khoa_Truong(MaKhoa_Truong)
+	MaLop VARCHAR (5) PRIMARY KEY,
+	TenLop NVARCHAR(30) NOT NULL,
+	MaKhoa_Truong VARCHAR (5) NOT NULL,
+	CONSTRAINT fk_QuanLy_Lop FOREIGN KEY (MaKhoa_Truong) REFERENCES Khoa_Truong(MaKhoa_Truong)
 );
-go
+GO
 
-create table TaiKhoanNguoiDung
+CREATE TABLE TaiKhoanNguoiDung
 (
-	TenTaiKhoan varchar(20) primary key not null,
-	MatKhau text not null,
-	VaiTro tinyint not null,
+	TenTaiKhoan VARCHAR(20) PRIMARY KEY NOT NULL,
+	MatKhau TEXT NOT NULL,
+	VaiTro TINYINT NOT NULL,
 	-- Có 4 vai trò:
 	-- 1: Admin
 	-- 2: Cán bộ phòng CTSV
 	-- 3: Giảng viên
 	-- 4: Sinh viên
 );
-go
+GO
 
-create table SinhVien
+CREATE TABLE SinhVien
 (
 	-- Tên tài khoản sinh viên là MSSV, mật khẩu mặc định là số điện thoại
-	MaSV varchar (10) primary key,
+	MaSV VARCHAR (10) PRIMARY KEY,
 	
 	-- VS viết thuật toán xử lý họ tên với, chữ cuối trong họ tên là tên của người dùng (sinh viên)
-	Ho nvarchar (50) not null,
-	Ten nvarchar (20) not null,
-	Email text not null,
-	SDT char (10) not null,
-	GioiTinh nvarchar (3) not null,
-	NgaySinh date not null,
-	SoCCCD char (12) not null,
-	DanToc varchar (5) not null, -- fk
-	TonGiao varchar (5) not null, -- fk
-	DiaChiThuongTru text,
-	NoiSinh_TinhThanh varchar (5) not null, -- fk
-	QueQuan_TinhThanh varchar (5) not null, -- fk
-	QueQuan_XaPhuong varchar (5) not null, -- fk
-	Khoa_Truong varchar (5) not null, -- fk
-	Nganh varchar (5) not null, -- fk
-	Lop varchar (5) not null, -- fk
-	NienKhoa char (10) not null,
-	TrangThai nvarchar(20) not null,
-	AnhDaiDien text,
-	constraint fk_SV_La_DanToc foreign key (DanToc) references DanToc(MaDanToc),
-	constraint fk_SV_Theo_TonGiao foreign key (TonGiao) references TonGiao(MaTonGiao),
-	constraint fk_SV_NoiSinhTinhThanh foreign key (NoiSinh_TinhThanh) references TinhThanh(MaTinhThanh),
-	constraint fk_SV_QueQuanTinhThanh foreign key (QueQuan_TinhThanh) references TinhThanh(MaTinhThanh),
-	constraint fk_SV_QueQuanXaPhuong foreign key (QueQuan_XaPhuong) references XaPhuong(MaXaPhuong),
-	constraint fk_SV_Thuoc_KhoaTruong foreign key (Khoa_Truong) references Khoa_Truong(MaKhoa_Truong),
-	constraint fk_SV_TheoHoc_Nganh foreign key (Nganh) references Nganh(MaNganh),
-	constraint fk_SV_Lop foreign key (Lop) references Lop(MaLop),
+	Ho NVARCHAR (50) NOT NULL,
+	Ten NVARCHAR (20) NOT NULL,
+	Email TEXT NOT NULL,
+	SDT CHAR (10) NOT NULL,
+	GioiTinh NVARCHAR (3) NOT NULL,
+	NgaySinh DATE NOT NULL,
+	SoCCCD CHAR (12) NOT NULL,
+	DanToc VARCHAR (5) NOT NULL, -- fk
+	TonGiao VARCHAR (5) NOT NULL, -- fk
+	DiaChiThuongTru NTEXT,
+	NoiSinh_TinhThanh VARCHAR (5) NOT NULL, -- fk
+	QueQuan_TinhThanh VARCHAR (5) NOT NULL, -- fk
+	QueQuan_XaPhuong VARCHAR (5) NOT NULL, -- fk
+	Khoa_Truong VARCHAR (5) NOT NULL, -- fk
+	Nganh VARCHAR (5) NOT NULL, -- fk
+	Lop VARCHAR (5) NOT NULL, -- fk
+	NienKhoa CHAR (10) NOT NULL,
+	TrangThai NVARCHAR(20) NOT NULL,
+	AnhDaiDien TEXT,
+	CONSTRAINT fk_SV_La_DanToc FOREIGN KEY (DanToc) REFERENCES DanToc(MaDanToc),
+	CONSTRAINT fk_SV_Theo_TonGiao FOREIGN KEY (TonGiao) REFERENCES TonGiao(MaTonGiao),
+	CONSTRAINT fk_SV_NoiSinhTinhThanh FOREIGN KEY (NoiSinh_TinhThanh) REFERENCES TinhThanh(MaTinhThanh),
+	CONSTRAINT fk_SV_QueQuanTinhThanh FOREIGN KEY (QueQuan_TinhThanh) REFERENCES TinhThanh(MaTinhThanh),
+	CONSTRAINT fk_SV_QueQuanXaPhuong FOREIGN KEY (QueQuan_XaPhuong) REFERENCES XaPhuong(MaXaPhuong),
+	CONSTRAINT fk_SV_Thuoc_KhoaTruong FOREIGN KEY (Khoa_Truong) REFERENCES Khoa_Truong(MaKhoa_Truong),
+	CONSTRAINT fk_SV_TheoHoc_Nganh FOREIGN KEY (Nganh) REFERENCES Nganh(MaNganh),
+	CONSTRAINT fk_SV_Lop FOREIGN KEY (Lop) REFERENCES Lop(MaLop),
 );
-go
+GO
 
-create table YeuCauCapNhat
+CREATE TABLE YeuCauCapNhat
 (
-	MaYeuCau varchar(5) primary key not null,
-	MaSV varchar(10),
-	Email_Moi text,
-	SDT_Moi char(10),
-	DiaChiThuongTru_Moi text,
-	ThoiGianYeuCau datetime not null,
-	LyDoCapNhat text not null,
-	TrangThai tinyint not null,
+	MaYeuCau VARCHAR(5) PRIMARY KEY NOT NULL,
+	MaSV VARCHAR(10),
+	Email_Moi TEXT,
+	SDT_Moi CHAR(10),
+	DiaChiThuongTru_Moi NTEXT,
+	ThoiGianYeuCau DATETIME NOT NULL,
+	LyDoCapNhat TEXT NOT NULL,
+	TrangThai TINYINT NOT NULL,
 	-- 0: Không đồng ý,
 	-- 1: Đồng ý,
 	-- 2: Bị hủy yêu cầu cập nhật
-	constraint fk_GuiYeuCau foreign key (MaSV) references SinhVien(MaSV),
+	CONSTRAINT fk_GuiYeuCau FOREIGN KEY (MaSV) REFERENCES SinhVien(MaSV),
 );
-go
+GO

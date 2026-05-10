@@ -1,4 +1,5 @@
-USE Quan_Ly_Ho_So_Sinh_Vien;
+USE QuanLyHoSoSinhVien;
+GO
 
 -- Tạo vai trò cho các đối tượng người dùng
 CREATE ROLE QuanTriVien;
