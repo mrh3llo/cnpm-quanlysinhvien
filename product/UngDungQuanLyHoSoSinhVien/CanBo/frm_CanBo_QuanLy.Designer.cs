@@ -41,6 +41,7 @@
             btn_SuaTaiKhoan = new Button();
             btn_TaoTaiKhoan = new Button();
             lb_TieuDe = new Label();
+            btn_TaiLai = new Button();
             grb_TimKiem.SuspendLayout();
             grb_DSSinhVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
@@ -111,6 +112,7 @@
             // 
             // grb_DSSinhVien
             // 
+            grb_DSSinhVien.Controls.Add(btn_TaiLai);
             grb_DSSinhVien.Controls.Add(btn_DSTaiKhoan);
             grb_DSSinhVien.Controls.Add(dgv_DSSinhVien);
             grb_DSSinhVien.Location = new Point(241, 148);
@@ -145,7 +147,7 @@
             grb_QuanLy.Controls.Add(btn_TaoTaiKhoan);
             grb_QuanLy.Location = new Point(12, 148);
             grb_QuanLy.Name = "grb_QuanLy";
-            grb_QuanLy.Size = new Size(223, 174);
+            grb_QuanLy.Size = new Size(223, 123);
             grb_QuanLy.TabIndex = 5;
             grb_QuanLy.TabStop = false;
             grb_QuanLy.Text = "Chức năng quản lý";
@@ -180,6 +182,17 @@
             lb_TieuDe.TabIndex = 4;
             lb_TieuDe.Text = "Quản lý tài khoản";
             // 
+            // btn_TaiLai
+            // 
+            btn_TaiLai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_TaiLai.Location = new Point(6, 244);
+            btn_TaiLai.Name = "btn_TaiLai";
+            btn_TaiLai.Size = new Size(91, 42);
+            btn_TaiLai.TabIndex = 9;
+            btn_TaiLai.Text = "Tải lại";
+            btn_TaiLai.UseVisualStyleBackColor = true;
+            btn_TaiLai.Click += btn_TaiLai_Click;
+            // 
             // frm_CanBo_QuanLy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -192,6 +205,7 @@
             Controls.Add(lb_TieuDe);
             Name = "frm_CanBo_QuanLy";
             Text = "Quản lý";
+            Load += frm_CanBo_QuanLy_Load;
             grb_TimKiem.ResumeLayout(false);
             grb_TimKiem.PerformLayout();
             grb_DSSinhVien.ResumeLayout(false);
@@ -216,5 +230,6 @@
         private Button btn_SuaTaiKhoan;
         private Button btn_TaoTaiKhoan;
         private Label lb_TieuDe;
+        private Button btn_TaiLai;
     }
 }

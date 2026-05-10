@@ -31,6 +31,7 @@
             lb_TieuDe = new Label();
             dgv_DSSinhVien = new DataGridView();
             grb_ChucNang = new GroupBox();
+            btn_TaiLai = new Button();
             btn_CapNhatTT = new Button();
             btn_ChiTietTT = new Button();
             btn_TimMSSV = new Button();
@@ -62,6 +63,7 @@
             // 
             // grb_ChucNang
             // 
+            grb_ChucNang.Controls.Add(btn_TaiLai);
             grb_ChucNang.Controls.Add(btn_CapNhatTT);
             grb_ChucNang.Controls.Add(btn_ChiTietTT);
             grb_ChucNang.Location = new Point(12, 66);
@@ -70,6 +72,17 @@
             grb_ChucNang.TabIndex = 3;
             grb_ChucNang.TabStop = false;
             grb_ChucNang.Text = "Chức năng:";
+            // 
+            // btn_TaiLai
+            // 
+            btn_TaiLai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_TaiLai.Location = new Point(6, 71);
+            btn_TaiLai.Name = "btn_TaiLai";
+            btn_TaiLai.Size = new Size(88, 44);
+            btn_TaiLai.TabIndex = 6;
+            btn_TaiLai.Text = "Tải lại";
+            btn_TaiLai.UseVisualStyleBackColor = true;
+            btn_TaiLai.Click += btn_TaiLai_Click;
             // 
             // btn_CapNhatTT
             // 
@@ -132,6 +145,7 @@
             Controls.Add(lb_TieuDe);
             Name = "frm_admin_DSTaiKhoan";
             Text = "Danh sách tài khoản";
+            Load += frm_admin_DSTaiKhoan_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).EndInit();
             grb_ChucNang.ResumeLayout(false);
             grb_TimMSSV.ResumeLayout(false);
@@ -150,5 +164,6 @@
         private TextBox tb_TimMSSV;
         private Button btn_CapNhatTT;
         private GroupBox grb_TimMSSV;
+        private Button btn_TaiLai;
     }
 }

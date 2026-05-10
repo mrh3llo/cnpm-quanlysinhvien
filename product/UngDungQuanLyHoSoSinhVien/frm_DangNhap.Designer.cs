@@ -92,6 +92,7 @@
             btn_DangNhap.TabIndex = 5;
             btn_DangNhap.Text = "Đăng nhập";
             btn_DangNhap.UseVisualStyleBackColor = true;
+            btn_DangNhap.Click += btn_DangNhap_Click;
             // 
             // btn_NhapLai
             // 
@@ -104,6 +105,7 @@
             btn_NhapLai.TabIndex = 6;
             btn_NhapLai.Text = "Nhập lại";
             btn_NhapLai.UseVisualStyleBackColor = false;
+            btn_NhapLai.Click += btn_NhapLai_Click;
             // 
             // frm_DangNhap
             // 

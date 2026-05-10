@@ -146,6 +146,7 @@
             Controls.Add(lb_TieuDe);
             Name = "frm_admin_DanhSachTaiKhoan";
             Text = "Danh sách tài khoản";
+            Load += frm_admin_DanhSachTaiKhoan_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).EndInit();
             grb_ChucNang.ResumeLayout(false);
             grb_TimMSSV.ResumeLayout(false);

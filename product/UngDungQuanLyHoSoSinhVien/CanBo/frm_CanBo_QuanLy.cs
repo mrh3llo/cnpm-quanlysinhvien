@@ -13,6 +13,21 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
         public frm_CanBo_QuanLy()
         {
             InitializeComponent();
+
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
+        }
+
+        private void frm_CanBo_QuanLy_Load(object sender, EventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
+        }
+
+        private void btn_TaiLai_Click(object sender, EventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
         }
     }
 }

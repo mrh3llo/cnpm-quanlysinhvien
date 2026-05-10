@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             lb_TieuDe = new Label();
             grb_QuanLy = new GroupBox();
             btn_XoaTaiKhoan = new Button();
             btn_SuaTaiKhoan = new Button();
             btn_TaoTaiKhoan = new Button();
             dgv_DSSinhVien = new DataGridView();
-            KetNoiBindingSource = new BindingSource(components);
             grb_DSSinhVien = new GroupBox();
+            btn_TaiLai = new Button();
             btn_DSTaiKhoan = new Button();
             btn_DangXuat = new Button();
             grb_TimKiem = new GroupBox();
@@ -46,7 +45,6 @@
             lb_TimMSSV = new Label();
             grb_QuanLy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)KetNoiBindingSource).BeginInit();
             grb_DSSinhVien.SuspendLayout();
             grb_TimKiem.SuspendLayout();
             SuspendLayout();
@@ -108,21 +106,16 @@
             // 
             // dgv_DSSinhVien
             // 
-            dgv_DSSinhVien.AutoGenerateColumns = false;
             dgv_DSSinhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_DSSinhVien.DataSource = KetNoiBindingSource;
             dgv_DSSinhVien.Location = new Point(6, 26);
             dgv_DSSinhVien.Name = "dgv_DSSinhVien";
             dgv_DSSinhVien.RowHeadersWidth = 51;
             dgv_DSSinhVien.Size = new Size(535, 212);
             dgv_DSSinhVien.TabIndex = 2;
             // 
-            // KetNoiBindingSource
-            // 
-            KetNoiBindingSource.DataSource = typeof(KetNoi);
-            // 
             // grb_DSSinhVien
             // 
+            grb_DSSinhVien.Controls.Add(btn_TaiLai);
             grb_DSSinhVien.Controls.Add(btn_DSTaiKhoan);
             grb_DSSinhVien.Controls.Add(dgv_DSSinhVien);
             grb_DSSinhVien.Location = new Point(241, 146);
@@ -131,6 +124,17 @@
             grb_DSSinhVien.TabIndex = 2;
             grb_DSSinhVien.TabStop = false;
             grb_DSSinhVien.Text = "Danh sách sinh viên";
+            // 
+            // btn_TaiLai
+            // 
+            btn_TaiLai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_TaiLai.Location = new Point(6, 244);
+            btn_TaiLai.Name = "btn_TaiLai";
+            btn_TaiLai.Size = new Size(91, 42);
+            btn_TaiLai.TabIndex = 6;
+            btn_TaiLai.Text = "Tải lại";
+            btn_TaiLai.UseVisualStyleBackColor = true;
+            btn_TaiLai.Click += btn_TaiLai_Click;
             // 
             // btn_DSTaiKhoan
             // 
@@ -154,6 +158,7 @@
             btn_DangXuat.TabIndex = 3;
             btn_DangXuat.Text = "Đăng xuất";
             btn_DangXuat.UseVisualStyleBackColor = false;
+            btn_DangXuat.Click += btn_DangXuat_Click;
             // 
             // grb_TimKiem
             // 
@@ -217,9 +222,9 @@
             Controls.Add(lb_TieuDe);
             Name = "frm_admin_QuanLy";
             Text = "Quản lý tài khoản";
+            Load += frm_admin_QuanLy_Load;
             grb_QuanLy.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).EndInit();
-            ((System.ComponentModel.ISupportInitialize)KetNoiBindingSource).EndInit();
             grb_DSSinhVien.ResumeLayout(false);
             grb_TimKiem.ResumeLayout(false);
             grb_TimKiem.PerformLayout();
@@ -243,6 +248,6 @@
         private Button btn_TimMSSV;
         private Button btn_TimKiemNangCao;
         private Button btn_DSTaiKhoan;
-        private BindingSource KetNoiBindingSource;
+        private Button btn_TaiLai;
     }
 }

@@ -14,9 +14,29 @@ namespace UngDungQuanLyHoSoSinhVien.admin
         {
             InitializeComponent();
 
-            XuLyTaiKhoan TK = new XuLyTaiKhoan();
+            frm_DangNhap frm_DN = new frm_DangNhap();
+            byte TrangThai = frm_DN.layVaiTro();
 
-            TK.HienThi_DS_TaiKhoan(dgv_DSSinhVien);
+            if (TrangThai != 1)
+            {
+                this.Enabled = false;
+
+                MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
+                this.Close();
+
+                frm_DN.datVaiTro(0);
+            }
+            else
+            {
+                XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+                TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
+            }
+        }
+
+        private void frm_admin_DanhSachTaiKhoan_Load(object sender, EventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
         }
     }
 }
