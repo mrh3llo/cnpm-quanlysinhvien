@@ -30,7 +30,7 @@ namespace UngDungQuanLyHoSoSinhVien
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Đăng nhập thành công");
                     this.VaiTro = TaiKhoan.Field<byte>("VaiTro");
-                    this.Close();
+                    this.Visible = false;
                 }
                 else
                 {

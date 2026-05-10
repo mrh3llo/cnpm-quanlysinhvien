@@ -199,6 +199,7 @@
             btn_TimMSSV.TabIndex = 5;
             btn_TimMSSV.Text = "Tìm";
             btn_TimMSSV.UseVisualStyleBackColor = true;
+            btn_TimMSSV.Click += btn_TimMSSV_Click;
             // 
             // lb_TimMSSV
             // 

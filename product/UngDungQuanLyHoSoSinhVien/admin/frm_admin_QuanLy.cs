@@ -78,8 +78,14 @@ namespace UngDungQuanLyHoSoSinhVien.admin
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
             frm_DN.datVaiTro(0);
-            frm_DN.ShowDialog();
+            frm_DN.Visible = true;
             this.Close();
+        }
+
+        private void btn_TimMSSV_Click(object sender, EventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.TimMaSV(tb_TimMSSV.Text.ToString());
         }
     }
 }

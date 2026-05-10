@@ -14,8 +14,37 @@ namespace UngDungQuanLyHoSoSinhVien
 
         public void HienThi_DS_SinhVien(DataGridView dgv)
         {
-            string SQL_Query = "USE QuanLyHoSoSinhVien; SELECT \r\n\tsv.MaSV,\r\n\tsv.Ho + ' ' + sv.Ten AS HoTen,\r\n\tCASE WHEN sv.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' END AS GioiTinh,\r\n\tFORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,\r\n\tsv.SDT,\r\n\tsv.Email,\r\n\tsv.DiaChiThuongTru,\r\n\tdt.TenDanToc AS DanToc,\r\n\ttg.TenTonGiao AS TonGiao,\r\n\ttt_ns.TenTinhThanh AS NoiSinh,\r\n\txp.TenXaPhuong + N', tỉnh ' + tt_qq.TenTinhThanh AS QueQuan,\r\n\tsv.SoCCCD AS So_CCCD,\r\n\tkt.TenKhoa_Truong AS Khoa_Truong,\r\n\tn.TenNganh AS Nganh,\r\n\tl.TenLop AS Lop,\r\n\tsv.NienKhoa,\r\n\tsv.TrangThai\r\nFROM SinhVien sv\r\nJOIN DanToc dt ON sv.DanToc = dt.MaDanToc\r\nJOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao\r\nJOIN TinhThanh tt_ns ON sv.NoiSinh_TinhThanh = tt_ns.MaTinhThanh\r\nJOIN XaPhuong xp ON sv.QueQuan_XaPhuong = xp.MaXaPhuong\r\nJOIN TinhThanh tt_qq ON sv.QueQuan_TinhThanh = tt_qq.MaTinhThanh\r\nJOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong\r\nJOIN Nganh n ON sv.Nganh = n.MaNganh\r\nJOIN Lop l ON sv.Lop = l.MaLop;";
-            BangSinhVien = KetNoi.GhiDuLieuVaoBang(SQL_Query);
+            string SQL_TruyVan = $@"USE QuanLyHoSoSinhVien;" +
+                "SELECT " +
+                    "SV.MaSV, " +
+                    "CONCAT(SV.Ho, ' ', SV.Ten) AS HoTen, " +
+                    "CASE WHEN SV.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' " +
+                    "END AS GioiTinh, " +
+                    "FORMAT(SV.NgaySinh, 'dd/MM/yyyy') AS NgaySinh, " +
+                    "SV.SDT, " +
+                    "SV.Email, " +
+                    "SV.DiaChiThuongTru, " +
+                    "DT.TenDanToc AS DanToc, " +
+                    "TG.TenTonGiao AS TonGiao, " +
+                    "TT_NS.TenTinhThanh AS NoiSinh, " +
+                    "CONCAT(XP.TenXaPhuong, ', tỉnh ', TT_QQ.TenTinhThanh) AS QueQuan, " +
+                    "SV.SoCCCD AS So_CCCD, " +
+                    "KTr.TenKhoa_Truong AS Khoa_Truong, " +
+                    "NG.TenNganh AS Nganh, " +
+                    "L.TenLop AS Lop, " +
+                    "SV.NienKhoa, " +
+                    "SV.TrangThai " +
+                "FROM SinhVien SV " +
+                "JOIN DanToc DT ON SV.DanToc = DT.MaDanToc " +
+                "JOIN TonGiao TG ON SV.TonGiao = TG.MaTonGiao " +
+                "JOIN TinhThanh TT_NS ON SV.NoiSinh_TinhThanh = TT_NS.MaTinhThanh " +
+                "JOIN XaPhuong XP ON SV.QueQuan_XaPhuong = XP.MaXaPhuong " +
+                "JOIN TinhThanh TT_QQ ON SV.QueQuan_TinhThanh = TT_QQ.MaTinhThanh " +
+                "JOIN Khoa_Truong KTr ON SV.Khoa_Truong = KTr.MaKhoa_Truong " +
+                "JOIN Nganh NG ON SV.Nganh = NG.MaNganh " +
+                "JOIN Lop L ON SV.Lop = L.MaLop;";
+
+            BangSinhVien = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
             dgv.DataSource = BangSinhVien;
 
             // Đặt tên cột cho DataGridView
@@ -83,20 +112,20 @@ namespace UngDungQuanLyHoSoSinhVien
                 string MaSV = TaoMaSVNgauNhien();
 
                 // Xây dựng câu lệnh SQL INSERT
-                string SQL_Query = $@"USE QuanLyHoSoSinhVien;";
-                SQL_Query += $@"INSERT INTO SinhVien ";
-                SQL_Query += $@"VALUES ('{MaSV}', N'{Ho}', N'{Ten}', '{Email}', '{SDT}', N'{GioiTinh}', '{NgaySinh:yyyy-MM-dd}', ";
-                SQL_Query += $@"'{SoCCCD}', '{MaDanToc}', '{MaTonGiao}', N'{DiaChiThuongTru}', '{MaTinhThanhNoiSinh}', ";
-                SQL_Query += $@"'{MaTinhThanhQueQuan}', '{MaXaPhuongQueQuan}', '{MaKhoaTruong}', '{MaNganh}', '{MaLop}', ";
-                SQL_Query += $@"'{NienKhoa}', N'{TrangThai}', {(string.IsNullOrEmpty(AnhDaiDien) ? "NULL" : $"'{AnhDaiDien}'")});";
+                string SQL_TruyVan = $@"USE QuanLyHoSoSinhVien;" +
+                    $@"INSERT INTO SinhVien " +
+                    $@"VALUES ('{MaSV}', N'{Ho}', N'{Ten}', '{Email}', '{SDT}', N'{GioiTinh}', '{NgaySinh:yyyy-MM-dd}', " +
+                    $@"'{SoCCCD}', '{MaDanToc}', '{MaTonGiao}', N'{DiaChiThuongTru}', '{MaTinhThanhNoiSinh}', " +
+                    $@"'{MaTinhThanhQueQuan}', '{MaXaPhuongQueQuan}', '{MaKhoaTruong}', '{MaNganh}', '{MaLop}', " +
+                    $@"'{NienKhoa}', N'{TrangThai}', {(string.IsNullOrEmpty(AnhDaiDien) ? "NULL" : $"'{AnhDaiDien}'")});";
 
                 // Thực thi câu lệnh thêm sinh viên
-                KetNoi.ThaoTac_Ghi_DuLieu(SQL_Query);
+                KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
 
                 // Thêm tài khoản cho sinh viên (TenTaiKhoan = MaSV, MatKhau = SDT, VaiTro = 4)
-                string SQL_TaiKhoan = $@"USE QuanLyHoSoSinhVien;";
-                SQL_TaiKhoan += $@"INSERT INTO TaiKhoanNguoiDung ";
-                SQL_TaiKhoan += $@"VALUES ('{MaSV}', '{SDT}', 4);";
+                string SQL_TaiKhoan = $@"USE QuanLyHoSoSinhVien;" +
+                $@"INSERT INTO TaiKhoanNguoiDung " +
+                $@"VALUES ('{MaSV}', '{SDT}', 4);";
 
                 KetNoi.ThaoTac_Ghi_DuLieu(SQL_TaiKhoan);
 
@@ -105,6 +134,70 @@ namespace UngDungQuanLyHoSoSinhVien
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi thêm sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void TimMaSV(string MaSV)
+        {
+            string SQL_TruyVan = $@"USE QuanLyHoSoSinhVien;" +
+                "SELECT " +
+                    "SV.MaSV, " +
+                    "CONCAT(SV.Ho, ' ', SV.Ten) AS HoTen, " +
+                    "CASE WHEN SV.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' " +
+                    "END AS GioiTinh, " +
+                    "FORMAT(SV.NgaySinh, 'dd/MM/yyyy') AS NgaySinh, " +
+                    "SV.SDT, " +
+                    "SV.Email, " +
+                    "SV.DiaChiThuongTru, " +
+                    "DT.TenDanToc AS DanToc, " +
+                    "TG.TenTonGiao AS TonGiao, " +
+                    "TT_NS.TenTinhThanh AS NoiSinh, " +
+                    "CONCAT(XP.TenXaPhuong, N', tỉnh ', TT_QQ.TenTinhThanh) AS QueQuan, " +
+                    "SV.SoCCCD AS So_CCCD, " +
+                    "KTr.TenKhoa_Truong AS Khoa_Truong, " +
+                    "NG.TenNganh AS Nganh, " +
+                    "L.TenLop AS Lop, " +
+                    "SV.NienKhoa, " +
+                    "SV.TrangThai, " +
+                    "SV.AnhDaiDien " +
+                "FROM SinhVien SV " +
+                "JOIN DanToc DT ON SV.DanToc = DT.MaDanToc " +
+                "JOIN TonGiao TG ON SV.TonGiao = TG.MaTonGiao " +
+                "JOIN TinhThanh TT_NS ON SV.NoiSinh_TinhThanh = TT_NS.MaTinhThanh " +
+                "JOIN XaPhuong XP ON SV.QueQuan_XaPhuong = XP.MaXaPhuong " +
+                "JOIN TinhThanh TT_QQ ON SV.QueQuan_TinhThanh = TT_QQ.MaTinhThanh " +
+                "JOIN Khoa_Truong KTr ON SV.Khoa_Truong = KTr.MaKhoa_Truong " +
+                "JOIN Nganh NG ON SV.Nganh = NG.MaNganh " +
+                "JOIN Lop L ON SV.Lop = L.MaLop " +
+                $"WHERE SV.MaSV = '{MaSV}';";
+
+            DataRow KQ_TimKiem = KetNoi.ThaoTac_DocMotDong_DuLieu(SQL_TruyVan);
+
+            if(KQ_TimKiem == null)
+                MessageBox.Show($"Không tìm thấy sinh viên với mã: {MaSV}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                frm_ThongTinTaiKhoan frm_TTSV = new frm_ThongTinTaiKhoan();
+
+                // Thông tin cá nhân
+                frm_TTSV.ptb_AnhDaiDien.ImageLocation = KQ_TimKiem["AnhDaiDien"] != DBNull.Value ? KQ_TimKiem["AnhDaiDien"].ToString() : null;
+                frm_TTSV.lb_MSSV.Text = KQ_TimKiem["MaSV"].ToString();
+                frm_TTSV.lb_HoTen.Text = KQ_TimKiem["HoTen"].ToString();
+                frm_TTSV.lb_GioiTinh.Text = KQ_TimKiem["GioiTinh"].ToString();
+                frm_TTSV.lb_SDT.Text = KQ_TimKiem["SDT"].ToString();
+                frm_TTSV.lb_Email.Text = KQ_TimKiem["Email"].ToString();
+                frm_TTSV.lb_NgaySinh.Text = KQ_TimKiem["NgaySinh"].ToString();
+                frm_TTSV.lb_NoiSinh.Text = KQ_TimKiem["NoiSinh"].ToString();
+                frm_TTSV.lb_DanToc.Text = KQ_TimKiem["DanToc"].ToString();
+                frm_TTSV.lb_TonGiao.Text = KQ_TimKiem["TonGiao"].ToString();
+                frm_TTSV.lb_QueQuan.Text = KQ_TimKiem["QueQuan"].ToString();
+                // Thông tin học tập
+                frm_TTSV.lb_Lop.Text = KQ_TimKiem["Lop"].ToString();
+                frm_TTSV.lb_Nganh.Text = KQ_TimKiem["Nganh"].ToString();
+                frm_TTSV.lb_Khoa_Truong.Text = KQ_TimKiem["Khoa_Truong"].ToString();
+                frm_TTSV.lb_NienKhoa.Text = KQ_TimKiem["NienKhoa"].ToString();
+
+                frm_TTSV.ShowDialog();
             }
         }
     }

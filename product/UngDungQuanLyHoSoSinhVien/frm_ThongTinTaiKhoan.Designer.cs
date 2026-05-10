@@ -125,7 +125,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(468, 79);
+            label6.Location = new Point(470, 79);
             label6.Name = "label6";
             label6.Size = new Size(112, 28);
             label6.TabIndex = 6;
@@ -135,7 +135,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(468, 107);
+            label7.Location = new Point(470, 107);
             label7.Name = "label7";
             label7.Size = new Size(97, 28);
             label7.TabIndex = 7;
@@ -145,7 +145,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(468, 135);
+            label8.Location = new Point(470, 135);
             label8.Name = "label8";
             label8.Size = new Size(91, 28);
             label8.TabIndex = 8;
@@ -155,7 +155,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(468, 163);
+            label9.Location = new Point(470, 163);
             label9.Name = "label9";
             label9.Size = new Size(98, 28);
             label9.TabIndex = 9;
@@ -165,7 +165,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(468, 191);
+            label10.Location = new Point(150, 219);
             label10.Name = "label10";
             label10.Size = new Size(108, 28);
             label10.TabIndex = 10;
@@ -176,7 +176,7 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(208, 9);
+            lb_TieuDe.Location = new Point(274, 9);
             lb_TieuDe.Name = "lb_TieuDe";
             lb_TieuDe.Size = new Size(392, 54);
             lb_TieuDe.TabIndex = 11;
@@ -193,9 +193,9 @@
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(label15);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(150, 240);
+            groupBox1.Location = new Point(150, 260);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(638, 150);
+            groupBox1.Size = new Size(462, 150);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin khóa học:";
@@ -284,7 +284,7 @@
             // 
             lb_NoiSinh.AutoSize = true;
             lb_NoiSinh.Font = new Font("Segoe UI", 12F);
-            lb_NoiSinh.Location = new Point(586, 107);
+            lb_NoiSinh.Location = new Point(588, 107);
             lb_NoiSinh.Name = "lb_NoiSinh";
             lb_NoiSinh.Size = new Size(24, 28);
             lb_NoiSinh.TabIndex = 14;
@@ -294,7 +294,7 @@
             // 
             lb_DanToc.AutoSize = true;
             lb_DanToc.Font = new Font("Segoe UI", 12F);
-            lb_DanToc.Location = new Point(586, 135);
+            lb_DanToc.Location = new Point(588, 135);
             lb_DanToc.Name = "lb_DanToc";
             lb_DanToc.Size = new Size(24, 28);
             lb_DanToc.TabIndex = 16;
@@ -304,7 +304,7 @@
             // 
             lb_TonGiao.AutoSize = true;
             lb_TonGiao.Font = new Font("Segoe UI", 12F);
-            lb_TonGiao.Location = new Point(586, 163);
+            lb_TonGiao.Location = new Point(588, 163);
             lb_TonGiao.Name = "lb_TonGiao";
             lb_TonGiao.Size = new Size(24, 28);
             lb_TonGiao.TabIndex = 17;
@@ -314,7 +314,7 @@
             // 
             lb_QueQuan.AutoSize = true;
             lb_QueQuan.Font = new Font("Segoe UI", 12F);
-            lb_QueQuan.Location = new Point(586, 191);
+            lb_QueQuan.Location = new Point(268, 219);
             lb_QueQuan.Name = "lb_QueQuan";
             lb_QueQuan.Size = new Size(24, 28);
             lb_QueQuan.TabIndex = 18;
@@ -374,7 +374,7 @@
             // 
             lb_NgaySinh.AutoSize = true;
             lb_NgaySinh.Font = new Font("Segoe UI", 12F);
-            lb_NgaySinh.Location = new Point(586, 79);
+            lb_NgaySinh.Location = new Point(588, 79);
             lb_NgaySinh.Name = "lb_NgaySinh";
             lb_NgaySinh.Size = new Size(24, 28);
             lb_NgaySinh.TabIndex = 24;
@@ -384,7 +384,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 402);
+            ClientSize = new Size(794, 416);
             Controls.Add(lb_NgaySinh);
             Controls.Add(lb_Email);
             Controls.Add(lb_SDT);
@@ -418,8 +418,6 @@
         }
 
         #endregion
-
-        private PictureBox ptb_AnhDaiDien;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -436,20 +434,21 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private Label lb_Lop;
-        private Label lb_Nganh;
-        private Label lb_Khoa_Truong;
-        private Label lb_NienKhoa;
-        private Label lb_NoiSinh;
         private Label label17;
-        private Label lb_DanToc;
-        private Label lb_TonGiao;
-        private Label lb_QueQuan;
-        private Label lb_NgaySinh;
-        private Label lb_SDT;
-        private Label lb_GioiTinh;
-        private Label lb_MSSV;
-        private Label lb_HoTen;
-        private Label lb_Email;
+        public Label lb_Lop;
+        public Label lb_Nganh;
+        public Label lb_Khoa_Truong;
+        public Label lb_NienKhoa;
+        public Label lb_NoiSinh;
+        public Label lb_DanToc;
+        public Label lb_TonGiao;
+        public Label lb_QueQuan;
+        public Label lb_NgaySinh;
+        public Label lb_SDT;
+        public Label lb_GioiTinh;
+        public Label lb_MSSV;
+        public Label lb_HoTen;
+        public Label lb_Email;
+        public PictureBox ptb_AnhDaiDien;
     }
 }

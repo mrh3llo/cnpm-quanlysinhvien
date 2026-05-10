@@ -43,12 +43,10 @@ namespace UngDungQuanLyHoSoSinhVien
         {
             DataTable Bang = new DataTable();
             
+            SQL_KetNoi.Open();
+
             SqlCommand SQL_Lenh = new SqlCommand(SQL_TruyVan, SQL_KetNoi);
             SqlDataAdapter SQL_DocGhi = new SqlDataAdapter(SQL_Lenh);
-                    
-            // Mở kết nối nếu chưa mở
-            if (SQL_KetNoi.State != ConnectionState.Open)
-                SQL_KetNoi.Open();
 
             SQL_DocGhi.Fill(Bang);
 
