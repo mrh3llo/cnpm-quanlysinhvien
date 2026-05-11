@@ -116,7 +116,7 @@ CREATE TABLE YeuCauCapNhat
 	SDT_Moi CHAR(10),
 	DiaChiThuongTru_Moi NTEXT,
 	ThoiGianYeuCau DATETIME NOT NULL,
-	LyDoCapNhat TEXT NOT NULL,
+	LyDoCapNhat NTEXT NOT NULL,
 	TrangThai TINYINT NOT NULL,
 	-- 0: Không đồng ý,
 	-- 1: Đồng ý,
