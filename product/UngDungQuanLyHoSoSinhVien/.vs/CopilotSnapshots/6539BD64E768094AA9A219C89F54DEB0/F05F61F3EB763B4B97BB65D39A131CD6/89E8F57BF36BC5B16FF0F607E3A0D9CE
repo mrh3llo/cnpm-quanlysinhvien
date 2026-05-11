@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 
 namespace UngDungQuanLyHoSoSinhVien
 {
@@ -18,7 +18,7 @@ namespace UngDungQuanLyHoSoSinhVien
             this.TenTaiKhoan = this.tb_TenTaiKhoan.Text;
             this.MatKhau = this.tb_MatKhau.Text;
 
-            string SQL_Query = $"SELECT * FROM TaiKhoanNguoiDung WHERE TenTaiKhoan = N'{TenTaiKhoan}';";
+            string SQL_Query = $"USE QuanLyHoSoSinhVien; SELECT * FROM TaiKhoanNguoiDung WHERE TenTaiKhoan = N'{TenTaiKhoan}';";
             
             // Lấy thông tin tài khoản và kiểm tra nếu có dữ liệu trả về
             DataRow TaiKhoan = new KetNoiCSDL().ThaoTac_DocMotDong_DuLieu(SQL_Query);

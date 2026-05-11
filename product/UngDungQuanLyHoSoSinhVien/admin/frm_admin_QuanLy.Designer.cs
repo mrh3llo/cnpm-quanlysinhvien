@@ -112,6 +112,7 @@
             dgv_DSSinhVien.RowHeadersWidth = 51;
             dgv_DSSinhVien.Size = new Size(535, 212);
             dgv_DSSinhVien.TabIndex = 2;
+            dgv_DSSinhVien.CellDoubleClick += dgv_DSSinhVien_CellDoubleClick;
             // 
             // grb_DSSinhVien
             // 

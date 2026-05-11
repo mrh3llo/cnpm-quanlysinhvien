@@ -87,5 +87,15 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
             TK_SinhVien.TimMaSV(tb_TimMSSV.Text.ToString());
         }
+
+        private void dgv_DSSinhVien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            if (e.RowIndex >= 0 && e.RowIndex < dgv_DSSinhVien.Rows.Count)
+            {
+                DataRow TTSV = ((DataRowView)dgv_DSSinhVien.Rows[e.RowIndex].DataBoundItem).Row;
+                TK_SinhVien.TimMaSV(TTSV["MaSV"].ToString());
+            }
+        }
     }
 }

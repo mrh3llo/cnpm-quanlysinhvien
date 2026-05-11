@@ -10,6 +10,8 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 {
     public partial class frm_admin_DienThongTin : Form
     {
+        public string DuongDanAnh = "";
+
         public frm_admin_DienThongTin()
         {
             InitializeComponent();
@@ -26,6 +28,24 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
                 frm_DN.datVaiTro(0);
             }
+
+            // Hiển thị các giá trị trong ComboBox
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+
+            cmb_DanToc = TK_SinhVien.HienThi_LuaChon("SELECT * FROM DanToc", "TenDanToc", "MaDanToc");
+        }
+
+        private void btn_ChonAnhDaiDien_Click(object sender, EventArgs e)
+        {
+            file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            file_AnhDaiDien.Title = "Chọn ảnh đại diện";
+            if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
+                this.DuongDanAnh = file_AnhDaiDien.FileName;
+        }
+
+        private void btn_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -32,8 +32,7 @@ namespace UngDungQuanLyHoSoSinhVien
                     "NG.TenNganh AS Nganh, " +
                     "L.TenLop AS Lop, " +
                     "SV.NienKhoa, " +
-                    "SV.TrangThai, " +
-                    "SV.AnhDaiDien " +
+                    "SV.TrangThai " +
                 "FROM SinhVien SV " +
                 "JOIN DanToc DT ON SV.DanToc = DT.MaDanToc " +
                 "JOIN TonGiao TG ON SV.TonGiao = TG.MaTonGiao " +
@@ -65,7 +64,6 @@ namespace UngDungQuanLyHoSoSinhVien
             dgv.Columns[14].HeaderText = "Lớp";
             dgv.Columns[15].HeaderText = "Niên khóa";
             dgv.Columns[16].HeaderText = "Trạng thái";
-            dgv.Columns[17].Visible = false;
         }
 
         public void HienThiChiTiet_TT_SinhVien(DataRow TT_SinhVien)
@@ -109,17 +107,6 @@ namespace UngDungQuanLyHoSoSinhVien
             {
                 MessageBox.Show($"Lỗi khi hiển thị thông tin sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        public ComboBox HienThi_LuaChon(string SQL_TruyVan, string HienThiThuocTinh, string GiaTriThuocTinh)
-        {
-            ComboBox LuaChon = new ComboBox();
-
-            LuaChon.DataSource = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
-            LuaChon.DisplayMember = HienThiThuocTinh;
-            LuaChon.ValueMember = GiaTriThuocTinh;
-
-            return LuaChon;
         }
 
         // Hàm tách Ho và Ten từ HoTen (từ cuối cùng là Ten, phần còn lại là Ho)
@@ -256,21 +243,6 @@ namespace UngDungQuanLyHoSoSinhVien
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi cập nhật thông tin sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void XoaSinhVien(string MaSV)
-        {
-            string SQL_TruyVan = $@"DELETE FROM SinhVien WHERE MaSV = '{MaSV}';";
-
-            try
-            {
-                KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
-                MessageBox.Show($"Xóa sinh viên thành công!\nMã sinh viên: {MaSV}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi xóa sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

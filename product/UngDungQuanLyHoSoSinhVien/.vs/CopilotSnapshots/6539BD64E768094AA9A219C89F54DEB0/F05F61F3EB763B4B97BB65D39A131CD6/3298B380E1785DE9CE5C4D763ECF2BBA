@@ -17,7 +17,7 @@ namespace UngDungQuanLyHoSoSinhVien
         public KetNoiCSDL()
         {
             // Kiểm tra chuỗi kết nối trước khi sử dụng
-            string ChuoiKetNoi = @"Data Source=DESKTOP-R2H1EQQ;Initial Catalog=QuanLyHoSoSinhVien;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;";
+            string ChuoiKetNoi = @"Data Source=DESKTOP-R2H1EQQ;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;";
             SQL_KetNoi = new SqlConnection(ChuoiKetNoi);
         }
 
