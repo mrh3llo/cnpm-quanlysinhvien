@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CanBo\frm_CanBo_DS_TaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -32,6 +29,15 @@
 
   <ItemGroup>
     <Folder Include="assets\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="assets\img\AnhDaiDien_MacDinh.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="assets\img\AnhDaiDien_MacDinh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

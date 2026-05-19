@@ -35,13 +35,13 @@
             btn_TimMSSV = new Button();
             lb_TimMSSV = new Label();
             grb_DSSinhVien = new GroupBox();
+            btn_TaiLai = new Button();
             btn_DSTaiKhoan = new Button();
             dgv_DSSinhVien = new DataGridView();
             grb_QuanLy = new GroupBox();
             btn_SuaTaiKhoan = new Button();
             btn_TaoTaiKhoan = new Button();
             lb_TieuDe = new Label();
-            btn_TaiLai = new Button();
             grb_TimKiem.SuspendLayout();
             grb_DSSinhVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
@@ -59,6 +59,7 @@
             btn_DangXuat.TabIndex = 7;
             btn_DangXuat.Text = "Đăng xuất";
             btn_DangXuat.UseVisualStyleBackColor = false;
+            btn_DangXuat.Click += btn_DangXuat_Click;
             // 
             // grb_TimKiem
             // 
@@ -122,6 +123,17 @@
             grb_DSSinhVien.TabStop = false;
             grb_DSSinhVien.Text = "Danh sách sinh viên";
             // 
+            // btn_TaiLai
+            // 
+            btn_TaiLai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_TaiLai.Location = new Point(6, 244);
+            btn_TaiLai.Name = "btn_TaiLai";
+            btn_TaiLai.Size = new Size(91, 42);
+            btn_TaiLai.TabIndex = 9;
+            btn_TaiLai.Text = "Tải lại";
+            btn_TaiLai.UseVisualStyleBackColor = true;
+            btn_TaiLai.Click += btn_TaiLai_Click;
+            // 
             // btn_DSTaiKhoan
             // 
             btn_DSTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -131,6 +143,7 @@
             btn_DSTaiKhoan.TabIndex = 6;
             btn_DSTaiKhoan.Text = "Danh sách tài khoản";
             btn_DSTaiKhoan.UseVisualStyleBackColor = true;
+            btn_DSTaiKhoan.Click += btn_DSTaiKhoan_Click;
             // 
             // dgv_DSSinhVien
             // 
@@ -161,6 +174,7 @@
             btn_SuaTaiKhoan.TabIndex = 4;
             btn_SuaTaiKhoan.Text = "Cập nhật tài khoản";
             btn_SuaTaiKhoan.UseVisualStyleBackColor = true;
+            btn_SuaTaiKhoan.Click += btn_SuaTaiKhoan_Click;
             // 
             // btn_TaoTaiKhoan
             // 
@@ -171,6 +185,7 @@
             btn_TaoTaiKhoan.TabIndex = 0;
             btn_TaoTaiKhoan.Text = "Thêm tài khoản";
             btn_TaoTaiKhoan.UseVisualStyleBackColor = true;
+            btn_TaoTaiKhoan.Click += btn_TaoTaiKhoan_Click;
             // 
             // lb_TieuDe
             // 
@@ -181,17 +196,6 @@
             lb_TieuDe.Size = new Size(354, 54);
             lb_TieuDe.TabIndex = 4;
             lb_TieuDe.Text = "Quản lý tài khoản";
-            // 
-            // btn_TaiLai
-            // 
-            btn_TaiLai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_TaiLai.Location = new Point(6, 244);
-            btn_TaiLai.Name = "btn_TaiLai";
-            btn_TaiLai.Size = new Size(91, 42);
-            btn_TaiLai.TabIndex = 9;
-            btn_TaiLai.Text = "Tải lại";
-            btn_TaiLai.UseVisualStyleBackColor = true;
-            btn_TaiLai.Click += btn_TaiLai_Click;
             // 
             // frm_CanBo_QuanLy
             // 

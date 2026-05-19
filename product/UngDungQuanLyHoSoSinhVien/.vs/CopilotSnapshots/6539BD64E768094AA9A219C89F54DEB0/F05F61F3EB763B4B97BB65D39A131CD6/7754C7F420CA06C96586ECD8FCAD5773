@@ -1,0 +1,292 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace UngDungQuanLyHoSoSinhVien.admin
+{
+    public partial class frm_admin_DienThongTin : Form
+    {
+        public string DuongDanAnh = "";
+
+        private XuLyTaiKhoanSinhVien TK_SinhVien;
+
+        private string MSSV;
+        private byte trangthai = 0;
+        // 0 thì thêm tài khoản
+        // 1 thì cập nhật tài khoản
+
+        public void datTrangThai(byte TrangThai)
+        {
+            this.trangthai = TrangThai;
+        }
+
+        public byte layTrangThai()
+        {
+            return this.trangthai;
+        }
+
+        public void datMSSV(string MSSV_Moi)
+        {
+            this.MSSV = MSSV_Moi;
+        }
+
+        public string layMSSV()
+        {
+            return this.MSSV;
+        }
+
+        public frm_admin_DienThongTin()
+        {
+            InitializeComponent();
+
+            TK_SinhVien = new XuLyTaiKhoanSinhVien();
+
+            frm_DangNhap frm_DN = new frm_DangNhap();
+            byte TrangThai = frm_DN.layVaiTro();
+
+            if (TrangThai != 1)
+            {
+                this.Enabled = false;
+
+                MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
+                this.Close();
+
+                frm_DN.datVaiTro(0);
+            }
+
+            HienThi_DuLieu_ComboBox();
+        }
+
+        private void btn_ChonAnhDaiDien_Click(object sender, EventArgs e)
+        {
+            file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            file_AnhDaiDien.Title = "Chọn ảnh đại diện";
+            if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
+                this.DuongDanAnh = file_AnhDaiDien.FileName;
+        }
+
+        private void HienThi_DuLieu_ComboBox()
+        {
+            // Combo Box không phụ thuộc vào lựa chọn khác
+            TK_SinhVien.HienThi_LuaChon(cmb_DanToc, "SELECT * FROM DanToc", "TenDanToc", "MaDanToc");
+            TK_SinhVien.HienThi_LuaChon(cmb_TonGiao, "SELECT * FROM TonGiao", "TenTonGiao", "MaTonGiao");
+            TK_SinhVien.HienThi_LuaChon(cmb_NoiSinh, "SELECT * FROM TinhThanh", "TenTinhThanh", "MaTinhThanh");
+            TK_SinhVien.HienThi_LuaChon(cmb_KhoaTruong, "SELECT * FROM Khoa_Truong", "TenKhoa_Truong", "MaKhoa_Truong");
+            TK_SinhVien.HienThi_LuaChon(cmb_QQ_TinhThanh, "SELECT * FROM TinhThanh", "TenTinhThanh", "MaTinhThanh");
+
+            // Thêm event handler cho cmb_QQ_TinhThanh
+            cmb_QQ_TinhThanh.SelectedIndexChanged += cmb_QQ_TinhThanh_SelectedIndexChanged;
+
+            // Thêm event handler cho cmb_KhoaTruong
+            cmb_KhoaTruong.SelectedIndexChanged += cmb_KhoaTruong_SelectedIndexChanged;
+
+            // Tải dữ liệu ban đầu cho cmb_QQ_XaPhuong (nếu có Tỉnh thành được chọn)
+            if (cmb_QQ_TinhThanh.SelectedValue != null)
+                HienThi_XaPhuongTheoTinhThanh();
+
+            // Tải dữ liệu ban đầu cho cmb_Nganh và cmb_Lop (nếu có Khoa được chọn)
+            if (cmb_KhoaTruong.SelectedValue != null)
+                HienThi_Nganh_Va_LopTheoKhoa();
+        }
+
+        private void cmb_QQ_TinhThanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HienThi_XaPhuongTheoTinhThanh();
+        }
+
+        private void HienThi_XaPhuongTheoTinhThanh()
+        {
+            if (cmb_QQ_TinhThanh.SelectedValue == null)
+                return;
+
+            string MaTinhThanh = cmb_QQ_TinhThanh.SelectedValue.ToString();
+
+            string SQL_TruyVan = $"SELECT * FROM XaPhuong WHERE MaTinhThanh = '{MaTinhThanh}'";
+            TK_SinhVien.HienThi_LuaChon(cmb_QQ_XaPhuong, SQL_TruyVan, "TenXaPhuong", "MaXaPhuong");
+        }
+
+        private void cmb_KhoaTruong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HienThi_Nganh_Va_LopTheoKhoa();
+        }
+
+        private void HienThi_Nganh_Va_LopTheoKhoa()
+        {
+            if (cmb_KhoaTruong.SelectedValue == null)
+                return;
+
+            string MaKhoaTruong = cmb_KhoaTruong.SelectedValue.ToString();
+
+            // Tải dữ liệu cho Nganh
+            string SQL_Nganh = $"SELECT * FROM Nganh WHERE MaKhoa_Truong = '{MaKhoaTruong}'";
+            TK_SinhVien.HienThi_LuaChon(cmb_Nganh, SQL_Nganh, "TenNganh", "MaNganh");
+
+            // Tải dữ liệu cho Lop
+            string SQL_Lop = $"SELECT * FROM Lop WHERE MaKhoa_Truong = '{MaKhoaTruong}'";
+            TK_SinhVien.HienThi_LuaChon(cmb_Lop, SQL_Lop, "TenLop", "MaLop");
+        }
+
+        private void btn_XacNhan_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraDuLieuHopLe())
+                return;
+
+            try
+            {
+                if (layTrangThai() == 0)
+                    ThemSinhVienMoi();
+                else if (layTrangThai() == 1)
+                    CapNhatSinhVien();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool KiemTraDuLieuHopLe()
+        {
+            if (string.IsNullOrWhiteSpace(tb_HoTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập họ tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(tb_Email.Text))
+            {
+                MessageBox.Show("Vui lòng nhập email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(tb_SDT.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_DanToc.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn dân tộc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_TonGiao.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn tôn giáo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_KhoaTruong.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn khoa/trường!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_Nganh.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn ngành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_Lop.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn lớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmb_TrangThai.SelectedIndex < 0 && layTrangThai() == 0)
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void ThemSinhVienMoi()
+        {
+            string HoTen = tb_HoTen.Text;
+            string Email = tb_Email.Text;
+            string SDT = tb_SDT.Text;
+            string GioiTinh = cmb_GioiTinh.SelectedItem?.ToString() ?? "";
+            DateTime NgaySinh = date_NgaySinh.Value;
+            string SoCCCD = tb_SoCCCD.Text;
+            string MaDanToc = cmb_DanToc.SelectedValue.ToString();
+            string MaTonGiao = cmb_TonGiao.SelectedValue.ToString();
+            string DiaChiThuongTru = tb_DiaChi.Text;
+            string MaTinhThanhNoiSinh = cmb_NoiSinh.SelectedValue?.ToString() ?? "";
+            string MaTinhThanhQueQuan = cmb_QQ_TinhThanh.SelectedValue.ToString();
+            string MaXaPhuongQueQuan = cmb_QQ_XaPhuong.SelectedValue.ToString();
+            string MaKhoaTruong = cmb_KhoaTruong.SelectedValue.ToString();
+            string MaNganh = cmb_Nganh.SelectedValue.ToString();
+            string MaLop = cmb_Lop.SelectedValue.ToString();
+            string NienKhoa = tb_NienKhoa.Text;
+            string TrangThai = cmb_TrangThai.SelectedItem.ToString();
+            string AnhDaiDien = DuongDanAnh;
+
+            TK_SinhVien.ThemSinhVien(HoTen, Email, SDT, GioiTinh, NgaySinh, SoCCCD, MaDanToc, MaTonGiao,
+                                     DiaChiThuongTru, MaTinhThanhNoiSinh, MaTinhThanhQueQuan,
+                                     MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, TrangThai, AnhDaiDien);
+
+            XoaSachDuLieu();
+        }
+
+        private void CapNhatSinhVien()
+        {
+            string MaSV = layMSSV();
+
+            string HoTen = tb_HoTen.Text;
+            string Email = tb_Email.Text;
+            string SDT = tb_SDT.Text;
+            string GioiTinh = cmb_GioiTinh.SelectedItem?.ToString() ?? "";
+            DateTime NgaySinh = date_NgaySinh.Value;
+            string SoCCCD = tb_SoCCCD.Text;
+            string MaDanToc = cmb_DanToc.SelectedValue.ToString();
+            string MaTonGiao = cmb_TonGiao.SelectedValue.ToString();
+            string DiaChiThuongTru = tb_DiaChi.Text;
+            string MaTinhThanhNoiSinh = cmb_NoiSinh.SelectedValue?.ToString() ?? "";
+            string MaTinhThanhQueQuan = cmb_QQ_TinhThanh.SelectedValue.ToString();
+            string MaXaPhuongQueQuan = cmb_QQ_XaPhuong.SelectedValue.ToString();
+            string MaKhoaTruong = cmb_KhoaTruong.SelectedValue.ToString();
+            string MaNganh = cmb_Nganh.SelectedValue.ToString();
+            string MaLop = cmb_Lop.SelectedValue.ToString();
+            string NienKhoa = tb_NienKhoa.Text;
+            string AnhDaiDien = DuongDanAnh;
+
+            TK_SinhVien.CapNhat_TT_SinhVien(MaSV, HoTen, Email, SDT, GioiTinh, NgaySinh, SoCCCD, MaDanToc, MaTonGiao,
+                                           DiaChiThuongTru, MaTinhThanhNoiSinh, MaTinhThanhQueQuan,
+                                           MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, AnhDaiDien);
+
+            XoaSachDuLieu();
+        }
+
+        private void XoaSachDuLieu()
+        {
+            DuongDanAnh = "";
+
+            tb_HoTen.Clear();
+            cmb_GioiTinh.SelectedIndex = -1;
+            tb_SDT.Clear();
+            tb_Email.Clear();
+            date_NgaySinh.Value = DateTime.Now;
+            tb_SoCCCD.Clear();
+            tb_DiaChi.Clear();
+            cmb_DanToc.SelectedIndex = -1;
+            cmb_TonGiao.SelectedIndex = -1;
+
+            cmb_NoiSinh.SelectedIndex = -1;
+            cmb_QQ_TinhThanh.SelectedIndex = -1;
+            cmb_QQ_XaPhuong.SelectedIndex = -1;
+            cmb_KhoaTruong.SelectedIndex = -1;
+            cmb_Nganh.SelectedIndex = -1;
+            cmb_Lop.SelectedIndex = -1;
+            cmb_TrangThai.SelectedIndex = -1;
+            tb_NienKhoa.Clear();
+        }
+
+        private void btn_NhapLai_Click(object sender, EventArgs e)
+        {
+            XoaSachDuLieu();
+        }
+
+        private void btn_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

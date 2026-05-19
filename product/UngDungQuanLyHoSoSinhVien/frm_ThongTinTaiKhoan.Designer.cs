@@ -65,9 +65,12 @@
             // 
             // ptb_AnhDaiDien
             // 
-            ptb_AnhDaiDien.Location = new Point(12, 79);
+            ptb_AnhDaiDien.ErrorImage = Properties.Resources.AnhDaiDien_MacDinh;
+            ptb_AnhDaiDien.ImageLocation = "";
+            ptb_AnhDaiDien.Location = new Point(12, 69);
             ptb_AnhDaiDien.Name = "ptb_AnhDaiDien";
             ptb_AnhDaiDien.Size = new Size(120, 150);
+            ptb_AnhDaiDien.SizeMode = PictureBoxSizeMode.Zoom;
             ptb_AnhDaiDien.TabIndex = 0;
             ptb_AnhDaiDien.TabStop = false;
             // 

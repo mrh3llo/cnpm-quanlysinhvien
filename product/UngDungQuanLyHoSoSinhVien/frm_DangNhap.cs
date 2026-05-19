@@ -1,4 +1,5 @@
 using System.Data;
+using UngDungQuanLyHoSoSinhVien.admin;
 
 namespace UngDungQuanLyHoSoSinhVien
 {
@@ -31,6 +32,30 @@ namespace UngDungQuanLyHoSoSinhVien
                     MessageBox.Show("Đăng nhập thành công!", "Đăng nhập thành công");
                     this.VaiTro = TaiKhoan.Field<byte>("VaiTro");
                     this.Visible = false;
+
+                    switch(this.VaiTro)
+                    {
+                        case 1:
+                            frm_admin_QuanLy frm_admin = new frm_admin_QuanLy();
+                            frm_admin.ShowDialog();
+                            break;
+
+                        case 2:
+                            CanBo.frm_CanBo_QuanLy frm_CanBo = new CanBo.frm_CanBo_QuanLy();
+                            frm_CanBo.ShowDialog();
+                            break;
+
+                        case 3:
+                            GiangVien.frm_GiangVien_DS_SinhVien frm_GiangVien = new GiangVien.frm_GiangVien_DS_SinhVien();
+                            frm_GiangVien.ShowDialog();
+                            break;
+
+                        case 4:
+                            frm_ThongTinTaiKhoan frm_TTSV = new frm_ThongTinTaiKhoan();
+                            frm_TTSV.ShowDialog();
+                            break;
+                    }
+
                 }
                 else
                 {

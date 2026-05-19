@@ -17,7 +17,6 @@ D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\ref\UngDungQuanLyHoSoSinhVien.dll
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.admin.frm_admin_DienThongTin.resources
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.admin.frm_admin_QuanLy.resources
-D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.admin.frm_admin_DSTaiKhoan.resources
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.CanBo.frm_CanBo_QuanLy.resources
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.frm_ThongTinTaiKhoan.resources
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.GiangVien.frm_GiangVien_DS_SinhVien.resources
@@ -31,3 +30,8 @@ D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.csproj.AssemblyReference.cache
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.admin.frm_admin_DanhSachTaiKhoan.resources
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQ.163CF34F.Up2Date
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.SinhVien.frm_SinhVien_YeuCauCapNhat.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.CanBo.frm_CanBo_DanhSachTaiKhoan.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.CanBo.frm_CanBo_DienThongTin.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\net10.0-windows\assets\img\AnhDaiDien_MacDinh.jpg
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\net10.0-windows\assets\img\AnhDaiDien_MacDinh.png

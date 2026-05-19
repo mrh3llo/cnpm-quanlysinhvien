@@ -10,6 +10,12 @@
     <Compile Update="admin\frm_admin_QuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CanBo\frm_CanBo_DanhSachTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CanBo\frm_CanBo_DienThongTin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CanBo\frm_CanBo_QuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +26,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GiangVien\frm_GiangVien_DS_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SinhVien\frm_SinhVien_YeuCauCapNhat.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
