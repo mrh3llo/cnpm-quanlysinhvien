@@ -12,37 +12,43 @@ namespace UngDungQuanLyHoSoSinhVien
         KetNoiCSDL KetNoi = new KetNoiCSDL();
         DataTable BangSinhVien = new DataTable();
 
+        /* =================================================================
+        ======================= HÀM XỬ LÝ HIỂN THỊ =========================
+        ================================================================= */
+
         public void HienThi_DS_SinhVien(DataGridView dgv)
         {
-            string SQL_TruyVan = $@"SELECT " +
-                    "SV.MaSV, " +
-                    "CONCAT(SV.Ho, ' ', SV.Ten) AS HoTen, " +
-                    "CASE WHEN SV.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' " +
-                    "END AS GioiTinh, " +
-                    "FORMAT(SV.NgaySinh, 'dd/MM/yyyy') AS NgaySinh, " +
-                    "SV.SDT, " +
-                    "SV.Email, " +
-                    "SV.DiaChiThuongTru, " +
-                    "DT.TenDanToc AS DanToc, " +
-                    "TG.TenTonGiao AS TonGiao, " +
-                    "TT_NS.TenTinhThanh AS NoiSinh, " +
-                    "CONCAT(XP.TenXaPhuong, N', tỉnh ', TT_QQ.TenTinhThanh) AS QueQuan, " +
-                    "SV.SoCCCD AS So_CCCD, " +
-                    "KTr.TenKhoa_Truong AS Khoa_Truong, " +
-                    "NG.TenNganh AS Nganh, " +
-                    "L.TenLop AS Lop, " +
-                    "SV.NienKhoa, " +
-                    "SV.TrangThai, " +
-                    "SV.AnhDaiDien " +
-                "FROM SinhVien SV " +
-                "JOIN DanToc DT ON SV.DanToc = DT.MaDanToc " +
-                "JOIN TonGiao TG ON SV.TonGiao = TG.MaTonGiao " +
-                "JOIN TinhThanh TT_NS ON SV.NoiSinh_TinhThanh = TT_NS.MaTinhThanh " +
-                "JOIN XaPhuong XP ON SV.QueQuan_XaPhuong = XP.MaXaPhuong " +
-                "JOIN TinhThanh TT_QQ ON SV.QueQuan_TinhThanh = TT_QQ.MaTinhThanh " +
-                "JOIN Khoa_Truong KTr ON SV.Khoa_Truong = KTr.MaKhoa_Truong " +
-                "JOIN Nganh NG ON SV.Nganh = NG.MaNganh " +
-                "JOIN Lop L ON SV.Lop = L.MaLop;";
+            string SQL_TruyVan = $@"SELECT 
+	                                    sv.MaSV,
+	                                    sv.Ho + ' ' + sv.Ten AS HoTen,
+	                                    CASE WHEN sv.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' END AS GioiTinh,
+	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
+	                                    sv.SDT,
+	                                    sv.Email,
+	                                    sv.DiaChiThuongTru,
+	                                    dt.TenDanToc AS DanToc,
+	                                    tg.TenTonGiao AS TonGiao,
+	                                    tt_ns.TenTinhThanh AS NoiSinh,
+	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh,
+	                                    sv.SoCCCD,
+	                                    kt.TenKhoa_Truong AS Khoa_Truong,
+	                                    n.TenNganh AS Nganh,
+	                                    l.TenLop AS Lop,
+	                                    sv.NienKhoa,
+	                                    sv.TrangThai,
+                                        sv.AnhDaiDien,
+                                        sv.QueQuan_TinhThanh as QQ_TinhThanh,
+                                        sv.QueQuan_XaPhuong as QQ_XaPhuong
+                                    FROM SinhVien sv
+                                    JOIN DanToc dt ON sv.DanToc = dt.MaDanToc
+                                    JOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao
+                                    JOIN TinhThanh tt_ns ON sv.NoiSinh_TinhThanh = tt_ns.MaTinhThanh
+                                    JOIN XaPhuong xp ON sv.QueQuan_XaPhuong = xp.MaXaPhuong
+                                    JOIN TinhThanh tt_qq ON sv.QueQuan_TinhThanh = tt_qq.MaTinhThanh
+                                    JOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong
+                                    JOIN Nganh n ON sv.Nganh = n.MaNganh
+                                    JOIN Lop l ON sv.Lop = l.MaLop;";
+
 
             BangSinhVien = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
             dgv.DataSource = BangSinhVien;
@@ -66,6 +72,8 @@ namespace UngDungQuanLyHoSoSinhVien
             dgv.Columns[15].HeaderText = "Niên khóa";
             dgv.Columns[16].HeaderText = "Trạng thái";
             dgv.Columns[17].Visible = false;
+            dgv.Columns[18].Visible = false;
+            dgv.Columns[19].Visible = false;
         }
 
         public void HienThiChiTiet_TT_SinhVien(DataRow TT_SinhVien)
@@ -82,9 +90,9 @@ namespace UngDungQuanLyHoSoSinhVien
 
                 // Thông tin cá nhân
                 if(TT_SinhVien["AnhDaiDien"] == DBNull.Value || string.IsNullOrEmpty(TT_SinhVien["AnhDaiDien"].ToString()))
-                    frm_TTSV.ptb_AnhDaiDien.ImageLocation = "assets/img/AnhDaiDien_MacDinh.jpg";
+                    frm_TTSV.ptb_AnhDaiDien.Image = new Bitmap(Application.StartupPath + @"\assets\img\AnhDaiDien_MacDinh.png");
                 else
-                    frm_TTSV.ptb_AnhDaiDien.ImageLocation = TT_SinhVien["AnhDaiDien"].ToString();
+                    frm_TTSV.ptb_AnhDaiDien.Image = new Bitmap(Application.StartupPath + @$"\assets\img\{TT_SinhVien["AnhDaiDien"].ToString()}");
                 
                 frm_TTSV.lb_MSSV.Text = TT_SinhVien["MaSV"].ToString();
                 frm_TTSV.lb_HoTen.Text = TT_SinhVien["HoTen"].ToString();
@@ -111,16 +119,16 @@ namespace UngDungQuanLyHoSoSinhVien
             }
         }
 
-        public ComboBox HienThi_LuaChon(string SQL_TruyVan, string HienThiThuocTinh, string GiaTriThuocTinh)
+        public void HienThi_LuaChon(ComboBox comboBox, string SQL_TruyVan, string HienThiThuocTinh, string GiaTriThuocTinh)
         {
-            ComboBox LuaChon = new ComboBox();
-
-            LuaChon.DataSource = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
-            LuaChon.DisplayMember = HienThiThuocTinh;
-            LuaChon.ValueMember = GiaTriThuocTinh;
-
-            return LuaChon;
+            comboBox.DataSource = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
+            comboBox.DisplayMember = HienThiThuocTinh;
+            comboBox.ValueMember = GiaTriThuocTinh;
         }
+
+        /* =================================================================
+        ========================= HÀM XỬ LÝ CHUỖI ==========================
+        ================================================================= */
 
         // Hàm tách Ho và Ten từ HoTen (từ cuối cùng là Ten, phần còn lại là Ho)
         private (string Ho, string Ten) TachHoTen(string HoTen)
@@ -151,11 +159,14 @@ namespace UngDungQuanLyHoSoSinhVien
             return namHienTai + rand.Next(1, 1000).ToString("D3") + rand.Next(1, 1000).ToString("D3");
         }
 
+        /* =================================================================
+        ================== HÀM XỬ LÝ DỮ LIỆU THUỘC CSDL ====================
+        ================================================================= */
         public void ThemSinhVien(string HoTen, string Email, string SDT, string GioiTinh,
-                                 DateTime NgaySinh, string SoCCCD, string MaDanToc, string MaTonGiao,
-                                 string DiaChiThuongTru, string MaTinhThanhNoiSinh, string MaTinhThanhQueQuan,
-                                 string MaXaPhuongQueQuan, string MaKhoaTruong, string MaNganh,
-                                 string MaLop, string NienKhoa, string TrangThai, string AnhDaiDien)
+                                DateTime NgaySinh, string SoCCCD, string MaDanToc, string MaTonGiao,
+                                string DiaChiThuongTru, string MaTinhThanhNoiSinh, string MaTinhThanhQueQuan,
+                                string MaXaPhuongQueQuan, string MaKhoaTruong, string MaNganh,
+                                string MaLop, string NienKhoa, string TrangThai, string AnhDaiDien)
         {
             try
             {
@@ -274,39 +285,72 @@ namespace UngDungQuanLyHoSoSinhVien
             }
         }
 
+        public DataRow TimSinhVienChiTiet(string MaSV)
+        {
+            string SQL_TruyVan = $@"SELECT 
+	                                    sv.MaSV,
+	                                    sv.Ho + ' ' + sv.Ten AS HoTen,
+	                                    CASE WHEN sv.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' END AS GioiTinh,
+	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
+	                                    sv.SDT,
+	                                    sv.Email,
+	                                    sv.DiaChiThuongTru,
+	                                    dt.TenDanToc AS DanToc,
+	                                    tg.TenTonGiao AS TonGiao,
+	                                    tt_ns.TenTinhThanh AS NoiSinh,
+	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh AS QueQuan,
+	                                    sv.SoCCCD,
+	                                    kt.TenKhoa_Truong AS Khoa_Truong,
+	                                    n.TenNganh AS Nganh,
+	                                    l.TenLop AS Lop,
+	                                    sv.NienKhoa,
+	                                    sv.TrangThai,
+                                        sv.AnhDaiDien
+                                    FROM SinhVien sv
+                                    JOIN DanToc dt ON sv.DanToc = dt.MaDanToc
+                                    JOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao
+                                    JOIN TinhThanh tt_ns ON sv.NoiSinh_TinhThanh = tt_ns.MaTinhThanh
+                                    JOIN XaPhuong xp ON sv.QueQuan_XaPhuong = xp.MaXaPhuong
+                                    JOIN TinhThanh tt_qq ON sv.QueQuan_TinhThanh = tt_qq.MaTinhThanh
+                                    JOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong
+                                    JOIN Nganh n ON sv.Nganh = n.MaNganh
+                                    JOIN Lop l ON sv.Lop = l.MaLop
+                                    WHERE sv.MaSV = '{MaSV}';";
+
+            return KetNoi.ThaoTac_DocMotDong_DuLieu(SQL_TruyVan);
+        }
+
         public void TimMaSV(string MaSV)
         {
-            string SQL_TruyVan = $@"USE QuanLyHoSoSinhVien;" +
-                "SELECT " +
-                    "SV.MaSV, " +
-                    "CONCAT(SV.Ho, ' ', SV.Ten) AS HoTen, " +
-                    "CASE WHEN SV.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' " +
-                    "END AS GioiTinh, " +
-                    "FORMAT(SV.NgaySinh, 'dd/MM/yyyy') AS NgaySinh, " +
-                    "SV.SDT, " +
-                    "SV.Email, " +
-                    "SV.DiaChiThuongTru, " +
-                    "DT.TenDanToc AS DanToc, " +
-                    "TG.TenTonGiao AS TonGiao, " +
-                    "TT_NS.TenTinhThanh AS NoiSinh, " +
-                    "CONCAT(XP.TenXaPhuong, N', tỉnh ', TT_QQ.TenTinhThanh) AS QueQuan, " +
-                    "SV.SoCCCD AS So_CCCD, " +
-                    "KTr.TenKhoa_Truong AS Khoa_Truong, " +
-                    "NG.TenNganh AS Nganh, " +
-                    "L.TenLop AS Lop, " +
-                    "SV.NienKhoa, " +
-                    "SV.TrangThai, " +
-                    "SV.AnhDaiDien " +
-                "FROM SinhVien SV " +
-                "JOIN DanToc DT ON SV.DanToc = DT.MaDanToc " +
-                "JOIN TonGiao TG ON SV.TonGiao = TG.MaTonGiao " +
-                "JOIN TinhThanh TT_NS ON SV.NoiSinh_TinhThanh = TT_NS.MaTinhThanh " +
-                "JOIN XaPhuong XP ON SV.QueQuan_XaPhuong = XP.MaXaPhuong " +
-                "JOIN TinhThanh TT_QQ ON SV.QueQuan_TinhThanh = TT_QQ.MaTinhThanh " +
-                "JOIN Khoa_Truong KTr ON SV.Khoa_Truong = KTr.MaKhoa_Truong " +
-                "JOIN Nganh NG ON SV.Nganh = NG.MaNganh " +
-                "JOIN Lop L ON SV.Lop = L.MaLop " +
-                $"WHERE SV.MaSV = '{MaSV}';";
+            string SQL_TruyVan = $@"SELECT 
+	                                    sv.MaSV,
+	                                    sv.Ho + ' ' + sv.Ten AS HoTen,
+	                                    CASE WHEN sv.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' END AS GioiTinh,
+	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
+	                                    sv.SDT,
+	                                    sv.Email,
+	                                    sv.DiaChiThuongTru,
+	                                    dt.TenDanToc AS DanToc,
+	                                    tg.TenTonGiao AS TonGiao,
+	                                    tt_ns.TenTinhThanh AS NoiSinh,
+	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh AS QueQuan,
+	                                    sv.SoCCCD,
+	                                    kt.TenKhoa_Truong AS Khoa_Truong,
+	                                    n.TenNganh AS Nganh,
+	                                    l.TenLop AS Lop,
+	                                    sv.NienKhoa,
+	                                    sv.TrangThai,
+                                        sv.AnhDaiDien
+                                    FROM SinhVien sv
+                                    JOIN DanToc dt ON sv.DanToc = dt.MaDanToc
+                                    JOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao
+                                    JOIN TinhThanh tt_ns ON sv.NoiSinh_TinhThanh = tt_ns.MaTinhThanh
+                                    JOIN XaPhuong xp ON sv.QueQuan_XaPhuong = xp.MaXaPhuong
+                                    JOIN TinhThanh tt_qq ON sv.QueQuan_TinhThanh = tt_qq.MaTinhThanh
+                                    JOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong
+                                    JOIN Nganh n ON sv.Nganh = n.MaNganh
+                                    JOIN Lop l ON sv.Lop = l.MaLop
+                                    WHERE sv.MaSV = '{MaSV}';";
 
             DataRow KQ_TimKiem = KetNoi.ThaoTac_DocMotDong_DuLieu(SQL_TruyVan);
 
