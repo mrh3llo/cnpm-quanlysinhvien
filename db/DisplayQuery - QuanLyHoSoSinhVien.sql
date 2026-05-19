@@ -13,13 +13,14 @@ SELECT
 	dt.TenDanToc AS DanToc,
 	tg.TenTonGiao AS TonGiao,
 	tt_ns.TenTinhThanh AS NoiSinh,
-	xp.TenXaPhuong + N', tỉnh ' + tt_qq.TenTinhThanh AS QueQuan,
+	xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh AS QueQuan,
 	sv.SoCCCD AS So_CCCD,
 	kt.TenKhoa_Truong AS Khoa_Truong,
 	n.TenNganh AS Nganh,
 	l.TenLop AS Lop,
 	sv.NienKhoa,
 	sv.TrangThai
+	sv.AnhDaiDien
 FROM SinhVien sv
 JOIN DanToc dt ON sv.DanToc = dt.MaDanToc
 JOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao
