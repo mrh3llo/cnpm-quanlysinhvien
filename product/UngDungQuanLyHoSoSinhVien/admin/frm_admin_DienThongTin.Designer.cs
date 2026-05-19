@@ -78,7 +78,7 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(138, 9);
+            lb_TieuDe.Location = new Point(203, 9);
             lb_TieuDe.Name = "lb_TieuDe";
             lb_TieuDe.Size = new Size(483, 54);
             lb_TieuDe.TabIndex = 1;
@@ -98,7 +98,7 @@
             // 
             tb_NienKhoa.Location = new Point(579, 375);
             tb_NienKhoa.Name = "tb_NienKhoa";
-            tb_NienKhoa.Size = new Size(175, 27);
+            tb_NienKhoa.Size = new Size(261, 27);
             tb_NienKhoa.TabIndex = 66;
             // 
             // lb_NienKhoa
@@ -114,9 +114,10 @@
             // cmb_TrangThai
             // 
             cmb_TrangThai.FormattingEnabled = true;
+            cmb_TrangThai.Items.AddRange(new object[] { "Đang học", "Bảo lưu", "Đã tốt nghiệp", "Đình chỉ học tập", "Buộc thôi học", "Ngừng học", "Chờ xét tốt nghiệp" });
             cmb_TrangThai.Location = new Point(579, 341);
             cmb_TrangThai.Name = "cmb_TrangThai";
-            cmb_TrangThai.Size = new Size(175, 28);
+            cmb_TrangThai.Size = new Size(261, 28);
             cmb_TrangThai.TabIndex = 64;
             // 
             // cmb_Lop
@@ -124,7 +125,7 @@
             cmb_Lop.FormattingEnabled = true;
             cmb_Lop.Location = new Point(554, 307);
             cmb_Lop.Name = "cmb_Lop";
-            cmb_Lop.Size = new Size(200, 28);
+            cmb_Lop.Size = new Size(286, 28);
             cmb_Lop.TabIndex = 63;
             // 
             // cmb_KhoaTruong
@@ -132,7 +133,7 @@
             cmb_KhoaTruong.FormattingEnabled = true;
             cmb_KhoaTruong.Location = new Point(554, 239);
             cmb_KhoaTruong.Name = "cmb_KhoaTruong";
-            cmb_KhoaTruong.Size = new Size(200, 28);
+            cmb_KhoaTruong.Size = new Size(286, 28);
             cmb_KhoaTruong.TabIndex = 62;
             // 
             // cmb_Nganh
@@ -140,7 +141,7 @@
             cmb_Nganh.FormattingEnabled = true;
             cmb_Nganh.Location = new Point(554, 273);
             cmb_Nganh.Name = "cmb_Nganh";
-            cmb_Nganh.Size = new Size(200, 28);
+            cmb_Nganh.Size = new Size(286, 28);
             cmb_Nganh.TabIndex = 61;
             // 
             // lb_TrangThai
@@ -182,7 +183,7 @@
             grb_QueQuan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grb_QueQuan.Location = new Point(472, 111);
             grb_QueQuan.Name = "grb_QueQuan";
-            grb_QueQuan.Size = new Size(282, 125);
+            grb_QueQuan.Size = new Size(368, 125);
             grb_QueQuan.TabIndex = 57;
             grb_QueQuan.TabStop = false;
             grb_QueQuan.Text = "Quê quán:";
@@ -199,18 +200,20 @@
             // 
             // cmb_QQ_XaPhuong
             // 
+            cmb_QQ_XaPhuong.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmb_QQ_XaPhuong.FormattingEnabled = true;
-            cmb_QQ_XaPhuong.Location = new Point(120, 71);
+            cmb_QQ_XaPhuong.Location = new Point(120, 83);
             cmb_QQ_XaPhuong.Name = "cmb_QQ_XaPhuong";
-            cmb_QQ_XaPhuong.Size = new Size(151, 36);
+            cmb_QQ_XaPhuong.Size = new Size(242, 28);
             cmb_QQ_XaPhuong.TabIndex = 24;
             // 
             // cmb_QQ_TinhThanh
             // 
+            cmb_QQ_TinhThanh.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmb_QQ_TinhThanh.FormattingEnabled = true;
-            cmb_QQ_TinhThanh.Location = new Point(120, 29);
+            cmb_QQ_TinhThanh.Location = new Point(120, 41);
             cmb_QQ_TinhThanh.Name = "cmb_QQ_TinhThanh";
-            cmb_QQ_TinhThanh.Size = new Size(151, 36);
+            cmb_QQ_TinhThanh.Size = new Size(242, 28);
             cmb_QQ_TinhThanh.TabIndex = 23;
             // 
             // lb_QQ_XaPhuong
@@ -228,7 +231,7 @@
             cmb_NoiSinh.FormattingEnabled = true;
             cmb_NoiSinh.Location = new Point(569, 77);
             cmb_NoiSinh.Name = "cmb_NoiSinh";
-            cmb_NoiSinh.Size = new Size(185, 28);
+            cmb_NoiSinh.Size = new Size(271, 28);
             cmb_NoiSinh.TabIndex = 56;
             // 
             // lb_NoiSinh
@@ -403,7 +406,7 @@
             btn_Thoat.BackColor = Color.Red;
             btn_Thoat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Thoat.ForeColor = Color.White;
-            btn_Thoat.Location = new Point(622, 449);
+            btn_Thoat.Location = new Point(708, 449);
             btn_Thoat.Name = "btn_Thoat";
             btn_Thoat.Size = new Size(132, 52);
             btn_Thoat.TabIndex = 70;
@@ -421,6 +424,7 @@
             btn_NhapLai.TabIndex = 69;
             btn_NhapLai.Text = "Nhập lại";
             btn_NhapLai.UseVisualStyleBackColor = false;
+            btn_NhapLai.Click += btn_NhapLai_Click;
             // 
             // btn_XacNhan
             // 
@@ -431,6 +435,7 @@
             btn_XacNhan.TabIndex = 68;
             btn_XacNhan.Text = "Xác nhận";
             btn_XacNhan.UseVisualStyleBackColor = true;
+            btn_XacNhan.Click += btn_XacNhan_Click;
             // 
             // label1
             // 
@@ -450,7 +455,7 @@
             // 
             btn_ChonAnhDaiDien.Location = new Point(152, 76);
             btn_ChonAnhDaiDien.Name = "btn_ChonAnhDaiDien";
-            btn_ChonAnhDaiDien.Size = new Size(94, 29);
+            btn_ChonAnhDaiDien.Size = new Size(150, 29);
             btn_ChonAnhDaiDien.TabIndex = 72;
             btn_ChonAnhDaiDien.Text = "Chọn ảnh...";
             btn_ChonAnhDaiDien.UseVisualStyleBackColor = true;
@@ -460,7 +465,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(766, 513);
+            ClientSize = new Size(854, 513);
             Controls.Add(btn_ChonAnhDaiDien);
             Controls.Add(label1);
             Controls.Add(btn_Thoat);
@@ -514,7 +519,6 @@
         private Label lb_TrangThai;
         private Label lb_Lop;
         private Label lb_KhoaTruong;
-        private GroupBox grb_QueQuan;
         private Label lb_QQ_TinhThanh;
         private Label lb_QQ_XaPhuong;
         private Label lb_NoiSinh;
@@ -550,5 +554,6 @@
         private Label label1;
         private OpenFileDialog file_AnhDaiDien;
         private Button btn_ChonAnhDaiDien;
+        public GroupBox grb_QueQuan;
     }
 }
