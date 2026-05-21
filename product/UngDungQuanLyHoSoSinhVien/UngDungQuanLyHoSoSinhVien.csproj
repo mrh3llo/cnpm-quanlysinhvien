@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="assets\img\" />
+    <Folder Include="assets\avt\" />
   </ItemGroup>
 
   <ItemGroup>

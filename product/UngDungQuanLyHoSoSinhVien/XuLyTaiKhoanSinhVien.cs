@@ -92,7 +92,7 @@ namespace UngDungQuanLyHoSoSinhVien
                 if(TT_SinhVien["AnhDaiDien"] == DBNull.Value || string.IsNullOrEmpty(TT_SinhVien["AnhDaiDien"].ToString()))
                     frm_TTSV.ptb_AnhDaiDien.Image = new Bitmap(Application.StartupPath + @"\assets\img\AnhDaiDien_MacDinh.png");
                 else
-                    frm_TTSV.ptb_AnhDaiDien.Image = new Bitmap(Application.StartupPath + @$"\assets\img\{TT_SinhVien["AnhDaiDien"].ToString()}");
+                    frm_TTSV.ptb_AnhDaiDien.Image = new Bitmap(Application.StartupPath + @$"{TT_SinhVien["AnhDaiDien"].ToString()}");
                 
                 frm_TTSV.lb_MSSV.Text = TT_SinhVien["MaSV"].ToString();
                 frm_TTSV.lb_HoTen.Text = TT_SinhVien["HoTen"].ToString();
@@ -130,6 +130,31 @@ namespace UngDungQuanLyHoSoSinhVien
         ========================= HÀM XỬ LÝ CHUỖI ==========================
         ================================================================= */
 
+        public string ChuanHoaDuongDanAnh(string DuongDanBanDau, string MaSV)
+        {
+            if (string.IsNullOrWhiteSpace(DuongDanBanDau))
+                return null;
+
+            try
+            {
+                if (!File.Exists(DuongDanBanDau))
+                    return null;
+
+                string DuoiTepTin = Path.GetExtension(DuongDanBanDau).ToLower();
+                string DuongDanLuuAnh = Path.Combine(Application.StartupPath, "assets", "avt", $"{MaSV}" + $"{DuoiTepTin}");
+
+                File.Copy(DuongDanBanDau, DuongDanLuuAnh, true);
+
+                string DuongDanAnhTrongCSDL = Path.Combine("assets", "avt", $"{MaSV}" + $"{DuoiTepTin}");
+                return DuongDanAnhTrongCSDL;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xử lý ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
         // Hàm tách Ho và Ten từ HoTen (từ cuối cùng là Ten, phần còn lại là Ho)
         private (string Ho, string Ten) TachHoTen(string HoTen)
         {
@@ -150,7 +175,7 @@ namespace UngDungQuanLyHoSoSinhVien
         }
 
         // Hàm tạo MaSV ngẫu nhiên (Format: YYYY + 3 số + 3 số)
-        private string TaoMaSVNgauNhien()
+        public string TaoMaSVNgauNhien()
         {
             Random rand = new Random();
             string namHienTai = DateTime.Now.Year.ToString();

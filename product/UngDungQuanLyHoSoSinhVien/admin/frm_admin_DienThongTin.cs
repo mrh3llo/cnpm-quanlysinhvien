@@ -55,6 +55,12 @@ namespace UngDungQuanLyHoSoSinhVien.admin
                 frm_DN.datVaiTro(0);
             }
 
+            if (this.layTrangThai() == 0)
+            {
+                TK_SinhVien = new XuLyTaiKhoanSinhVien();
+                this.datMaSV(TK_SinhVien.TaoMaSVNgauNhien());
+            }    
+
             HienThi_ComboBox();
         }
 
@@ -63,7 +69,11 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             file_AnhDaiDien.Title = "Chọn ảnh đại diện";
             if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
+            {
                 this.DuongDanAnh = file_AnhDaiDien.FileName;
+                XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+                this.DuongDanAnh = TK_SinhVien.ChuanHoaDuongDanAnh(DuongDanAnh, layMaSV());
+            } 
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -217,6 +227,8 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
         private void ThemSinhVienMoi()
         {
+            XuLyTaiKhoanSinhVien xuLyTaiKhoanSinhVien = new XuLyTaiKhoanSinhVien();
+
             string HoTen = tb_HoTen.Text;
             string Email = tb_Email.Text;
             string SDT = tb_SDT.Text;
@@ -234,11 +246,10 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             string MaLop = cmb_Lop.SelectedValue.ToString();
             string NienKhoa = tb_NienKhoa.Text;
             string TrangThai = cmb_TrangThai.SelectedItem.ToString();
-            string AnhDaiDien = DuongDanAnh;
 
             TK_SinhVien.ThemSinhVien(HoTen, Email, SDT, GioiTinh, NgaySinh, SoCCCD, MaDanToc, MaTonGiao,
                                      DiaChiThuongTru, MaTinhThanhNoiSinh, MaTinhThanhQueQuan,
-                                     MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, TrangThai, AnhDaiDien);
+                                     MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, TrangThai, this.DuongDanAnh);
 
             btn_NhapLai_Click(null, null);
         }
@@ -274,7 +285,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
         private void btn_NhapLai_Click(object sender, EventArgs e)
         {
-            DuongDanAnh = "";
+            this.DuongDanAnh = "";
 
             tb_HoTen.Clear();
             cmb_GioiTinh.SelectedIndex = -1;
