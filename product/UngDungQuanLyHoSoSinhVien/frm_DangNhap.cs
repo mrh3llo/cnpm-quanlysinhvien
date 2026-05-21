@@ -7,7 +7,17 @@ namespace UngDungQuanLyHoSoSinhVien
     {
         private string TenTaiKhoan;
         private string MatKhau;
-        private byte VaiTro = 1;
+        private byte VaiTro;
+
+        public byte layVaiTro()
+        {
+            return VaiTro;
+        }
+
+        public void datVaiTro(byte VaiTro)
+        {
+            this.VaiTro = VaiTro;
+        }
 
         public frm_DangNhap()
         {
@@ -30,18 +40,20 @@ namespace UngDungQuanLyHoSoSinhVien
                 if(MatKhau == TaiKhoan.Field<string>("MatKhau"))
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Đăng nhập thành công");
-                    this.VaiTro = TaiKhoan.Field<byte>("VaiTro");
+                    datVaiTro(byte.Parse(TaiKhoan["VaiTro"].ToString()));
                     this.Visible = false;
 
-                    switch(this.VaiTro)
+                    switch(layVaiTro())
                     {
                         case 1:
-                            frm_admin_QuanLy frm_admin = new frm_admin_QuanLy();
+                            admin.frm_admin_QuanLy frm_admin = new admin.frm_admin_QuanLy();
+                            frm_admin.datVaiTro(layVaiTro());
                             frm_admin.ShowDialog();
                             break;
 
                         case 2:
                             CanBo.frm_CanBo_QuanLy frm_CanBo = new CanBo.frm_CanBo_QuanLy();
+                            frm_CanBo.datVaiTro(layVaiTro());
                             frm_CanBo.ShowDialog();
                             break;
 
@@ -71,16 +83,6 @@ namespace UngDungQuanLyHoSoSinhVien
         {
             this.tb_TenTaiKhoan.Clear();
             this.tb_MatKhau.Clear();
-        }
-
-        public byte layVaiTro()
-        {
-            return this.VaiTro;
-        }
-
-        public void datVaiTro(byte TrangThai)
-        {
-            this.VaiTro = TrangThai;
         }
     }
 }

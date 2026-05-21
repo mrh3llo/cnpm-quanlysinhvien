@@ -11,12 +11,37 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 {
     public partial class frm_CanBo_QuanLy : Form
     {
+        frm_DangNhap frm_DN = new frm_DangNhap();
+        private byte VaiTro;
+
+        public void datVaiTro(byte VaiTro)
+        {
+            this.VaiTro = VaiTro;
+        }
+
+        public byte layVaiTro()
+        {
+            return this.VaiTro;
+        }
+
         public frm_CanBo_QuanLy()
         {
             InitializeComponent();
 
-            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
-            TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
+            if (layVaiTro() == 2)
+            {
+                XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+                TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
+            }
+            else
+            {
+                this.Enabled = false;
+
+                MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
+                this.Close();
+
+                frm_DN.datVaiTro(0);
+            }
         }
 
         private void frm_CanBo_QuanLy_Load(object sender, EventArgs e)
@@ -45,6 +70,8 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 
         private void btn_SuaTaiKhoan_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("DỮ LIỆU CỦA QUÊ QUÁN XÃ PHƯỜNG CHỈ CÓ CHO 5 TỈNH ĐẦU TIÊN!!!", "NHẮC NHỎ KHI DEMO", MessageBoxButtons.OK);
+
             int dong = dgv_DSSinhVien.CurrentCell.RowIndex;
 
             frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
@@ -52,42 +79,35 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 
             if (dong >= 0 && dong < dgv_DSSinhVien.Rows.Count)
             {
-                DataRow TTSV_Grid = ((DataRowView)dgv_DSSinhVien.Rows[dong].DataBoundItem).Row;
-                string MaSV = TTSV_Grid["MaSV"].ToString();
+                DataRow TTSV = ((DataRowView)dgv_DSSinhVien.Rows[dong].DataBoundItem).Row;
 
-                XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
-                DataRow TTSV = TK_SinhVien.TimSinhVienChiTiet(MaSV);
+                frm_DienTT.datMaSV(TTSV["MaSV"].ToString());
 
-                if (TTSV != null)
-                {
-                    frm_DienTT.tb_HoTen.Text = TTSV["HoTen"].ToString();
-                    frm_DienTT.tb_Email.Text = TTSV["Email"].ToString();
-                    frm_DienTT.tb_SDT.Text = TTSV["SDT"].ToString();
-                    frm_DienTT.cmb_GioiTinh.SelectedItem = TTSV["GioiTinh"].ToString();
-                    frm_DienTT.date_NgaySinh.Value = DateTime.Parse(TTSV["NgaySinh"].ToString());
-                    frm_DienTT.tb_SoCCCD.Text = TTSV["SoCCCD"].ToString();
-                    frm_DienTT.tb_DiaChi.Text = TTSV["DiaChiThuongTru"].ToString();
-                    frm_DienTT.tb_NienKhoa.Text = TTSV["NienKhoa"].ToString();
-                    frm_DienTT.DuongDanAnh = TTSV["AnhDaiDien"].ToString();
+                frm_DienTT.DuongDanAnh = TTSV["AnhDaiDien"].ToString();
+                frm_DienTT.tb_HoTen.Text = TTSV["HoTen"].ToString();
+                frm_DienTT.cmb_GioiTinh.SelectedItem = TTSV["GioiTinh"].ToString();
+                frm_DienTT.date_NgaySinh.Value = DateTime.Parse(TTSV["NgaySinh"].ToString());
+                frm_DienTT.tb_SDT.Text = TTSV["SDT"].ToString();
+                frm_DienTT.tb_Email.Text = TTSV["Email"].ToString();
+                frm_DienTT.tb_DiaChi.Text = TTSV["DiaChiThuongTru"].ToString();
 
-                    // Gán giá trị cho ComboBox (sử dụng SelectedValue - mã)
-                    frm_DienTT.cmb_DanToc.SelectedValue = TTSV["MaDanToc"].ToString();
-                    frm_DienTT.cmb_TonGiao.SelectedValue = TTSV["MaTonGiao"].ToString();
-                    frm_DienTT.cmb_NoiSinh.SelectedValue = TTSV["MaTinhThanhNoiSinh"].ToString();
-                    frm_DienTT.cmb_KhoaTruong.SelectedValue = TTSV["MaKhoaTruong"].ToString();
-                    frm_DienTT.cmb_Nganh.SelectedValue = TTSV["MaNganh"].ToString();
-                    frm_DienTT.cmb_Lop.SelectedValue = TTSV["MaLop"].ToString();
+                frm_DienTT.cmb_DanToc.SelectedText = TTSV["DanToc"].ToString();
+                frm_DienTT.cmb_TonGiao.SelectedText = TTSV["TonGiao"].ToString();
+                frm_DienTT.cmb_NoiSinh.SelectedText = TTSV["NoiSinh"].ToString();
+                frm_DienTT.cmb_QQ_TinhThanh.SelectedText = TTSV["QQ_TinhThanh"].ToString();
+                frm_DienTT.cmb_QQ_XaPhuong.SelectedText = TTSV["QQ_XaPhuong"].ToString();
 
-                    // Gán Quê quán (cần reload cmb_QQ_XaPhuong theo TinhThanh)
-                    frm_DienTT.cmb_QQ_TinhThanh.SelectedValue = TTSV["MaTinhThanhQueQuan"].ToString();
-                    frm_DienTT.cmb_QQ_XaPhuong.SelectedValue = TTSV["MaXaPhuongQueQuan"].ToString();
-                    frm_DienTT.cmb_TrangThai.SelectedItem = TTSV["TrangThai"].ToString();
+                frm_DienTT.tb_SoCCCD.Text = TTSV["SoCCCD"].ToString();
+                frm_DienTT.cmb_KhoaTruong.SelectedText = TTSV["Khoa_Truong"].ToString();
+                frm_DienTT.cmb_Nganh.SelectedText = TTSV["Nganh"].ToString();
+                frm_DienTT.cmb_Lop.SelectedText = TTSV["Lop"].ToString();
+                frm_DienTT.tb_NienKhoa.Text = TTSV["NienKhoa"].ToString();
+                frm_DienTT.cmb_TrangThai.SelectedText = TTSV["TrangThai"].ToString();
 
-                    frm_DienTT.ShowDialog();
-                }
-                else
-                    MessageBox.Show("Không tìm thấy thông tin chi tiết của sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frm_DienTT.ShowDialog();
             }
+            else
+                MessageBox.Show("Không tìm thấy thông tin chi tiết của sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)

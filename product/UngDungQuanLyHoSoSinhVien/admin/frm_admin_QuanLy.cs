@@ -13,17 +13,24 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 {
     public partial class frm_admin_QuanLy : Form
     {
-        frm_DangNhap frm_DN;
-        byte TrangThai;
+        frm_DangNhap frm_DN = new frm_DangNhap();
+        private byte VaiTro;
+        
+        public void datVaiTro(byte VaiTro)
+        {
+            this.VaiTro = VaiTro;
+        }
+
+        public byte layVaiTro()
+        {
+            return this.VaiTro;
+        }
 
         public frm_admin_QuanLy()
         {
             InitializeComponent();
 
-            frm_DN = new frm_DangNhap();
-            TrangThai = frm_DN.layVaiTro();
-
-            if (TrangThai == 1)
+            if (layVaiTro() == 1)
             {
                 XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
@@ -32,6 +39,8 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             {
                 this.Enabled = false;
 
+                MessageBox.Show($"Vai trò: {layVaiTro()}");
+                MessageBox.Show($"Vai trò: {frm_DN.layVaiTro()}");
                 MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
                 this.Close();
 
@@ -114,6 +123,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
+            frm_DangNhap frm_DN = new frm_DangNhap();
             frm_DN.datVaiTro(0);
             frm_DN.Visible = true;
             this.Close();
