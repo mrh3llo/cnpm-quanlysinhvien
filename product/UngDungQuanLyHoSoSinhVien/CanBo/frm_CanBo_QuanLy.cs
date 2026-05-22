@@ -11,24 +11,14 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 {
     public partial class frm_CanBo_QuanLy : Form
     {
-        frm_DangNhap frm_DN = new frm_DangNhap();
         private byte VaiTro;
 
-        public void datVaiTro(byte VaiTro)
-        {
-            this.VaiTro = VaiTro;
-        }
-
-        public byte layVaiTro()
-        {
-            return this.VaiTro;
-        }
-
-        public frm_CanBo_QuanLy()
+        public frm_CanBo_QuanLy(byte VaiTro)
         {
             InitializeComponent();
+            this.VaiTro = VaiTro;
 
-            if (layVaiTro() == 2)
+            if (this.VaiTro == 2)
             {
                 XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
@@ -37,10 +27,8 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
             {
                 this.Enabled = false;
 
-                MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
+                MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản cán bộ để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
                 this.Close();
-
-                frm_DN.datVaiTro(0);
             }
         }
 
@@ -58,14 +46,14 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 
         private void btn_DSTaiKhoan_Click(object sender, EventArgs e)
         {
-            frm_CanBo_DanhSachTaiKhoan frm_DSTK = new frm_CanBo_DanhSachTaiKhoan();
-            frm_DSTK.ShowDialog();
+            frm_CanBo_DanhSachTaiKhoan frm_DSTK = new frm_CanBo_DanhSachTaiKhoan(this.VaiTro);
+            frm_DSTK.Show();
         }
 
         private void btn_TaoTaiKhoan_Click(object sender, EventArgs e)
         {
-            frm_CanBo_DienThongTin frm_DienTT = new frm_CanBo_DienThongTin();
-            frm_DienTT.ShowDialog();
+            frm_CanBo_DienThongTin frm_DienTT = new frm_CanBo_DienThongTin(this.VaiTro);
+            frm_DienTT.Show();
         }
 
         private void btn_SuaTaiKhoan_Click(object sender, EventArgs e)
@@ -74,8 +62,7 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
 
             int dong = dgv_DSSinhVien.CurrentCell.RowIndex;
 
-            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
-            frm_DienTT.datTrangThai(1);
+            frm_CanBo_DienThongTin frm_DienTT = new frm_CanBo_DienThongTin(this.VaiTro);
 
             if (dong >= 0 && dong < dgv_DSSinhVien.Rows.Count)
             {
@@ -104,19 +91,33 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
                 frm_DienTT.tb_NienKhoa.Text = TTSV["NienKhoa"].ToString();
                 frm_DienTT.cmb_TrangThai.SelectedText = TTSV["TrangThai"].ToString();
 
-                frm_DienTT.ShowDialog();
+                frm_DienTT.Show();
             }
             else
                 MessageBox.Show("Không tìm thấy thông tin chi tiết của sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void btn_TimMSSV_Click(object sender, EventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            TK_SinhVien.TimMaSV(tb_TimMSSV.Text.ToString());
+        }
+
+        private void dgv_DSSinhVien_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+            if (e.RowIndex >= 0 && e.RowIndex < dgv_DSSinhVien.Rows.Count)
+            {
+                DataRow TTSV = ((DataRowView)dgv_DSSinhVien.Rows[e.RowIndex].DataBoundItem).Row;
+                TK_SinhVien.TimMaSV(TTSV["MaSV"].ToString());
+            }
+        }
+
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
-
             frm_DangNhap frm_DN = new frm_DangNhap();
-            frm_DN.Visible = true;
-            frm_DN.datVaiTro(0);
+            frm_DN.Show();
+            this.Close();
         }
     }
 }

@@ -66,6 +66,7 @@
             btn_CapNhatTT.TabIndex = 5;
             btn_CapNhatTT.Text = "Cập nhật thông tin";
             btn_CapNhatTT.UseVisualStyleBackColor = false;
+            btn_CapNhatTT.Click += btn_CapNhatTT_Click;
             // 
             // btn_XoaTaiKhoan
             // 
@@ -78,6 +79,7 @@
             btn_XoaTaiKhoan.TabIndex = 1;
             btn_XoaTaiKhoan.Text = "Xóa tài khoản";
             btn_XoaTaiKhoan.UseVisualStyleBackColor = false;
+            btn_XoaTaiKhoan.Click += btn_XoaTaiKhoan_Click;
             // 
             // btn_ChiTietTT
             // 
@@ -88,6 +90,7 @@
             btn_ChiTietTT.TabIndex = 0;
             btn_ChiTietTT.Text = "Chi tiết thông tin";
             btn_ChiTietTT.UseVisualStyleBackColor = true;
+            btn_ChiTietTT.Click += btn_ChiTietTT_Click;
             // 
             // dgv_DSSinhVien
             // 
@@ -97,6 +100,7 @@
             dgv_DSSinhVien.RowHeadersWidth = 51;
             dgv_DSSinhVien.Size = new Size(776, 245);
             dgv_DSSinhVien.TabIndex = 73;
+            dgv_DSSinhVien.CellContentDoubleClick += dgv_DSSinhVien_CellContentDoubleClick;
             // 
             // lb_TieuDe
             // 
@@ -117,6 +121,7 @@
             btn_TimMSSV.TabIndex = 3;
             btn_TimMSSV.Text = "Tìm";
             btn_TimMSSV.UseVisualStyleBackColor = true;
+            btn_TimMSSV.Click += btn_TimMSSV_Click;
             // 
             // tb_TimMSSV
             // 
