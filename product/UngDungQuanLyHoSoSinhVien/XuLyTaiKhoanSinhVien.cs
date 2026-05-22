@@ -29,7 +29,7 @@ namespace UngDungQuanLyHoSoSinhVien
 	                                    dt.TenDanToc AS DanToc,
 	                                    tg.TenTonGiao AS TonGiao,
 	                                    tt_ns.TenTinhThanh AS NoiSinh,
-	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh,
+	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh AS QueQuan,
 	                                    sv.SoCCCD,
 	                                    kt.TenKhoa_Truong AS Khoa_Truong,
 	                                    n.TenNganh AS Nganh,
@@ -48,7 +48,6 @@ namespace UngDungQuanLyHoSoSinhVien
                                     JOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong
                                     JOIN Nganh n ON sv.Nganh = n.MaNganh
                                     JOIN Lop l ON sv.Lop = l.MaLop;";
-
 
             BangSinhVien = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
             dgv.DataSource = BangSinhVien;
@@ -86,6 +85,8 @@ namespace UngDungQuanLyHoSoSinhVien
                     return;
                 }
 
+                // string QueQuan = $"{TT_SinhVien["QQ_XaPhuong"].ToString()}" + $"{TT_SinhVien["QQ_TinhThanh"].ToString()}";
+
                 frm_ThongTinTaiKhoan frm_TTSV = new frm_ThongTinTaiKhoan();
 
                 // Thông tin cá nhân
@@ -111,7 +112,7 @@ namespace UngDungQuanLyHoSoSinhVien
                 frm_TTSV.lb_Khoa_Truong.Text = TT_SinhVien["Khoa_Truong"].ToString();
                 frm_TTSV.lb_NienKhoa.Text = TT_SinhVien["NienKhoa"].ToString();
 
-                frm_TTSV.ShowDialog();
+                frm_TTSV.Show();
             }
             catch (Exception ex)
             {

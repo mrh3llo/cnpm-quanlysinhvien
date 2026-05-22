@@ -9,19 +9,10 @@ namespace UngDungQuanLyHoSoSinhVien
         private string MatKhau;
         private byte VaiTro;
 
-        public byte layVaiTro()
-        {
-            return VaiTro;
-        }
-
-        public void datVaiTro(byte VaiTro)
-        {
-            this.VaiTro = VaiTro;
-        }
-
         public frm_DangNhap()
         {
             InitializeComponent();
+            this.VaiTro = 0; // Vai trò mặc định là 0 (chưa xác định)
         }
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
@@ -34,27 +25,26 @@ namespace UngDungQuanLyHoSoSinhVien
             // Lấy thông tin tài khoản và kiểm tra nếu có dữ liệu trả về
             DataRow TaiKhoan = new KetNoiCSDL().ThaoTac_DocMotDong_DuLieu(SQL_Query);
 
+            this.VaiTro = byte.Parse(TaiKhoan.Field<byte>("VaiTro").ToString());
+
             if(TaiKhoan != null)
             {
                 // Kiểm tra mật khẩu đăng nhập
                 if(MatKhau == TaiKhoan.Field<string>("MatKhau"))
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Đăng nhập thành công");
-                    datVaiTro(byte.Parse(TaiKhoan["VaiTro"].ToString()));
-                    this.Visible = false;
+                    this.Hide();
 
-                    switch(layVaiTro())
+                    switch(this.VaiTro)
                     {
                         case 1:
-                            admin.frm_admin_QuanLy frm_admin = new admin.frm_admin_QuanLy();
-                            frm_admin.datVaiTro(layVaiTro());
-                            frm_admin.ShowDialog();
+                            admin.frm_admin_QuanLy frm_admin = new admin.frm_admin_QuanLy(this.VaiTro);
+                            frm_admin.Show();
                             break;
 
                         case 2:
-                            CanBo.frm_CanBo_QuanLy frm_CanBo = new CanBo.frm_CanBo_QuanLy();
-                            frm_CanBo.datVaiTro(layVaiTro());
-                            frm_CanBo.ShowDialog();
+                            CanBo.frm_CanBo_QuanLy frm_CanBo = new CanBo.frm_CanBo_QuanLy(this.VaiTro);
+                            frm_CanBo.Show();
                             break;
 
                         case 3:
