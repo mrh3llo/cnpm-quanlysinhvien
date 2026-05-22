@@ -39,7 +39,6 @@
             btn_DSTaiKhoan = new Button();
             btn_DangXuat = new Button();
             grb_TimKiem = new GroupBox();
-            btn_TimKiemNangCao = new Button();
             tb_TimMSSV = new TextBox();
             btn_TimMSSV = new Button();
             lb_TimMSSV = new Label();
@@ -163,7 +162,6 @@
             // 
             // grb_TimKiem
             // 
-            grb_TimKiem.Controls.Add(btn_TimKiemNangCao);
             grb_TimKiem.Controls.Add(tb_TimMSSV);
             grb_TimKiem.Controls.Add(btn_TimMSSV);
             grb_TimKiem.Controls.Add(lb_TimMSSV);
@@ -173,16 +171,6 @@
             grb_TimKiem.TabIndex = 3;
             grb_TimKiem.TabStop = false;
             grb_TimKiem.Text = "Chức năng tìm kiếm";
-            // 
-            // btn_TimKiemNangCao
-            // 
-            btn_TimKiemNangCao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_TimKiemNangCao.Location = new Point(560, 23);
-            btn_TimKiemNangCao.Name = "btn_TimKiemNangCao";
-            btn_TimKiemNangCao.Size = new Size(210, 41);
-            btn_TimKiemNangCao.TabIndex = 6;
-            btn_TimKiemNangCao.Text = "Tìm kiếm nâng cao";
-            btn_TimKiemNangCao.UseVisualStyleBackColor = true;
             // 
             // tb_TimMSSV
             // 
@@ -248,7 +236,6 @@
         private Label lb_TimMSSV;
         private TextBox tb_TimMSSV;
         private Button btn_TimMSSV;
-        private Button btn_TimKiemNangCao;
         private Button btn_DSTaiKhoan;
         private Button btn_TaiLai;
     }

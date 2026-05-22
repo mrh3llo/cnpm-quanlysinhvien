@@ -13,24 +13,14 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 {
     public partial class frm_admin_QuanLy : Form
     {
-        frm_DangNhap frm_DN = new frm_DangNhap();
         private byte VaiTro;
-        
-        public void datVaiTro(byte VaiTro)
-        {
-            this.VaiTro = VaiTro;
-        }
 
-        public byte layVaiTro()
-        {
-            return this.VaiTro;
-        }
-
-        public frm_admin_QuanLy()
+        public frm_admin_QuanLy(byte VaiTro)
         {
             InitializeComponent();
+            this.VaiTro = VaiTro;
 
-            if (layVaiTro() == 1)
+            if (this.VaiTro == 1)
             {
                 XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
@@ -39,32 +29,28 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             {
                 this.Enabled = false;
 
-                MessageBox.Show($"Vai trò: {layVaiTro()}");
-                MessageBox.Show($"Vai trò: {frm_DN.layVaiTro()}");
                 MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
                 this.Close();
-
-                frm_DN.datVaiTro(0);
             }
         }
 
         private void btn_DSTaiKhoan_Click(object sender, EventArgs e)
         {
-            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan();
-            frm_DSTK.ShowDialog();
+            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan(this.VaiTro);
+            frm_DSTK.Show();
         }
 
         private void btn_XoaTaiKhoan_Click(object sender, EventArgs e)
         {
-            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan();
-            frm_DSTK.ShowDialog();
+            frm_admin_DanhSachTaiKhoan frm_DSTK = new frm_admin_DanhSachTaiKhoan(this.VaiTro);
+            frm_DSTK.Show();
         }
 
         private void btn_TaoTaiKhoan_Click(object sender, EventArgs e)
         {
-            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
+            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin(this.VaiTro);
             frm_DienTT.datTrangThai(0);
-            frm_DienTT.ShowDialog();
+            frm_DienTT.Show();
         }
 
         private void btn_SuaTaiKhoan_Click(object sender, EventArgs e)
@@ -73,7 +59,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
             int dong = dgv_DSSinhVien.CurrentCell.RowIndex;
 
-            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
+            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin(this.VaiTro);
             frm_DienTT.datTrangThai(1);
 
             if (dong >= 0 && dong < dgv_DSSinhVien.Rows.Count)
@@ -103,7 +89,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
                 frm_DienTT.tb_NienKhoa.Text = TTSV["NienKhoa"].ToString();
                 frm_DienTT.cmb_TrangThai.SelectedText = TTSV["TrangThai"].ToString();
 
-                frm_DienTT.ShowDialog();
+                frm_DienTT.Show();
             }
             else
                 MessageBox.Show("Không tìm thấy thông tin chi tiết của sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,8 +110,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
             frm_DangNhap frm_DN = new frm_DangNhap();
-            frm_DN.datVaiTro(0);
-            frm_DN.Visible = true;
+            frm_DN.Show();
             this.Close();
         }
 

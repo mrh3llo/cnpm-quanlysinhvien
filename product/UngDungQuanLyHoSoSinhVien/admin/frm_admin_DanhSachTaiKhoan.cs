@@ -10,21 +10,19 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 {
     public partial class frm_admin_DanhSachTaiKhoan : Form
     {
-        public frm_admin_DanhSachTaiKhoan()
+        private byte VaiTro;
+
+        public frm_admin_DanhSachTaiKhoan(byte VaiTro)
         {
             InitializeComponent();
+            this.VaiTro = VaiTro;
 
-            frm_DangNhap frm_DN = new frm_DangNhap();
-            byte TrangThai = frm_DN.layVaiTro();
-
-            if (TrangThai != 1)
+            if (this.VaiTro != 1)
             {
                 this.Enabled = false;
 
                 MessageBox.Show("Bạn không có quyền truy cập vào trang quản lý tài khoản! Vui lòng đăng nhập bằng tài khoản quản trị viên để sử dụng chức năng này.", "Quyền truy cập bị từ chối");
                 this.Close();
-
-                frm_DN.datVaiTro(0);
             }
             else
             {
@@ -95,7 +93,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
             int dong = dgv_DSSinhVien.CurrentCell.RowIndex;
 
-            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin();
+            frm_admin_DienThongTin frm_DienTT = new frm_admin_DienThongTin(this.VaiTro);
             frm_DienTT.datTrangThai(1);
 
             if (dong >= 0 && dong < dgv_DSSinhVien.Rows.Count)
