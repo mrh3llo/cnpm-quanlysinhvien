@@ -75,6 +75,66 @@ namespace UngDungQuanLyHoSoSinhVien
             dgv.Columns[19].Visible = false;
         }
 
+        public void HienThi_DS_SinhVien_TheoLop(DataGridView dgv, string MaLop)
+        {
+            string SQL_TruyVan = $@"SELECT 
+	                                    sv.MaSV,
+	                                    sv.Ho + ' ' + sv.Ten AS HoTen,
+	                                    CASE WHEN sv.GioiTinh = N'Nam' THEN N'Nam' ELSE N'Nữ' END AS GioiTinh,
+	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
+	                                    sv.SDT,
+	                                    sv.Email,
+	                                    sv.DiaChiThuongTru,
+	                                    dt.TenDanToc AS DanToc,
+	                                    tg.TenTonGiao AS TonGiao,
+	                                    tt_ns.TenTinhThanh AS NoiSinh,
+	                                    xp.TenXaPhuong + ', ' + tt_qq.TenTinhThanh AS QueQuan,
+	                                    sv.SoCCCD,
+	                                    kt.TenKhoa_Truong AS Khoa_Truong,
+	                                    n.TenNganh AS Nganh,
+	                                    l.TenLop AS Lop,
+	                                    sv.NienKhoa,
+	                                    sv.TrangThai,
+                                        sv.AnhDaiDien,
+                                        sv.QueQuan_TinhThanh as QQ_TinhThanh,
+                                        sv.QueQuan_XaPhuong as QQ_XaPhuong
+                                    FROM SinhVien sv
+                                    JOIN DanToc dt ON sv.DanToc = dt.MaDanToc
+                                    JOIN TonGiao tg ON sv.TonGiao = tg.MaTonGiao
+                                    JOIN TinhThanh tt_ns ON sv.NoiSinh_TinhThanh = tt_ns.MaTinhThanh
+                                    JOIN XaPhuong xp ON sv.QueQuan_XaPhuong = xp.MaXaPhuong
+                                    JOIN TinhThanh tt_qq ON sv.QueQuan_TinhThanh = tt_qq.MaTinhThanh
+                                    JOIN Khoa_Truong kt ON sv.Khoa_Truong = kt.MaKhoa_Truong
+                                    JOIN Nganh n ON sv.Nganh = n.MaNganh
+                                    JOIN Lop l ON sv.Lop = l.MaLop
+                                WHERE l.MaLop = '{MaLop}';";
+
+            BangSinhVien = KetNoi.GhiDuLieuVaoBang(SQL_TruyVan);
+            dgv.DataSource = BangSinhVien;
+
+            // Đặt tên cột cho DataGridView
+            dgv.Columns[0].HeaderText = "Mã sinh viên";
+            dgv.Columns[1].HeaderText = "Họ tên";
+            dgv.Columns[2].HeaderText = "Giới tính";
+            dgv.Columns[3].HeaderText = "Ngày sinh";
+            dgv.Columns[4].HeaderText = "Số điện thoại";
+            dgv.Columns[5].HeaderText = "Email";
+            dgv.Columns[6].HeaderText = "Địa chỉ thường trú";
+            dgv.Columns[7].HeaderText = "Dân tộc";
+            dgv.Columns[8].HeaderText = "Tôn giáo";
+            dgv.Columns[9].HeaderText = "Nơi sinh";
+            dgv.Columns[10].HeaderText = "Quê quán";
+            dgv.Columns[11].HeaderText = "Số CCCD";
+            dgv.Columns[12].HeaderText = "Khoa/ Trường";
+            dgv.Columns[13].HeaderText = "Ngành";
+            dgv.Columns[14].HeaderText = "Lớp";
+            dgv.Columns[15].HeaderText = "Niên khóa";
+            dgv.Columns[16].HeaderText = "Trạng thái";
+            dgv.Columns[17].Visible = false;
+            dgv.Columns[18].Visible = false;
+            dgv.Columns[19].Visible = false;
+        }
+
         public void HienThiChiTiet_TT_SinhVien(DataRow TT_SinhVien)
         {
             try

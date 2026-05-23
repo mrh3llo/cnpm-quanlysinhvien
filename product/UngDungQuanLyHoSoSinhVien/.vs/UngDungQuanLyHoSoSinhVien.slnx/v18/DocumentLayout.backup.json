@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\xulytaikhoansinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:xulytaikhoansinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\giangvien\\frm_giangvien_ds_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:giangvien\\frm_giangvien_ds_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\frm_thongtintaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:frm_thongtintaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\fontresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:fontresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\canbo\\frm_canbo_danhsachtaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:canbo\\frm_canbo_danhsachtaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\canbo\\frm_canbo_danhsachtaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:canbo\\frm_canbo_danhsachtaikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\code\\product\\ungdungquanlyhososinhvien\\giangvien\\frm_giangvien_ds_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:giangvien\\frm_giangvien_ds_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,52 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frm_ThongTinTaiKhoan.cs [Design]",
-              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\frm_ThongTinTaiKhoan.cs",
-              "RelativeDocumentMoniker": "frm_ThongTinTaiKhoan.cs",
-              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\frm_ThongTinTaiKhoan.cs [Design]",
-              "RelativeToolTip": "frm_ThongTinTaiKhoan.cs [Design]",
+              "Title": "FontResolver.cs",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\FontResolver.cs",
+              "RelativeDocumentMoniker": "FontResolver.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\FontResolver.cs",
+              "RelativeToolTip": "FontResolver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T12:17:11.48Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "XuLyTaiKhoanSinhVien.cs",
-              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\XuLyTaiKhoanSinhVien.cs",
-              "RelativeDocumentMoniker": "XuLyTaiKhoanSinhVien.cs",
-              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\XuLyTaiKhoanSinhVien.cs",
-              "RelativeToolTip": "XuLyTaiKhoanSinhVien.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAASwGoAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T12:14:40.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frm_CanBo_DanhSachTaiKhoan.cs",
-              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "RelativeDocumentMoniker": "CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "RelativeToolTip": "CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAADgvzAAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T12:20:11.914Z",
+              "WhenOpened": "2026-05-23T18:35:15.107Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frm_CanBo_DanhSachTaiKhoan.cs [Design]",
-              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "RelativeDocumentMoniker": "CanBo\\frm_CanBo_DanhSachTaiKhoan.cs",
-              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\CanBo\\frm_CanBo_DanhSachTaiKhoan.cs [Design]",
-              "RelativeToolTip": "CanBo\\frm_CanBo_DanhSachTaiKhoan.cs [Design]",
+              "Title": "frm_GiangVien_DS_SinhVien.cs [Design]",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\GiangVien\\frm_GiangVien_DS_SinhVien.cs",
+              "RelativeDocumentMoniker": "GiangVien\\frm_GiangVien_DS_SinhVien.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\GiangVien\\frm_GiangVien_DS_SinhVien.cs [Design]*",
+              "RelativeToolTip": "GiangVien\\frm_GiangVien_DS_SinhVien.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T12:10:16.852Z",
+              "WhenOpened": "2026-05-23T18:28:29.288Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frm_GiangVien_DS_SinhVien.cs",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\GiangVien\\frm_GiangVien_DS_SinhVien.cs",
+              "RelativeDocumentMoniker": "GiangVien\\frm_GiangVien_DS_SinhVien.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\Code\\product\\UngDungQuanLyHoSoSinhVien\\GiangVien\\frm_GiangVien_DS_SinhVien.cs*",
+              "RelativeToolTip": "GiangVien\\frm_GiangVien_DS_SinhVien.cs*",
+              "ViewState": "AgIAABABAAAAAAAAAAApwCUBAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T16:29:42.74Z",
+              "EditorCaption": ""
             }
           ]
         }

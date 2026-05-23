@@ -48,7 +48,7 @@ namespace UngDungQuanLyHoSoSinhVien
                             break;
 
                         case 3:
-                            GiangVien.frm_GiangVien_DS_SinhVien frm_GiangVien = new GiangVien.frm_GiangVien_DS_SinhVien();
+                            GiangVien.frm_GiangVien_DS_SinhVien frm_GiangVien = new GiangVien.frm_GiangVien_DS_SinhVien(this.VaiTro);
                             frm_GiangVien.ShowDialog();
                             break;
 
