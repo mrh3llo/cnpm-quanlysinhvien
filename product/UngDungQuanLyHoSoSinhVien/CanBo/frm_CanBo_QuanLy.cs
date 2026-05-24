@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using UngDungQuanLyHoSoSinhVien.admin;
+using UngDungQuanLyHoSoSinhVien.GiangVien;
 
 namespace UngDungQuanLyHoSoSinhVien.CanBo
 {
@@ -111,6 +112,12 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
                 DataRow TTSV = ((DataRowView)dgv_DSSinhVien.Rows[e.RowIndex].DataBoundItem).Row;
                 TK_SinhVien.TimMaSV(TTSV["MaSV"].ToString());
             }
+        }
+
+        private void btn_DSYeuCauCapNhat_Click(object sender, EventArgs e)
+        {
+            frm_CanBo_XacNhanYeuCauCapNhat frm_XNYCCapNhan = new frm_CanBo_XacNhanYeuCauCapNhat(this.VaiTro);
+            frm_XNYCCapNhan.Show();
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)

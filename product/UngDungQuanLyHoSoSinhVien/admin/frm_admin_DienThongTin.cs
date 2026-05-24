@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 
@@ -64,6 +66,9 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
         private void btn_ChonAnhDaiDien_Click(object sender, EventArgs e)
         {
+            int DoRongAnh = 120;
+            int DoCaoAnh = 160;
+
             file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             file_AnhDaiDien.Title = "Chọn ảnh đại diện";
             if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
@@ -71,7 +76,52 @@ namespace UngDungQuanLyHoSoSinhVien.admin
                 this.DuongDanAnh = file_AnhDaiDien.FileName;
                 XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 this.DuongDanAnh = TK_SinhVien.ChuanHoaDuongDanAnh(DuongDanAnh, layMaSV());
-            } 
+            }
+
+            using (Image NguonAnh = Image.FromFile(DuongDanAnh))
+            {
+                // Tạo bitmap đích với kích thước cố định
+                using (Bitmap TaoBitmapKichThuocCoDinh = new Bitmap(DoRongAnh, DoCaoAnh))
+                {
+                    TaoBitmapKichThuocCoDinh.SetResolution(NguonAnh.HorizontalResolution, NguonAnh.VerticalResolution);
+
+                    using (Graphics XuLyAnh = Graphics.FromImage(TaoBitmapKichThuocCoDinh))
+                    {
+                        XuLyAnh.CompositingMode = CompositingMode.SourceOver;
+                        XuLyAnh.CompositingQuality = CompositingQuality.HighQuality;
+                        XuLyAnh.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        XuLyAnh.SmoothingMode = SmoothingMode.HighQuality;
+                        XuLyAnh.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                        // Vẽ ảnh nguồn lên bitmap đích (kéo dãn/thu nhỏ để vừa khung 120x160)
+                        XuLyAnh.Clear(Color.Transparent);
+                        XuLyAnh.DrawImage(NguonAnh, 0, 0, DoRongAnh, DoCaoAnh);
+                    }
+
+                    // Lưu ảnh đích theo định dạng tương ứng
+                    ImageFormat DinhDangAnh = ImageFormat.Jpeg;
+                    switch (Path.GetExtension(DuongDanAnh).ToLower())
+                    {
+                        case ".png":
+                            DinhDangAnh = ImageFormat.Png;
+                            break;
+                        case ".gif":
+                            DinhDangAnh = ImageFormat.Gif;
+                            break;
+                        case ".bmp":
+                            DinhDangAnh = ImageFormat.Bmp;
+                            break;
+                        case ".jpeg":
+                        case ".jpg":
+                        default:
+                            DinhDangAnh = ImageFormat.Jpeg;
+                            break;
+                    }
+
+                    // Ghi đè file đích
+                    TaoBitmapKichThuocCoDinh.Save(DuongDanAnh, DinhDangAnh);
+                }
+            }
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)

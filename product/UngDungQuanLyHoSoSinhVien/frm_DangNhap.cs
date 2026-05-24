@@ -25,9 +25,17 @@ namespace UngDungQuanLyHoSoSinhVien
             // Lấy thông tin tài khoản và kiểm tra nếu có dữ liệu trả về
             DataRow TaiKhoan = new KetNoiCSDL().ThaoTac_DocMotDong_DuLieu(SQL_Query);
 
-            this.VaiTro = byte.Parse(TaiKhoan.Field<byte>("VaiTro").ToString());
+            try
+            {
+                this.VaiTro = byte.Parse(TaiKhoan.Field<byte>("VaiTro").ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xác định vai trò: " + ex.Message, "Lỗi");
+                this.VaiTro = 0; // Đặt lại vai trò về 0 nếu có lỗi
+            }
 
-            if(TaiKhoan != null)
+            if (TaiKhoan != null)
             {
                 // Kiểm tra mật khẩu đăng nhập
                 if(MatKhau == TaiKhoan.Field<string>("MatKhau"))
@@ -53,7 +61,7 @@ namespace UngDungQuanLyHoSoSinhVien
                             break;
 
                         case 4:
-                            frm_ThongTinTaiKhoan frm_TTSV = new frm_ThongTinTaiKhoan();
+                            SinhVien.frm_SinhVien_ThongTinCaNhan frm_TTSV = new SinhVien.frm_SinhVien_ThongTinCaNhan(this.VaiTro, tb_TenTaiKhoan.Text.ToString());
                             frm_TTSV.ShowDialog();
                             break;
                     }

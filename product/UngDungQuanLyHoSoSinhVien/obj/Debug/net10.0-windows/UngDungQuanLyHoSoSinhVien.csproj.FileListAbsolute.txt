@@ -56,3 +56,6 @@ D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\net10.0-windows\MigraDoc.RtfRendering.dll
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\net10.0-windows\RBush.dll
 D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\bin\Debug\net10.0-windows\SixLabors.Fonts.dll
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.SinhVien.frm_SinhVien_ThongTinCaNhan.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.GiangVien.frm_CanBo_XacNhanYeuCauCapNhat.resources
+D:\.SYSTEM\Documents\School\Công nghệ phần mềm\Báo cáo môn học\Code\product\UngDungQuanLyHoSoSinhVien\obj\Debug\net10.0-windows\UngDungQuanLyHoSoSinhVien.SinhVien.frm_SinhVien_LichSuGuiYeuCauCapNhat.resources

@@ -41,6 +41,7 @@
             btn_SuaTaiKhoan = new Button();
             btn_TaoTaiKhoan = new Button();
             lb_TieuDe = new Label();
+            btn_DSYeuCauCapNhat = new Button();
             grb_TimKiem.SuspendLayout();
             grb_DSSinhVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
@@ -146,11 +147,12 @@
             // 
             // grb_QuanLy
             // 
+            grb_QuanLy.Controls.Add(btn_DSYeuCauCapNhat);
             grb_QuanLy.Controls.Add(btn_SuaTaiKhoan);
             grb_QuanLy.Controls.Add(btn_TaoTaiKhoan);
             grb_QuanLy.Location = new Point(12, 148);
             grb_QuanLy.Name = "grb_QuanLy";
-            grb_QuanLy.Size = new Size(223, 123);
+            grb_QuanLy.Size = new Size(223, 172);
             grb_QuanLy.TabIndex = 5;
             grb_QuanLy.TabStop = false;
             grb_QuanLy.Text = "Chức năng quản lý";
@@ -186,6 +188,18 @@
             lb_TieuDe.Size = new Size(354, 54);
             lb_TieuDe.TabIndex = 4;
             lb_TieuDe.Text = "Quản lý tài khoản";
+            // 
+            // btn_DSYeuCauCapNhat
+            // 
+            btn_DSYeuCauCapNhat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_DSYeuCauCapNhat.Location = new Point(7, 122);
+            btn_DSYeuCauCapNhat.Name = "btn_DSYeuCauCapNhat";
+            btn_DSYeuCauCapNhat.RightToLeft = RightToLeft.No;
+            btn_DSYeuCauCapNhat.Size = new Size(210, 42);
+            btn_DSYeuCauCapNhat.TabIndex = 5;
+            btn_DSYeuCauCapNhat.Text = "Yêu cầu cập nhật";
+            btn_DSYeuCauCapNhat.UseVisualStyleBackColor = true;
+            btn_DSYeuCauCapNhat.Click += btn_DSYeuCauCapNhat_Click;
             // 
             // frm_CanBo_QuanLy
             // 
@@ -224,5 +238,6 @@
         private Button btn_TaoTaiKhoan;
         private Label lb_TieuDe;
         private Button btn_TaiLai;
+        private Button btn_DSYeuCauCapNhat;
     }
 }

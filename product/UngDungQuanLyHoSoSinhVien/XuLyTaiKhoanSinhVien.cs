@@ -84,7 +84,7 @@ namespace UngDungQuanLyHoSoSinhVien
 	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
 	                                    sv.SDT,
 	                                    sv.Email,
-	                                    sv.DiaChiThuongTru,
+	                                    sv.DiaChiThuongTru AS DiaChiThuongTru,
 	                                    dt.TenDanToc AS DanToc,
 	                                    tg.TenTonGiao AS TonGiao,
 	                                    tt_ns.TenTinhThanh AS NoiSinh,
@@ -160,6 +160,7 @@ namespace UngDungQuanLyHoSoSinhVien
                 frm_TTSV.lb_GioiTinh.Text = TT_SinhVien["GioiTinh"].ToString();
                 frm_TTSV.lb_SDT.Text = TT_SinhVien["SDT"].ToString();
                 frm_TTSV.lb_Email.Text = TT_SinhVien["Email"].ToString();
+                frm_TTSV.lb_DiaChiThuongTru.Text = TT_SinhVien["DiaChiThuongTru"].ToString();
                 frm_TTSV.lb_NgaySinh.Text = TT_SinhVien["NgaySinh"].ToString();
                 frm_TTSV.lb_NoiSinh.Text = TT_SinhVien["NoiSinh"].ToString();
                 frm_TTSV.lb_DanToc.Text = TT_SinhVien["DanToc"].ToString();
@@ -289,7 +290,7 @@ namespace UngDungQuanLyHoSoSinhVien
             }
         }
 
-        public void GuiYeuCauCapNhat_TT_SinhVien(string MaSV, string EmailMoi, string SDT_Moi,
+        public void GuiYeuCauCapNhat_TT_SinhVien(string MaSV, string SDT_Moi, string EmailMoi,
                                         string DiaChiThuongTru_Moi, string LyDoCapNhat)
         {
             try
@@ -356,6 +357,33 @@ namespace UngDungQuanLyHoSoSinhVien
             }
         }
 
+        public void DuyetYeuCau_CapNhat(string MaYeuCau, string MaSV, string SDT, string Email, string DiaChiThuongTru)
+        {
+            try
+            {
+                // Xây dựng câu lệnh SQL UPDATE
+                string SQL_TruyVan = $@"USE QuanLyHoSoSinhVien;" +
+                    $@"UPDATE SinhVien " +
+                    $@"SET Email = '{Email}', " +
+                    $@"SDT = '{SDT}', " +
+                    $@"DiaChiThuongTru = N'{DiaChiThuongTru}' " +
+                    $@"WHERE MaSV = '{MaSV}';";
+                // Thực thi câu lệnh cập nhật sinh viên
+                KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
+
+                SQL_TruyVan = $"" + $"UPDATE YeuCauCapNhat " +
+                    $"SET TrangThai = 1 " +
+                    $"WHERE MaYeuCau = '{MaYeuCau}';";
+                KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
+
+                MessageBox.Show($"Cập nhật thông tin sinh viên thành công!\nMã sinh viên: {MaSV}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi cập nhật thông tin sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void XoaSinhVien(string MaSV)
         {
             string SQL_TruyVan = $@"DELETE FROM SinhVien WHERE MaSV = '{MaSV}';";
@@ -380,7 +408,7 @@ namespace UngDungQuanLyHoSoSinhVien
 	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
 	                                    sv.SDT,
 	                                    sv.Email,
-	                                    sv.DiaChiThuongTru,
+	                                    sv.DiaChiThuongTru AS DiaChiThuongTru,
 	                                    dt.TenDanToc AS DanToc,
 	                                    tg.TenTonGiao AS TonGiao,
 	                                    tt_ns.TenTinhThanh AS NoiSinh,
@@ -415,7 +443,7 @@ namespace UngDungQuanLyHoSoSinhVien
 	                                    FORMAT(sv.NgaySinh, 'dd/MM/yyyy') AS NgaySinh,
 	                                    sv.SDT,
 	                                    sv.Email,
-	                                    sv.DiaChiThuongTru,
+	                                    sv.DiaChiThuongTru AS DiaChiThuongTru,
 	                                    dt.TenDanToc AS DanToc,
 	                                    tg.TenTonGiao AS TonGiao,
 	                                    tt_ns.TenTinhThanh AS NoiSinh,

@@ -59,6 +59,8 @@
             lb_HoTen = new Label();
             lb_Email = new Label();
             lb_NgaySinh = new Label();
+            label11 = new Label();
+            lb_DiaChiThuongTru = new Label();
             ((System.ComponentModel.ISupportInitialize)ptb_AnhDaiDien).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -69,7 +71,7 @@
             ptb_AnhDaiDien.ImageLocation = "";
             ptb_AnhDaiDien.Location = new Point(12, 69);
             ptb_AnhDaiDien.Name = "ptb_AnhDaiDien";
-            ptb_AnhDaiDien.Size = new Size(120, 150);
+            ptb_AnhDaiDien.Size = new Size(120, 160);
             ptb_AnhDaiDien.SizeMode = PictureBoxSizeMode.Zoom;
             ptb_AnhDaiDien.TabIndex = 0;
             ptb_AnhDaiDien.TabStop = false;
@@ -128,7 +130,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(470, 79);
+            label6.Location = new Point(535, 79);
             label6.Name = "label6";
             label6.Size = new Size(112, 28);
             label6.TabIndex = 6;
@@ -138,7 +140,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(470, 107);
+            label7.Location = new Point(535, 135);
             label7.Name = "label7";
             label7.Size = new Size(97, 28);
             label7.TabIndex = 7;
@@ -148,7 +150,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(470, 135);
+            label8.Location = new Point(535, 163);
             label8.Name = "label8";
             label8.Size = new Size(91, 28);
             label8.TabIndex = 8;
@@ -158,7 +160,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(470, 163);
+            label9.Location = new Point(535, 191);
             label9.Name = "label9";
             label9.Size = new Size(98, 28);
             label9.TabIndex = 9;
@@ -168,7 +170,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(150, 219);
+            label10.Location = new Point(535, 107);
             label10.Name = "label10";
             label10.Size = new Size(108, 28);
             label10.TabIndex = 10;
@@ -179,7 +181,7 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(274, 9);
+            lb_TieuDe.Location = new Point(276, 9);
             lb_TieuDe.Name = "lb_TieuDe";
             lb_TieuDe.Size = new Size(392, 54);
             lb_TieuDe.TabIndex = 11;
@@ -287,7 +289,7 @@
             // 
             lb_NoiSinh.AutoSize = true;
             lb_NoiSinh.Font = new Font("Segoe UI", 12F);
-            lb_NoiSinh.Location = new Point(588, 107);
+            lb_NoiSinh.Location = new Point(653, 135);
             lb_NoiSinh.Name = "lb_NoiSinh";
             lb_NoiSinh.Size = new Size(24, 28);
             lb_NoiSinh.TabIndex = 14;
@@ -297,7 +299,7 @@
             // 
             lb_DanToc.AutoSize = true;
             lb_DanToc.Font = new Font("Segoe UI", 12F);
-            lb_DanToc.Location = new Point(588, 135);
+            lb_DanToc.Location = new Point(653, 163);
             lb_DanToc.Name = "lb_DanToc";
             lb_DanToc.Size = new Size(24, 28);
             lb_DanToc.TabIndex = 16;
@@ -307,7 +309,7 @@
             // 
             lb_TonGiao.AutoSize = true;
             lb_TonGiao.Font = new Font("Segoe UI", 12F);
-            lb_TonGiao.Location = new Point(588, 163);
+            lb_TonGiao.Location = new Point(653, 191);
             lb_TonGiao.Name = "lb_TonGiao";
             lb_TonGiao.Size = new Size(24, 28);
             lb_TonGiao.TabIndex = 17;
@@ -317,7 +319,7 @@
             // 
             lb_QueQuan.AutoSize = true;
             lb_QueQuan.Font = new Font("Segoe UI", 12F);
-            lb_QueQuan.Location = new Point(268, 219);
+            lb_QueQuan.Location = new Point(653, 107);
             lb_QueQuan.Name = "lb_QueQuan";
             lb_QueQuan.Size = new Size(24, 28);
             lb_QueQuan.TabIndex = 18;
@@ -377,17 +379,39 @@
             // 
             lb_NgaySinh.AutoSize = true;
             lb_NgaySinh.Font = new Font("Segoe UI", 12F);
-            lb_NgaySinh.Location = new Point(588, 79);
+            lb_NgaySinh.Location = new Point(653, 79);
             lb_NgaySinh.Name = "lb_NgaySinh";
             lb_NgaySinh.Size = new Size(24, 28);
             lb_NgaySinh.TabIndex = 24;
             lb_NgaySinh.Text = "...";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(150, 219);
+            label11.Name = "label11";
+            label11.Size = new Size(193, 28);
+            label11.TabIndex = 25;
+            label11.Text = "Địa chỉ thường trú:";
+            // 
+            // lb_DiaChiThuongTru
+            // 
+            lb_DiaChiThuongTru.AutoSize = true;
+            lb_DiaChiThuongTru.Font = new Font("Segoe UI", 12F);
+            lb_DiaChiThuongTru.Location = new Point(349, 219);
+            lb_DiaChiThuongTru.Name = "lb_DiaChiThuongTru";
+            lb_DiaChiThuongTru.Size = new Size(24, 28);
+            lb_DiaChiThuongTru.TabIndex = 26;
+            lb_DiaChiThuongTru.Text = "...";
+            // 
             // frm_ThongTinTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(794, 416);
+            ClientSize = new Size(982, 416);
+            Controls.Add(lb_DiaChiThuongTru);
+            Controls.Add(label11);
             Controls.Add(lb_NgaySinh);
             Controls.Add(lb_Email);
             Controls.Add(lb_SDT);
@@ -453,5 +477,7 @@
         public Label lb_HoTen;
         public Label lb_Email;
         public PictureBox ptb_AnhDaiDien;
+        private Label label11;
+        public Label lb_DiaChiThuongTru;
     }
 }

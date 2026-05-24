@@ -28,6 +28,15 @@
     <Compile Update="GiangVien\frm_GiangVien_DS_SinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CanBo\frm_CanBo_XacNhanYeuCauCapNhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SinhVien\frm_SinhVien_LichSuGuiYeuCauCapNhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SinhVien\frm_SinhVien_ThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SinhVien\frm_SinhVien_YeuCauCapNhat.cs">
       <SubType>Form</SubType>
     </Compile>
