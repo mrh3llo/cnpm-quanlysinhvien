@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\Code\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {}
+    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {}
   },
   "projects": {
-    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\Code\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {
+    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\Code\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
+        "projectUniqueName": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
         "projectName": "UngDungQuanLyHoSoSinhVien",
-        "projectPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\Code\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
+        "projectPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
         "packagesPath": "C:\\Users\\_koocs\\.nuget\\packages\\",
-        "outputPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\Code\\product\\UngDungQuanLyHoSoSinhVien\\obj\\",
+        "outputPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\APPS\\SMSS\\Share\\NuGetPackages"
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0-windows": {
@@ -84,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

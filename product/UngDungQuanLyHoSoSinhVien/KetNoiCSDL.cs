@@ -17,8 +17,9 @@ namespace UngDungQuanLyHoSoSinhVien
         public KetNoiCSDL()
         {
             // Kiểm tra chuỗi kết nối trước khi sử dụng
-            string ChuoiKetNoi = @"Data Source=DESKTOP-R2H1EQQ;Initial Catalog=QuanLyHoSoSinhVien;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;";
-            SQL_KetNoi = new SqlConnection(ChuoiKetNoi);
+            // string ChuoiKetNoi = @"Data Source=DESKTOP-R2H1EQQ;Initial Catalog=QuanLyHoSoSinhVien;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;";
+            string ChuoiKetNoiDocker = @"Server=localhost,1401;Database=QuanLyHoSoSinhVien;User Id=sa;Password=Ql_Hssv123;Encrypt=False;TrustServerCertificate=False;";
+            SQL_KetNoi = new SqlConnection(ChuoiKetNoiDocker);
         }
 
         public DataTable GhiDuLieuVaoBang(string SQL_TruyVan)
