@@ -39,5 +39,5 @@ CÁC BƯỚC CỤ THỂ:
 	8.1. Kiểm tra thực thể trong CSDL:
 	> docker exec -it qlhssv_db /opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P 'Ql_Hssv123' -C -Q "USE [QuanLyHoSoSinhVien]; EXEC sp_help 'dbo.TaiKhoanNguoiDung';"
 
-	8.2. Kiểm tra 100 hàng đầu tiên trong thực thể
+	8.2. Kiểm tra 100 hàng đầu tiên trong thực thể TaiKhoanNguoiDung
 	> docker exec -it qlhssv_db /opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P 'Ql_Hssv123' -C -Q "SET NOCOUNT ON; USE [QuanLyHoSoSinhVien]; SELECT TOP 100 * FROM dbo.TaiKhoanNguoiDung;"
