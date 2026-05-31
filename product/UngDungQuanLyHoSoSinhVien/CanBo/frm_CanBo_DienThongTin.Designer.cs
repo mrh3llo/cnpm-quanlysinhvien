@@ -81,6 +81,7 @@
             btn_ChonAnhDaiDien.TabIndex = 109;
             btn_ChonAnhDaiDien.Text = "Chọn ảnh...";
             btn_ChonAnhDaiDien.UseVisualStyleBackColor = true;
+            btn_ChonAnhDaiDien.Click += btn_ChonAnhDaiDien_Click;
             // 
             // label1
             // 
@@ -103,6 +104,7 @@
             btn_Thoat.TabIndex = 107;
             btn_Thoat.Text = "Thoát";
             btn_Thoat.UseVisualStyleBackColor = false;
+            btn_Thoat.Click += btn_Thoat_Click;
             // 
             // btn_NhapLai
             // 
@@ -114,6 +116,7 @@
             btn_NhapLai.TabIndex = 106;
             btn_NhapLai.Text = "Nhập lại";
             btn_NhapLai.UseVisualStyleBackColor = false;
+            btn_NhapLai.Click += btn_NhapLai_Click;
             // 
             // btn_XacNhan
             // 
@@ -124,6 +127,7 @@
             btn_XacNhan.TabIndex = 105;
             btn_XacNhan.Text = "Xác nhận";
             btn_XacNhan.UseVisualStyleBackColor = true;
+            btn_XacNhan.Click += btn_XacNhan_Click;
             // 
             // lb_Nganh
             // 

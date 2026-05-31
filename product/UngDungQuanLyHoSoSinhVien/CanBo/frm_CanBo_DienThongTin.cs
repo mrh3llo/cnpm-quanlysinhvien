@@ -69,58 +69,70 @@ namespace UngDungQuanLyHoSoSinhVien.CanBo
             int DoRongAnh = 120;
             int DoCaoAnh = 160;
 
-            file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            file_AnhDaiDien.Title = "Chọn ảnh đại diện";
-            if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
+            try
             {
+                file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+                file_AnhDaiDien.Title = "Chọn ảnh đại diện";
+                if (file_AnhDaiDien.ShowDialog() != DialogResult.OK)
+                    return;
+
                 this.DuongDanAnh = file_AnhDaiDien.FileName;
                 XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 this.DuongDanAnh = TK_SinhVien.ChuanHoaDuongDanAnh(DuongDanAnh, layMaSV());
-            }
 
-            using (Image NguonAnh = Image.FromFile(DuongDanAnh))
-            {
-                // Tạo bitmap đích với kích thước cố định
-                using (Bitmap TaoBitmapKichThuocCoDinh = new Bitmap(DoRongAnh, DoCaoAnh))
+                using (Image NguonAnh = Image.FromFile(DuongDanAnh))
                 {
-                    TaoBitmapKichThuocCoDinh.SetResolution(NguonAnh.HorizontalResolution, NguonAnh.VerticalResolution);
-
-                    using (Graphics XuLyAnh = Graphics.FromImage(TaoBitmapKichThuocCoDinh))
+                    // Tạo bitmap đích với kích thước cố định
+                    using (Bitmap TaoBitmapKichThuocCoDinh = new Bitmap(DoRongAnh, DoCaoAnh))
                     {
-                        XuLyAnh.CompositingMode = CompositingMode.SourceOver;
-                        XuLyAnh.CompositingQuality = CompositingQuality.HighQuality;
-                        XuLyAnh.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                        XuLyAnh.SmoothingMode = SmoothingMode.HighQuality;
-                        XuLyAnh.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                        TaoBitmapKichThuocCoDinh.SetResolution(NguonAnh.HorizontalResolution, NguonAnh.VerticalResolution);
 
-                        // Vẽ ảnh nguồn lên bitmap đích (kéo dãn/thu nhỏ để vừa khung 120x160)
-                        XuLyAnh.Clear(Color.Transparent);
-                        XuLyAnh.DrawImage(NguonAnh, 0, 0, DoRongAnh, DoCaoAnh);
+                        using (Graphics XuLyAnh = Graphics.FromImage(TaoBitmapKichThuocCoDinh))
+                        {
+                            XuLyAnh.CompositingMode = CompositingMode.SourceOver;
+                            XuLyAnh.CompositingQuality = CompositingQuality.HighQuality;
+                            XuLyAnh.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                            XuLyAnh.SmoothingMode = SmoothingMode.HighQuality;
+                            XuLyAnh.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                            // Vẽ ảnh nguồn lên bitmap đích (kéo dãn/thu nhỏ để vừa khung 120x160)
+                            XuLyAnh.Clear(Color.Transparent);
+                            XuLyAnh.DrawImage(NguonAnh, 0, 0, DoRongAnh, DoCaoAnh);
+                        }
+
+                        // Lưu ảnh đích theo định dạng tương ứng
+                        ImageFormat DinhDangAnh = ImageFormat.Jpeg;
+                        switch (Path.GetExtension(DuongDanAnh).ToLower())
+                        {
+                            case ".png":
+                                DinhDangAnh = ImageFormat.Png;
+                                break;
+                            case ".gif":
+                                DinhDangAnh = ImageFormat.Gif;
+                                break;
+                            case ".bmp":
+                                DinhDangAnh = ImageFormat.Bmp;
+                                break;
+                            case ".jpeg":
+                                DinhDangAnh = ImageFormat.Jpeg;
+                                break;
+                            case ".jpg":
+                                DinhDangAnh = ImageFormat.Jpeg;
+                                break;
+                            default:
+                                DinhDangAnh = ImageFormat.Jpeg;
+                                break;
+                        }
+
+                        // Ghi đè file đích
+                        TaoBitmapKichThuocCoDinh.Save(DuongDanAnh, DinhDangAnh);
                     }
-
-                    // Lưu ảnh đích theo định dạng tương ứng
-                    ImageFormat DinhDangAnh = ImageFormat.Jpeg;
-                    switch (Path.GetExtension(DuongDanAnh).ToLower())
-                    {
-                        case ".png":
-                            DinhDangAnh = ImageFormat.Png;
-                            break;
-                        case ".gif":
-                            DinhDangAnh = ImageFormat.Gif;
-                            break;
-                        case ".bmp":
-                            DinhDangAnh = ImageFormat.Bmp;
-                            break;
-                        case ".jpeg":
-                        case ".jpg":
-                        default:
-                            DinhDangAnh = ImageFormat.Jpeg;
-                            break;
-                    }
-
-                    // Ghi đè file đích
-                    TaoBitmapKichThuocCoDinh.Save(DuongDanAnh, DinhDangAnh);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi chọn ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 

@@ -59,7 +59,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             {
                 TK_SinhVien = new XuLyTaiKhoanSinhVien();
                 this.datMaSV(TK_SinhVien.TaoMaSVNgauNhien());
-            }    
+            }
 
             HienThi_ComboBox();
         }
@@ -73,12 +73,12 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             {
                 file_AnhDaiDien.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
                 file_AnhDaiDien.Title = "Chọn ảnh đại diện";
-                if (file_AnhDaiDien.ShowDialog() == DialogResult.OK)
-                {
-                    this.DuongDanAnh = file_AnhDaiDien.FileName;
-                    XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
-                    this.DuongDanAnh = TK_SinhVien.ChuanHoaDuongDanAnh(DuongDanAnh, layMaSV());
-                }
+                if (file_AnhDaiDien.ShowDialog() != DialogResult.OK)
+                    return;
+
+                this.DuongDanAnh = file_AnhDaiDien.FileName;
+                XuLyTaiKhoanSinhVien TK_SinhVien = new XuLyTaiKhoanSinhVien();
+                this.DuongDanAnh = TK_SinhVien.ChuanHoaDuongDanAnh(DuongDanAnh, layMaSV());
 
                 using (Image NguonAnh = Image.FromFile(DuongDanAnh))
                 {
@@ -114,7 +114,11 @@ namespace UngDungQuanLyHoSoSinhVien.admin
                                 DinhDangAnh = ImageFormat.Bmp;
                                 break;
                             case ".jpeg":
+                                DinhDangAnh = ImageFormat.Jpeg;
+                                break;
                             case ".jpg":
+                                DinhDangAnh = ImageFormat.Jpeg;
+                                break;
                             default:
                                 DinhDangAnh = ImageFormat.Jpeg;
                                 break;
@@ -127,7 +131,7 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi chọn ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // MessageBox.Show($"Lỗi khi chọn ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -330,11 +334,10 @@ namespace UngDungQuanLyHoSoSinhVien.admin
             string MaNganh = cmb_Nganh.SelectedValue.ToString();
             string MaLop = cmb_Lop.SelectedValue.ToString();
             string NienKhoa = tb_NienKhoa.Text;
-            string AnhDaiDien = DuongDanAnh;
 
             TK_SinhVien.CapNhat_TT_SinhVien(MaSV, HoTen, Email, SDT, GioiTinh, NgaySinh, SoCCCD, MaDanToc, MaTonGiao,
                                            DiaChiThuongTru, MaTinhThanhNoiSinh, MaTinhThanhQueQuan,
-                                           MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, AnhDaiDien);
+                                           MaXaPhuongQueQuan, MaKhoaTruong, MaNganh, MaLop, NienKhoa, this.DuongDanAnh);
 
             btn_NhapLai_Click(null, null);
         }

@@ -84,6 +84,8 @@ namespace UngDungQuanLyHoSoSinhVien.admin
                     DataRow TTSV = ((DataRowView)dgv_DSSinhVien.Rows[dong].DataBoundItem).Row;
                     TK_SinhVien.XoaSinhVien(TTSV["MaSV"].ToString());
                 }
+
+                TK_SinhVien.HienThi_DS_SinhVien(dgv_DSSinhVien);
             }
         }
 

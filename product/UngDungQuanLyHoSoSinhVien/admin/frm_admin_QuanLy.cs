@@ -68,7 +68,6 @@ namespace UngDungQuanLyHoSoSinhVien.admin
 
                 frm_DienTT.datMaSV(TTSV["MaSV"].ToString());
 
-                frm_DienTT.DuongDanAnh = TTSV["AnhDaiDien"].ToString();
                 frm_DienTT.tb_HoTen.Text = TTSV["HoTen"].ToString();
                 frm_DienTT.cmb_GioiTinh.SelectedItem = TTSV["GioiTinh"].ToString();
                 frm_DienTT.date_NgaySinh.Value = DateTime.Parse(TTSV["NgaySinh"].ToString());

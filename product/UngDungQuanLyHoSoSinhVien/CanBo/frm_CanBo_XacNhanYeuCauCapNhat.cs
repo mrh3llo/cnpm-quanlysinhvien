@@ -123,6 +123,11 @@ namespace UngDungQuanLyHoSoSinhVien.GiangVien
                     break;
             }
 
+            if (TrangThaiCapNhat == 0)
+                btn_DuyetYeuCau.Enabled = true;
+            else
+                btn_DuyetYeuCau.Enabled = false;
+
             lb_HT_SDT_Cu.Text = TTSV_YeuCauCapNhat["SDT"].ToString();
             lb_HT_SDT_Moi.Text = TT_CapNhat["SDT_Moi"].ToString();
 
@@ -192,6 +197,11 @@ namespace UngDungQuanLyHoSoSinhVien.GiangVien
                     grb_TT_CapNhat.Text = $"{TieuDe}  Không duyệt";
                     break;
             }
+
+            if (TrangThaiCapNhat == 0)
+                btn_DuyetYeuCau.Enabled = true;
+            else
+                btn_DuyetYeuCau.Enabled = false;
 
             lb_HT_SDT_Cu.Text = TTSV_YeuCauCapNhat["SDT"].ToString();
             lb_HT_SDT_Moi.Text = TT_CapNhat["SDT_Moi"].ToString();
