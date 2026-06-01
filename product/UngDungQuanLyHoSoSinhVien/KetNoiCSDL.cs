@@ -18,7 +18,7 @@ namespace UngDungQuanLyHoSoSinhVien
         {
             // Kiểm tra chuỗi kết nối trước khi sử dụng
             // string ChuoiKetNoi = @"Data Source=DESKTOP-R2H1EQQ;Initial Catalog=QuanLyHoSoSinhVien;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;";
-            string ChuoiKetNoiDocker = @"Server=192.168.1.237,1401;Database=QuanLyHoSoSinhVien;User Id=sa;Password=Ql_Hssv123;Encrypt=False;TrustServerCertificate=False;";
+            string ChuoiKetNoiDocker = @"Server=172.240.6.67,1401;Database=QuanLyHoSoSinhVien;User Id=sa;Password=Ql_Hssv123;Encrypt=False;TrustServerCertificate=False;";
             SQL_KetNoi = new SqlConnection(ChuoiKetNoiDocker);
         }
 
