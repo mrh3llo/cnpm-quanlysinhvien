@@ -71,7 +71,7 @@ namespace UngDungQuanLyHoSoSinhVien.SinhVien
                 else if (TrangThai == "2") Dem_KhongDuyet++;
             }
 
-            lb_Tong_YC.Text = $"Tổng số yêu cầu: {dgv_LichSuYeuCauCapNhat.RowCount}";
+            lb_Tong_YC.Text = $"Tổng số yêu cầu: " + (dgv_LichSuYeuCauCapNhat.RowCount - 1);
             lb_Tong_YCDuyet.Text = $"Tổng số yêu cầu đã duyệt: {Dem_Duyet}";
             lb_Tong_YCKhongDuyet.Text = $"Tổng số yêu cầu không được duyệt: {Dem_KhongDuyet}";
         }
