@@ -384,8 +384,45 @@ namespace UngDungQuanLyHoSoSinhVien
             }
         }
 
+        public void XoaTaiKhoanSinhVien(string MaSV)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn sẽ xóa TÀI KHOẢN của sinh viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string SQL_TruyVan = $@"DELETE FROM TaiKhoanNguoiDung WHERE MaSV = '{MaSV}';";
+                try
+                {
+                    KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
+                    MessageBox.Show($"Xóa tài khoản sinh viên thành công!\nMã sinh viên: {MaSV}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi xóa tài khoản sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public void XoaYeuCauCapNhat_TheoMaSV(string MaSV)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn sẽ xóa toàn bộ YÊU CẦU CẬP NHẬT của sinh viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string SQL_TruyVan = $@"DELETE FROM YeuCauCapNhat WHERE MaSV = '{MaSV}';";
+                try
+                {
+                    KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
+                    MessageBox.Show($"Xóa yêu cầu cập nhật thành công!\nMã sinh viên: {MaSV}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi xóa yêu cầu cập nhật: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         public void XoaSinhVien(string MaSV)
         {
+            XoaTaiKhoanSinhVien(MaSV);
+            XoaYeuCauCapNhat_TheoMaSV(MaSV);
+
             string SQL_TruyVan = $@"DELETE FROM SinhVien WHERE MaSV = '{MaSV}';";
 
             try
