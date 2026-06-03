@@ -9,6 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\img\AnhDaiDien_MacDinh.jpg" />
+    <None Remove="assets\img\AnhDaiDien_MacDinh.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\img\AnhDaiDien_MacDinh.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\AnhDaiDien_MacDinh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="PDFsharp-MigraDoc" Version="6.2.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.1" />
@@ -30,17 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="assets\img\" />
     <Folder Include="assets\avt\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="assets\img\AnhDaiDien_MacDinh.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="assets\img\AnhDaiDien_MacDinh.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
