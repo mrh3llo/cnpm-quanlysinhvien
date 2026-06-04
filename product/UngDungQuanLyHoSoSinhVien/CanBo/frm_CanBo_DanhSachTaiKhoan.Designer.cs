@@ -30,7 +30,6 @@
         {
             grb_ChucNang = new GroupBox();
             btn_CapNhatTT = new Button();
-            btn_XoaTaiKhoan = new Button();
             btn_ChiTietTT = new Button();
             dgv_DSSinhVien = new DataGridView();
             lb_TieuDe = new Label();
@@ -38,6 +37,7 @@
             tb_TimMSSV = new TextBox();
             btn_Thoat = new Button();
             grb_TimMSSV = new GroupBox();
+            btn_XuatDanhSach = new Button();
             grb_ChucNang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_DSSinhVien).BeginInit();
             grb_TimMSSV.SuspendLayout();
@@ -45,8 +45,8 @@
             // 
             // grb_ChucNang
             // 
+            grb_ChucNang.Controls.Add(btn_XuatDanhSach);
             grb_ChucNang.Controls.Add(btn_CapNhatTT);
-            grb_ChucNang.Controls.Add(btn_XoaTaiKhoan);
             grb_ChucNang.Controls.Add(btn_ChiTietTT);
             grb_ChucNang.Location = new Point(12, 56);
             grb_ChucNang.Name = "grb_ChucNang";
@@ -60,26 +60,13 @@
             btn_CapNhatTT.BackColor = SystemColors.Control;
             btn_CapNhatTT.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_CapNhatTT.ForeColor = SystemColors.ControlText;
-            btn_CapNhatTT.Location = new Point(215, 71);
+            btn_CapNhatTT.Location = new Point(215, 26);
             btn_CapNhatTT.Name = "btn_CapNhatTT";
             btn_CapNhatTT.Size = new Size(199, 44);
             btn_CapNhatTT.TabIndex = 5;
             btn_CapNhatTT.Text = "Cập nhật thông tin";
             btn_CapNhatTT.UseVisualStyleBackColor = false;
             btn_CapNhatTT.Click += btn_CapNhatTT_Click;
-            // 
-            // btn_XoaTaiKhoan
-            // 
-            btn_XoaTaiKhoan.BackColor = Color.Red;
-            btn_XoaTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_XoaTaiKhoan.ForeColor = SystemColors.ButtonHighlight;
-            btn_XoaTaiKhoan.Location = new Point(6, 71);
-            btn_XoaTaiKhoan.Name = "btn_XoaTaiKhoan";
-            btn_XoaTaiKhoan.Size = new Size(199, 44);
-            btn_XoaTaiKhoan.TabIndex = 1;
-            btn_XoaTaiKhoan.Text = "Xóa tài khoản";
-            btn_XoaTaiKhoan.UseVisualStyleBackColor = false;
-            btn_XoaTaiKhoan.Click += btn_XoaTaiKhoan_Click;
             // 
             // btn_ChiTietTT
             // 
@@ -154,6 +141,19 @@
             grb_TimMSSV.TabStop = false;
             grb_TimMSSV.Text = "Tìm MSSV:";
             // 
+            // btn_XuatDanhSach
+            // 
+            btn_XuatDanhSach.BackColor = SystemColors.Control;
+            btn_XuatDanhSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_XuatDanhSach.ForeColor = SystemColors.ControlText;
+            btn_XuatDanhSach.Location = new Point(215, 71);
+            btn_XuatDanhSach.Name = "btn_XuatDanhSach";
+            btn_XuatDanhSach.Size = new Size(199, 44);
+            btn_XuatDanhSach.TabIndex = 77;
+            btn_XuatDanhSach.Text = "Xuất danh sách";
+            btn_XuatDanhSach.UseVisualStyleBackColor = false;
+            btn_XuatDanhSach.Click += btn_XuatDanhSach_Click;
+            // 
             // frm_CanBo_DanhSachTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -178,7 +178,6 @@
 
         private GroupBox grb_ChucNang;
         private Button btn_CapNhatTT;
-        private Button btn_XoaTaiKhoan;
         private Button btn_ChiTietTT;
         private DataGridView dgv_DSSinhVien;
         private Label lb_TieuDe;
@@ -186,5 +185,6 @@
         private TextBox tb_TimMSSV;
         private Button btn_Thoat;
         private GroupBox grb_TimMSSV;
+        private Button btn_XuatDanhSach;
     }
 }
