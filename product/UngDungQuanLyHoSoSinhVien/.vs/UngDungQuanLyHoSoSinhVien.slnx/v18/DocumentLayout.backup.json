@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\ungdungquanlyhososinhvien\\ketnoicsdl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:ketnoicsdl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\ungdungquanlyhososinhvien\\frm_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:frm_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\ungdungquanlyhososinhvien\\frm_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:frm_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\ungdungquanlyhososinhvien\\admin\\frm_admin_dienthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:admin\\frm_admin_dienthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|d:\\.system\\documents\\school\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\b\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\ungdungquanlyhososinhvien\\admin\\frm_admin_dienthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4622DEA-9A08-8409-848F-9F15FC16E82E}|UngDungQuanLyHoSoSinhVien.csproj|solutionrelative:admin\\frm_admin_dienthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KetNoiCSDL.cs",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\KetNoiCSDL.cs",
+              "RelativeDocumentMoniker": "KetNoiCSDL.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\KetNoiCSDL.cs",
+              "RelativeToolTip": "KetNoiCSDL.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAmwBUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T08:49:36.593Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -26,16 +55,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KetNoiCSDL.cs",
-              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\KetNoiCSDL.cs",
-              "RelativeDocumentMoniker": "KetNoiCSDL.cs",
-              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\KetNoiCSDL.cs",
-              "RelativeToolTip": "KetNoiCSDL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA8AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frm_DangNhap.cs",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\frm_DangNhap.cs",
+              "RelativeDocumentMoniker": "frm_DangNhap.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\frm_DangNhap.cs",
+              "RelativeToolTip": "frm_DangNhap.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAUwE4AAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T09:22:08.188Z",
+              "WhenOpened": "2026-06-08T08:47:22.78Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frm_DangNhap.cs [Design]",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\frm_DangNhap.cs",
+              "RelativeDocumentMoniker": "frm_DangNhap.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\frm_DangNhap.cs [Design]",
+              "RelativeToolTip": "frm_DangNhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T08:47:20.665Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frm_admin_DienThongTin.cs [Design]",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\admin\\frm_admin_DienThongTin.cs",
+              "RelativeDocumentMoniker": "admin\\frm_admin_DienThongTin.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\admin\\frm_admin_DienThongTin.cs [Design]",
+              "RelativeToolTip": "admin\\frm_admin_DienThongTin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T08:34:44.106Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frm_admin_DienThongTin.cs",
+              "DocumentMoniker": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\admin\\frm_admin_DienThongTin.cs",
+              "RelativeDocumentMoniker": "admin\\frm_admin_DienThongTin.cs",
+              "ToolTip": "D:\\.SYSTEM\\Documents\\School\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\B\u00E1o c\u00E1o m\u00F4n h\u1ECDc\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\admin\\frm_admin_DienThongTin.cs",
+              "RelativeToolTip": "admin\\frm_admin_DienThongTin.cs",
+              "ViewState": "AgIAACABAAAAAAAAAAAAACcBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T08:33:52.348Z"
             }
           ]
         }

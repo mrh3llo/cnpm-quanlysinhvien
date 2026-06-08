@@ -280,6 +280,7 @@
             // 
             // date_NgaySinh
             // 
+            date_NgaySinh.CustomFormat = "";
             date_NgaySinh.Location = new Point(125, 242);
             date_NgaySinh.Name = "date_NgaySinh";
             date_NgaySinh.Size = new Size(276, 27);
