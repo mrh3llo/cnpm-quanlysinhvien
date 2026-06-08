@@ -1,3 +1,4 @@
 echo "product/*/bin/" >> .gitignore
 echo "product/*/obj/" >> .gitignore
 echo "product/*/bin/Release/" >> .gitignore
+echo ".env" >> .gitignore
