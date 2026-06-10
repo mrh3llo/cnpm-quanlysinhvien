@@ -32,6 +32,7 @@ namespace UngDungQuanLyHoSoSinhVien
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xác định vai trò: " + ex.Message, "Lỗi");
+                return;
                 this.VaiTro = 0; // Đặt lại vai trò về 0 nếu có lỗi
             }
 
