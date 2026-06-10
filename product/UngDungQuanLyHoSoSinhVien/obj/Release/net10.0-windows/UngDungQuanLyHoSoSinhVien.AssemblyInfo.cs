@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UngDungQuanLyHoSoSinhVien")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08a2219e80d4b2d2554756136f66af7df2fc8bba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc10944d297727e2d049b083f5b7701abb5f55a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("UngDungQuanLyHoSoSinhVien")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UngDungQuanLyHoSoSinhVien")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
