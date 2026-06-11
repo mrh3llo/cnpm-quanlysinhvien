@@ -181,7 +181,7 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(276, 9);
+            lb_TieuDe.Location = new Point(335, 9);
             lb_TieuDe.Name = "lb_TieuDe";
             lb_TieuDe.Size = new Size(392, 54);
             lb_TieuDe.TabIndex = 11;
