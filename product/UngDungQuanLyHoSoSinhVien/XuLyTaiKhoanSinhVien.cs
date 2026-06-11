@@ -4,6 +4,8 @@ using System.Text;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using DocumentFormat.OpenXml.Office.CoverPageProps;
 
 namespace UngDungQuanLyHoSoSinhVien
 {
@@ -246,6 +248,13 @@ namespace UngDungQuanLyHoSoSinhVien
             return namHienTai + rand.Next(1, 1000).ToString("D3") + rand.Next(1, 1000).ToString("D3");
         }
 
+        public string MaHoaMD5(string Chuoi)
+        {
+            MD5 MaHoaMD5 = MD5.Create();
+            string MaHoaMatKhau = MaHoaMD5.ComputeHash(Encoding.UTF8.GetBytes(Chuoi)).Select(b => b.ToString("x2")).Aggregate((a, b) => a + b);
+            return MaHoaMatKhau;
+        }
+
         /* =================================================================
         ================== HÀM XỬ LÝ DỮ LIỆU THUỘC CSDL ====================
         ================================================================= */
@@ -278,7 +287,7 @@ namespace UngDungQuanLyHoSoSinhVien
                 // Thêm tài khoản cho sinh viên (TenTaiKhoan = MaSV, MatKhau = SDT, VaiTro = 4)
                 string SQL_TaiKhoan = $@"USE QuanLyHoSoSinhVien;" +
                 $@"INSERT INTO TaiKhoanNguoiDung " +
-                $@"VALUES ('{MaSV}', '{SDT}', 4);";
+                $@"VALUES ('{MaSV}', '{MaHoaMD5(SDT)}', 4);";
 
                 KetNoi.ThaoTac_Ghi_DuLieu(SQL_TaiKhoan);
 
@@ -287,6 +296,37 @@ namespace UngDungQuanLyHoSoSinhVien
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi thêm sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void DoiMatKhau(string MaSV, string MatKhauCu, string MatKhauMoi)
+        {
+            try
+            {
+                string SQL_TruyVan = $"SELECT * FROM TaiKhoanNguoiDung WHERE TenTaiKhoan = N'{MaSV}';";
+
+                DataRow TaiKhoan = new KetNoiCSDL().ThaoTac_DocMotDong_DuLieu(SQL_TruyVan);
+
+                if (TaiKhoan != null)
+                {
+                    // Kiểm tra mật khẩu cũ
+
+                    string MaHoaMatKhau = MaHoaMD5(MatKhauCu);
+
+                    if (MaHoaMatKhau == TaiKhoan.Field<string>("MatKhau"))
+                    {
+                        SQL_TruyVan = $"UPDATE TaiKhoanNguoiDung SET MatKhau = '{MaHoaMD5(MatKhauMoi)}' WHERE TenTaiKhoan = N'{MaSV}';";
+                        KetNoi.ThaoTac_Ghi_DuLieu(SQL_TruyVan);
+
+                        MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Mật khẩu cũ không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi đổi mật khẩu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

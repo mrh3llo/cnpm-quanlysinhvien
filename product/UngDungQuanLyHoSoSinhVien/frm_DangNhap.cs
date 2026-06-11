@@ -9,6 +9,8 @@ namespace UngDungQuanLyHoSoSinhVien
         private string MatKhau;
         private byte VaiTro;
 
+        private bool HienThiMatKhau = false;
+
         public frm_DangNhap()
         {
             InitializeComponent();
@@ -41,7 +43,10 @@ namespace UngDungQuanLyHoSoSinhVien
                 if (TaiKhoan != null)
                 {
                     // Kiểm tra mật khẩu đăng nhập
-                    if (MatKhau == TaiKhoan.Field<string>("MatKhau"))
+                    XuLyTaiKhoanSinhVien XL_TaiKhoan = new XuLyTaiKhoanSinhVien();
+                    string MaHoaMatKhau = XL_TaiKhoan.MaHoaMD5(tb_MatKhau.Text.ToString());
+
+                    if (MaHoaMatKhau == TaiKhoan.Field<string>("MatKhau"))
                     {
                         MessageBox.Show("Đăng nhập thành công!", "Đăng nhập thành công");
                         this.Hide();
@@ -90,6 +95,22 @@ namespace UngDungQuanLyHoSoSinhVien
         {
             this.tb_TenTaiKhoan.Clear();
             this.tb_MatKhau.Clear();
+        }
+
+        private void btn_HienThiMatKhau_Click(object sender, EventArgs e)
+        {
+            if(this.HienThiMatKhau == false)
+            {
+                this.tb_MatKhau.PasswordChar = '\0';
+                this.btn_HienThiMatKhau.Text = "Ẩn mật khẩu";
+                this.HienThiMatKhau = true;
+            }
+            else
+            {
+                this.tb_MatKhau.PasswordChar = '*';
+                this.btn_HienThiMatKhau.Text = "Hiển thị mật khẩu";
+                this.HienThiMatKhau = false;
+            }
         }
     }
 }

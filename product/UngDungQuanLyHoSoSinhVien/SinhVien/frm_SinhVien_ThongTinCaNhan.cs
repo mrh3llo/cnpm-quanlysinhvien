@@ -95,5 +95,11 @@ namespace UngDungQuanLyHoSoSinhVien.SinhVien
             frm_DN.Show();
             this.Close();
         }
+
+        private void btn_DoiMatKhau_Click(object sender, EventArgs e)
+        {
+            frm_DoiMatKhau frm_DoiMK = new frm_DoiMatKhau(lb_MSSV.Text.ToString());
+            frm_DoiMK.Show();
+        }
     }
 }

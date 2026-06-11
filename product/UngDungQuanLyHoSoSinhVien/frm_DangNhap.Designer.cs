@@ -35,6 +35,7 @@
             tb_MatKhau = new TextBox();
             btn_DangNhap = new Button();
             btn_NhapLai = new Button();
+            btn_HienThiMatKhau = new Button();
             SuspendLayout();
             // 
             // lb_TieuDe
@@ -53,7 +54,7 @@
             // 
             lb_TenTaiKhoan.AutoSize = true;
             lb_TenTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lb_TenTaiKhoan.Location = new Point(12, 123);
+            lb_TenTaiKhoan.Location = new Point(12, 109);
             lb_TenTaiKhoan.Name = "lb_TenTaiKhoan";
             lb_TenTaiKhoan.Size = new Size(131, 28);
             lb_TenTaiKhoan.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             lb_MatKhau.AutoSize = true;
             lb_MatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lb_MatKhau.Location = new Point(12, 170);
+            lb_MatKhau.Location = new Point(12, 156);
             lb_MatKhau.Name = "lb_MatKhau";
             lb_MatKhau.Size = new Size(98, 28);
             lb_MatKhau.TabIndex = 2;
@@ -71,22 +72,23 @@
             // 
             // tb_TenTaiKhoan
             // 
-            tb_TenTaiKhoan.Location = new Point(149, 127);
+            tb_TenTaiKhoan.Location = new Point(149, 113);
             tb_TenTaiKhoan.Name = "tb_TenTaiKhoan";
             tb_TenTaiKhoan.Size = new Size(213, 27);
             tb_TenTaiKhoan.TabIndex = 3;
             // 
             // tb_MatKhau
             // 
-            tb_MatKhau.Location = new Point(149, 174);
+            tb_MatKhau.Location = new Point(149, 160);
             tb_MatKhau.Name = "tb_MatKhau";
+            tb_MatKhau.PasswordChar = '*';
             tb_MatKhau.Size = new Size(213, 27);
             tb_MatKhau.TabIndex = 4;
             // 
             // btn_DangNhap
             // 
             btn_DangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_DangNhap.Location = new Point(12, 241);
+            btn_DangNhap.Location = new Point(12, 259);
             btn_DangNhap.Name = "btn_DangNhap";
             btn_DangNhap.Size = new Size(152, 50);
             btn_DangNhap.TabIndex = 5;
@@ -99,7 +101,7 @@
             btn_NhapLai.BackColor = SystemColors.ControlLight;
             btn_NhapLai.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_NhapLai.ForeColor = SystemColors.ControlText;
-            btn_NhapLai.Location = new Point(210, 241);
+            btn_NhapLai.Location = new Point(210, 259);
             btn_NhapLai.Name = "btn_NhapLai";
             btn_NhapLai.Size = new Size(152, 50);
             btn_NhapLai.TabIndex = 6;
@@ -107,12 +109,23 @@
             btn_NhapLai.UseVisualStyleBackColor = false;
             btn_NhapLai.Click += btn_NhapLai_Click;
             // 
+            // btn_HienThiMatKhau
+            // 
+            btn_HienThiMatKhau.Location = new Point(245, 193);
+            btn_HienThiMatKhau.Name = "btn_HienThiMatKhau";
+            btn_HienThiMatKhau.Size = new Size(117, 29);
+            btn_HienThiMatKhau.TabIndex = 7;
+            btn_HienThiMatKhau.Text = "Hiện mật khẩu";
+            btn_HienThiMatKhau.UseVisualStyleBackColor = true;
+            btn_HienThiMatKhau.Click += btn_HienThiMatKhau_Click;
+            // 
             // frm_DangNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(374, 314);
+            ClientSize = new Size(374, 327);
+            Controls.Add(btn_HienThiMatKhau);
             Controls.Add(btn_NhapLai);
             Controls.Add(btn_DangNhap);
             Controls.Add(tb_MatKhau);
@@ -135,5 +148,6 @@
         private TextBox tb_MatKhau;
         private Button btn_DangNhap;
         private Button btn_NhapLai;
+        private Button btn_HienThiMatKhau;
     }
 }

@@ -60,6 +60,7 @@
             ptb_AnhDaiDien = new PictureBox();
             label7 = new Label();
             grb_ChucNang = new GroupBox();
+            btn_DoiMatKhau = new Button();
             btn_LichSu_YCCapNhat = new Button();
             btn_YeuCauCapNhat = new Button();
             btn_DangXuat = new Button();
@@ -273,7 +274,7 @@
             lb_TieuDe.AutoSize = true;
             lb_TieuDe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_TieuDe.ForeColor = SystemColors.ControlText;
-            lb_TieuDe.Location = new Point(226, 9);
+            lb_TieuDe.Location = new Point(243, 9);
             lb_TieuDe.Name = "lb_TieuDe";
             lb_TieuDe.Size = new Size(392, 54);
             lb_TieuDe.TabIndex = 36;
@@ -392,6 +393,7 @@
             // 
             // grb_ChucNang
             // 
+            grb_ChucNang.Controls.Add(btn_DoiMatKhau);
             grb_ChucNang.Controls.Add(btn_LichSu_YCCapNhat);
             grb_ChucNang.Controls.Add(btn_YeuCauCapNhat);
             grb_ChucNang.Controls.Add(btn_DangXuat);
@@ -402,6 +404,17 @@
             grb_ChucNang.TabIndex = 48;
             grb_ChucNang.TabStop = false;
             grb_ChucNang.Text = "Chức năng:";
+            // 
+            // btn_DoiMatKhau
+            // 
+            btn_DoiMatKhau.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_DoiMatKhau.Location = new Point(6, 191);
+            btn_DoiMatKhau.Name = "btn_DoiMatKhau";
+            btn_DoiMatKhau.Size = new Size(233, 73);
+            btn_DoiMatKhau.TabIndex = 3;
+            btn_DoiMatKhau.Text = "Đổi mật khẩu";
+            btn_DoiMatKhau.UseVisualStyleBackColor = true;
+            btn_DoiMatKhau.Click += btn_DoiMatKhau_Click;
             // 
             // btn_LichSu_YCCapNhat
             // 
@@ -538,5 +551,6 @@
         public Label lb_DiaChiThuongTru;
         private Label label11;
         private Button btn_LichSu_YCCapNhat;
+        private Button btn_DoiMatKhau;
     }
 }
