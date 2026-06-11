@@ -25,6 +25,9 @@
     <Compile Update="frm_DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frm_NhapIP.cs">
       <SubType>Form</SubType>
     </Compile>
