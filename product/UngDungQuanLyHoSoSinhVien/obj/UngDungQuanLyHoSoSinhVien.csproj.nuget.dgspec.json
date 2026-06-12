@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {}
+    "D:\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {}
   },
   "projects": {
-    "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {
+    "D:\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
+        "projectUniqueName": "D:\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
         "projectName": "UngDungQuanLyHoSoSinhVien",
-        "projectPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
+        "projectPath": "D:\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\UngDungQuanLyHoSoSinhVien.csproj",
         "packagesPath": "C:\\Users\\_koocs\\.nuget\\packages\\",
-        "outputPath": "D:\\.SYSTEM\\Documents\\School\\Công nghệ phần mềm\\Báo cáo môn học\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\obj\\",
+        "outputPath": "D:\\cnpm-quanlysinhvien\\product\\UngDungQuanLyHoSoSinhVien\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\APPS\\SMSS\\Share\\NuGetPackages"
